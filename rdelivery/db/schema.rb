@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_191143) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_04_205117) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address", null: false
     t.string "city", null: false
     t.string "postal_code", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "address_id", null: false
+    t.string "phone", null: false
+    t.string "email"
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,6 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_191143) do
     t.integer "address_id", null: false
     t.string "phone", null: false
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.string "name", null: false
+    t.string "description"
+    t.integer "cost", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
