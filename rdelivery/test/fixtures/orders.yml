@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  restaurant: 1
+  customer: 1
+  order_status_id: 1
+  restaurant_rating: 1
+
+two:
+  restaurant: 1
+  customer: 1
+  order_status_id: 1
+  restaurant_rating: 1
