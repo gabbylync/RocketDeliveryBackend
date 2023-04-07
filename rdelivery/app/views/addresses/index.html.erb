@@ -1,0 +1,10 @@
+
+<table>
+  <% @addresses.each do |address| %>
+    <tr>
+      <td><%= link_to address.street_address, address_path(address) %></td>
+      <td><%= button_to 'Edit', edit_address_path(address), method: 'get'%></td>
+      <td><%= button_to 'Remove', address_path(address), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<%= link_to "Add a New Address", new_address_path %>

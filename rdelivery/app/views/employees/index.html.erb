@@ -1,0 +1,14 @@
+
+
+<h1> List of All Employees </h1> 
+
+<table>
+  <% @employees.each do |employee| %>
+    <tr>
+      <td><%= link_to employee.email, employee_path(employee) %></td>
+      <td><%= button_to 'Edit', edit_employee_path(employee), method: 'get'%></td>
+      <td><%= button_to 'Remove', employee_path(employee), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<br/> 
+<%= link_to "Add a New Employee", new_employee_path %>

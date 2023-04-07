@@ -1,0 +1,14 @@
+<h1> List of All Restaurants </h1>
+
+<table>
+  <% @restaurants.each do |restaurant| %>
+    <tr>
+      <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
+      <td><%= button_to 'Edit', edit_restaurant_path(restaurant), method: 'get'%></td>
+   
+  <% end %>
+</table>
+<br/> 
+<%= link_to "Add a New Restaurant", new_restaurant_path %>
+
+

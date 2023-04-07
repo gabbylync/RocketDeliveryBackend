@@ -38,3 +38,10 @@
     # poem.gsub("toast", "honeydew")
 
 # The .join methid takes a line of arrays and puts them together into a string
+
+#################################
+# PUT THS FOR THE NAV BAR UNDER OPENING BODY TAG  #########
+#####################################
+ #   <%= render “layouts/navbar” %>
+# <%= yield %>
+#yield is rendering the contents of our navbar file

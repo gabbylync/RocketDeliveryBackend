@@ -13,3 +13,61 @@
  *= require_tree .
  *= require_self
  */
+ nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+ }
+
+ nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 35px;
+
+ }
+
+ nav a {
+    color: #444; 
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+ }
+
+ nav a:hover{
+    color: #000
+ }
+
+ .container{
+    width: 1300px;
+    margin: auto;
+    margin-top: -10px;
+    
+
+ }
+
+ .form-container{
+    width: 500px;
+ }
+
+ .pizza_logo{ 
+    width: 90px;
+    float: left;
+    
+ }
+
+ header{
+    background: #f9a4a4; 
+    
+ }
+
+ header::after {
+    content: '';
+    display: table; 
+    clear: both; 
+
+ }
+
+nav{
+    float: center
+}
+

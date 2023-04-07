@@ -1,0 +1,22 @@
+
+<h3>Create a Restaurant</h3>
+<%= form_with model: @restaurant do |form| %>
+ <%= form.collection_select :user_id, User.all, :id, :name, prompt: true %>
+ <%= form.collection_select :address_id, Address.all, :id, :street_address  %>
+  <%= form.text_field :phone, placeholder: "Phone" %>
+  <%= form.text_field :email, placeholder: "Email" %>
+  <%= form.text_field :name, placeholder: "Name" %>
+  <%= form.text_field :price_range, placeholder: "Price Range" %>
+  <%= form.text_field :active, placeholder: "Active" %>
+
+  <%= form.submit %>
+<% end %>
+
+<!-- <%= form_for @restaurant do |form| %>
+  <%= form.text_field :phone, placeholder: 'Phone' %>
+  <%= form.text_field :email, placeholder: 'Email' %>
+  <%= form.text_field :name, placeholder: "Name" %>
+  <%= form.text_field :price_range, placeholder: "Price Range" %>
+  <%= form.text_field :active, placeholder: "Active" %>
+  <%= form.submit %>
+<% end %> -->

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+resources :addresses
+resources :employees
+resources :restaurants, only: [:new, :create, :show, :edit, :update, :index]
 root to: "home#index"
 end
 

@@ -1,0 +1,19 @@
+
+
+<h1>Update Restaurant Details</h1>
+<%= form_with model: @restaurant do |form| %>
+  Phone: <%= form.text_field :phone, placeholder: "Phone" %>
+  <br/>
+ Email:  <%= form.text_field :email, placeholder: "Email" %>
+  <br/>
+ Name of Restaurant:  <%= form.text_field :name, placeholder: "Name" %>
+  <br/> 
+ Price Range 1-3:  <%= form.text_field :price_range, placeholder: "Price Range" %>
+  <br/> 
+ Is the Resturant Active? True/False <%= form.text_field :active, placeholder: "Active" %>
+<br/>
+<br/> 
+  
+  <%= form.submit %>
+<% end %>
+

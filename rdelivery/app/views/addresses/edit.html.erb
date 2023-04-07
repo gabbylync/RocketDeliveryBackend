@@ -1,0 +1,9 @@
+
+<h3>Update Address Details</h3>
+<%= form_with model: @address do |form| %>
+  <%= form.text_field :street_address, placeholder: "Street Address" %>
+  <%= form.text_field :city, placeholder: "City" %>
+  <%= form.text_field :postal_code, placeholder: "Zip Code" %>
+  
+  <%= form.submit %>
+<% end %>
