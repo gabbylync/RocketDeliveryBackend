@@ -1,30 +1,37 @@
 <header> 
     <div class='container'>
 
-        <%= image_tag "download.png", class: "pizza_logo"%>
+        <%= image_tag "rocket_food.jpg", class: "pizza_logo"%>
         
             <nav> 
-                
-                <% if user_signed_in? && current_user.employee %>
-  Welcome: Logged in as <strong><%= current_user.email %></strong>.
+                <div class='loggedIn'> 
+
+
+  <% if user_signed_in? %>
+Welcome: Logged in as <strong><%= current_user.email %></strong>.
   <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+
+     <% if user_signed_in? && current_user.employee %>
+     </div>
         <ul>
                 <li><%= link_to "RFD Admin", "/" %></li>
                  <li><%= link_to "Employees", employees_path %></li>
                 <li><%= link_to "Restaurants", restaurants_path %></li>
          </ul>
+<% end %>
 <% else %>
+
+<div class='stranger'>
 Welcome Stranger...
   <%= link_to "Sign up", new_user_registration_path, class: "navbar-link"  %> |
   <%= link_to "Login", new_user_session_path, class: "navbar-link"  %>
-<%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+
+</div>
 
 <% end %>
 
-                    
-                    
-                
-            </nav>
+                        
+         </nav>
             
     </div>
     

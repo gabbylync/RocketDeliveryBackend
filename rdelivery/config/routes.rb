@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-resources :addresses
-resources :employees
-resources :restaurants, only: [:new, :create, :show, :edit, :update, :index]
-root to: "home#index"
+  authenticate :user, -> (user) {user.employee} do
+     resources :addresses
+     resources :employees
+     resources :restaurants, only: [:new, :create, :show, :edit, :update, :index]
+  end
+  root to: "home#index"
+  get '/(*url)', to: redirect('/')
 end
 
 
