@@ -1,0 +1,12 @@
+<h1> List of All Customers </h1> 
+
+<table>
+  <% @customers.each do |customer| %>
+    <tr>
+      <td><%= link_to customer.email, customer_path(customer) %></td>
+      <td><%= button_to 'Edit', edit_customer_path(customer), method: 'get'%></td>
+      <td><%= button_to 'Remove', customer_path(customer), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<br/> 
+<%= link_to "Add a New Customer", new_customer_path %>

@@ -1,0 +1,14 @@
+<h1>Update Product Details</h1>
+<%= form_with model: @product do |form| %>
+Name: <%= form.text_field :name, placeholder: "Name" %>
+  <br/>
+  <br/>
+Description:  <%= form.text_field :description, placeholder: "Description" %>
+  <br/>
+  <br/>
+Cost <%= form.text_field :cost, placeholder: "Cost" %>
+  <br/>
+  <br/>
+  
+  <%= form.submit %>
+<% end %>

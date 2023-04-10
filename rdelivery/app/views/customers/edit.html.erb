@@ -1,0 +1,15 @@
+
+<h1>Update Customer Details</h1>
+<%= form_with model: @customer do |form| %>
+Phone: <%= form.text_field :phone, placeholder: "Phone" %>
+  <br/>
+  <br/>
+Email:  <%= form.text_field :email, placeholder: "Email" %>
+  <br/>
+  <br/>
+Is customer active? True/False <%= form.text_field :active, placeholder: "Active" %>
+  <br/>
+  <br/>
+  
+  <%= form.submit %>
+<% end %>

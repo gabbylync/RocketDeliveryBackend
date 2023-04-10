@@ -1,0 +1,10 @@
+<h1> List of Order Statuses </h1>
+<table>
+  <% @order_statuses.each do |order_status| %>
+    <tr>
+      <td><%= link_to order_status.name, order_status_path(order_status) %></td>
+      <td><%= button_to 'Edit', edit_order_status_path(order_status), method: 'get'%></td>
+      <td><%= button_to 'Remove', order_status_path(order_status), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<%= link_to "Add a New Order Status", new_order_status_path %>

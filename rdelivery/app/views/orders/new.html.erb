@@ -1,0 +1,12 @@
+<h1>Create an Order</h1>
+<%= form_with model: @order do |form| %>
+  <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+   <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    <%= form.collection_select :order_status_id, OrderStatus.all  %>
+  <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+ 
+
+  <br/>
+  <%= form.submit %>
+<% end %>
+

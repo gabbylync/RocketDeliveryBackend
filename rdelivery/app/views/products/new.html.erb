@@ -1,0 +1,9 @@
+<h1>Create a Product</h1>
+<%= form_with model: @product do |form| %>
+  <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+  <%= form.text_field :name, placeholder: "name" %>
+  <%= form.text_field :description, placeholder: "description" %>
+  <%= form.text_field :cost, placeholder: "cost" %>
+  <br/>
+  <%= form.submit %>
+<% end %>

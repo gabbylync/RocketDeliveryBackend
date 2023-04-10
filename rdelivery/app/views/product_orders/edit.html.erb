@@ -1,0 +1,12 @@
+<h1>Update Product Order Details</h1>
+<%= form_with model: @product_order do |form| %>
+Product Quantity: <%= form.text_field :product_quantity, placeholder: "Quantity" %>
+  <br/>
+  <br/>
+Product Unit Cost:  <%= form.text_field :product_unit_cost, placeholder: "Unit Cost" %>
+  <br/>
+  <br/>
+
+  
+  <%= form.submit %>
+<% end %>

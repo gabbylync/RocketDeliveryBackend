@@ -1,0 +1,13 @@
+
+<h1> List of All Orders </h1> 
+
+<table>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= link_to order.restaurant_rating, order_path(order) %></td>
+      <td><%= button_to 'Edit', edit_order_path(order), method: 'get'%></td>
+      <td><%= button_to 'Remove', order_path(order), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<br/> 
+<%= link_to "Add a New Order", new_order_path %>

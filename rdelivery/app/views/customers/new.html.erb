@@ -1,0 +1,10 @@
+
+<h1>Create a Customer</h1>
+<%= form_with model: @customer do |form| %>
+  <%= form.collection_select :user_id, User.all, :id, :name  %>
+  <%= form.collection_select :address_id, Address.all, :id, :street_address  %>
+  <%= form.text_field :phone, placeholder: "phone" %>
+  <%= form.text_field :email, placeholder: "email" %>
+  <br/>
+  <%= form.submit %>
+<% end %>

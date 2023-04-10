@@ -1,0 +1,9 @@
+<h1>Update Order Details</h1>
+<%= form_with model: @order do |form| %>
+Restaurant Rating: <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+  <br/>
+  <br/>
+
+  <%= form.submit %>
+<% end %>
+

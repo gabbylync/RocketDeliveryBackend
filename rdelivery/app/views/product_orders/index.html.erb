@@ -1,0 +1,13 @@
+
+<h1> List of All Product Orders </h1> 
+
+<table>
+  <% @product_orders.each do |product_order| %>
+    <tr>
+      <td><%= link_to product_order.order_id, product_order_path(product_order) %></td>
+      <td><%= button_to 'Edit', edit_product_order_path(product_order), method: 'get'%></td>
+      <td><%= button_to 'Remove', product_order_path(product_order), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<br/> 
+<%= link_to "Add a New Product Order", new_product_order_path %>

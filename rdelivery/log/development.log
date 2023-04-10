@@ -10469,3 +10469,2789 @@ Processing by HomeController#index as TURBO_STREAM
 Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 5175)
 
 
+Started GET "/" for 127.0.0.1 at 2023-04-07 22:47:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 2799)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-07 22:47:18 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 737)
+  Rendered /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 3962)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 1026)
+  Rendered layout layouts/application.html.erb (Duration: 43.2ms | Allocations: 47943)
+Completed 200 OK in 50ms (Views: 45.6ms | ActiveRecord: 0.2ms | Allocations: 57168)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-07 22:47:19 -0400
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 382)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-07 22:47:19 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1232)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 583)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4080)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 4854)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-07 22:57:55 -0400
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"mcgabbin22@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "mcgabbin22@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 256ms (ActiveRecord: 1.1ms | Allocations: 6168)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-07 22:57:55 -0400
+Processing by HomeController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 166)
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 8.3ms | Allocations: 9807)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 12603)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.5ms | Allocations: 14960)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-07 22:57:57 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 5267)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 830)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 8587)
+Completed 200 OK in 18ms (Views: 12.5ms | ActiveRecord: 0.4ms | Allocations: 11033)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 00:25:52 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3466)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 1204)
+  Rendered layout layouts/application.html.erb (Duration: 38.2ms | Allocations: 18986)
+Completed 200 OK in 46ms (Views: 40.0ms | ActiveRecord: 0.1ms | Allocations: 22275)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-08 00:25:57 -0400
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 8ms (ActiveRecord: 0.2ms | Allocations: 3341)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-08 00:25:57 -0400
+Processing by HomeController#index as TURBO_STREAM
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 520)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-08 00:25:57 -0400
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 561)
+  Rendered /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2274)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 628)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 5378)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 6796)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-08 00:26:12 -0400
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"mcgabbin22@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "mcgabbin22@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 257ms (ActiveRecord: 0.7ms | Allocations: 2969)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-08 00:26:13 -0400
+Processing by HomeController#index as TURBO_STREAM
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 161)
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 1657)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 4416)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.1ms | Allocations: 6519)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-08 00:30:54 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 162)
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 3.5ms | Allocations: 2059)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 5036)
+Completed 200 OK in 22ms (Views: 14.3ms | ActiveRecord: 0.4ms | Allocations: 7316)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 00:30:56 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1040)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 876)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 4439)
+Completed 200 OK in 11ms (Views: 5.1ms | ActiveRecord: 0.5ms | Allocations: 6776)
+
+
+Started GET "/customers/new" for 127.0.0.1 at 2023-04-08 00:30:58 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/customers/new.html.erb:4
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/customers/new.html.erb:5
+  Rendered customers/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3102)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 840)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 6366)
+Completed 200 OK in 18ms (Views: 10.8ms | ActiveRecord: 1.0ms | Allocations: 9853)
+
+
+Started POST "/customers" for 127.0.0.1 at 2023-04-08 00:31:42 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "customer"=>{"user_id"=>"7", "address_id"=>"2", "phone"=>"7275069756", "email"=>"roncustomer@gmail.com"}, "commit"=>"Create Customer"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/customers_controller.rb:13:in `create'
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:13:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:13:in `create'
+  [1m[36mCustomer Create (1.4ms)[0m  [1m[32mINSERT INTO "customers" ("phone", "email", "active", "created_at", "updated_at", "user_id", "address_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["phone", "7275069756"], ["email", "roncustomer@gmail.com"], ["active", 1], ["created_at", "2023-04-08 04:31:42.811372"], ["updated_at", "2023-04-08 04:31:42.811372"], ["user_id", 7], ["address_id", 2]]
+  ↳ app/controllers/customers_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/customers_controller.rb:13:in `create'
+Redirected to http://127.0.0.1:3000/customers/1
+Completed 302 Found in 13ms (ActiveRecord: 2.9ms | Allocations: 8654)
+
+
+Started GET "/customers/1" for 127.0.0.1 at 2023-04-08 00:31:42 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  Rendering layout layouts/application.html.erb
+  Rendering customers/show.html.erb within layouts/application
+  Rendered customers/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 189)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 835)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3346)
+Completed 200 OK in 13ms (Views: 8.8ms | ActiveRecord: 0.3ms | Allocations: 4909)
+
+
+Started GET "/customers/new" for 127.0.0.1 at 2023-04-08 00:32:04 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/customers/new.html.erb:4
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/customers/new.html.erb:5
+  Rendered customers/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2351)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 828)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 5474)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 5769)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 00:32:07 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 936)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 828)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4054)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 4343)
+
+
+Started GET "/customers/1/edit" for 127.0.0.1 at 2023-04-08 00:32:17 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  Rendering layout layouts/application.html.erb
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/edit.html.erb within layouts/application (Duration: 2.6ms | Allocations: 918)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4017)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 4824)
+
+
+Started PATCH "/customers/1" for 127.0.0.1 at 2023-04-08 00:32:24 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "customer"=>{"phone"=>"7275069757", "email"=>"roncustomer@gmail.com", "active"=>"true"}, "commit"=>"Update Customer", "id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/customers_controller.rb:25:in `update'
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:25:in `update'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:25:in `update'
+  [1m[36mCustomer Update (0.8ms)[0m  [1m[33mUPDATE "customers" SET "phone" = ?, "updated_at" = ? WHERE "customers"."id" = ?[0m  [["phone", "7275069757"], ["updated_at", "2023-04-08 04:32:24.413069"], ["id", 1]]
+  ↳ app/controllers/customers_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/customers_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/customers/1
+Completed 302 Found in 12ms (ActiveRecord: 4.0ms | Allocations: 4585)
+
+
+Started GET "/customers/1" for 127.0.0.1 at 2023-04-08 00:32:24 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  Rendering layout layouts/application.html.erb
+  Rendering customers/show.html.erb within layouts/application
+  Rendered customers/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 13)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 837)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 3138)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 3894)
+
+
+Started GET "/customers/1/edit" for 127.0.0.1 at 2023-04-08 00:32:26 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  Rendering layout layouts/application.html.erb
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 681)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3780)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 4532)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 00:32:26 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4036)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.1ms | Allocations: 4323)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 00:37:08 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1335)
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 1235)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 5344)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.1ms | Allocations: 6219)
+
+
+Started GET "/customers/1/edit" for 127.0.0.1 at 2023-04-08 00:37:12 -0400
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  Rendering layout layouts/application.html.erb
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 972)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4077)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 4911)
+
+
+Started GET "/customers/1/edit" for 127.0.0.1 at 2023-04-08 00:38:02 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  Rendering layout layouts/application.html.erb
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/edit.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1083)
+  Rendered layouts/_navbar.html.erb (Duration: 2.9ms | Allocations: 1250)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 5101)
+Completed 200 OK in 29ms (Views: 23.8ms | ActiveRecord: 0.1ms | Allocations: 6451)
+
+
+Started GET "/customers/1/edit" for 127.0.0.1 at 2023-04-08 00:38:33 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  Rendering layout layouts/application.html.erb
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1083)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | Allocations: 1251)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 5102)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.1ms | Allocations: 6483)
+
+
+Started GET "/customers/1/edit" for 127.0.0.1 at 2023-04-08 00:38:55 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  Rendering layout layouts/application.html.erb
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/edit.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1090)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 1252)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 5124)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.1ms | Allocations: 6506)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-08 00:53:49 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 161)
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 4.2ms | Allocations: 1713)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4413)
+Completed 200 OK in 29ms (Views: 18.2ms | ActiveRecord: 2.0ms | Allocations: 6801)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-04-08 00:53:50 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:6
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2835)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 857)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 6186)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.4ms | Allocations: 7079)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-04-08 00:53:52 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:4
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 4866)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 873)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 8265)
+Completed 200 OK in 19ms (Views: 12.2ms | ActiveRecord: 0.7ms | Allocations: 10918)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 00:53:53 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2063)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 856)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 5411)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.2ms | Allocations: 6124)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 00:53:55 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1627)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4735)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 5043)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-04-08 00:53:56 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:4
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 816)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3929)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.1ms | Allocations: 4218)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 00:53:57 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1173)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 4280)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.5ms | Allocations: 4638)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 00:53:58 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1627)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4734)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 5021)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 01:31:14 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 3470)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 1288)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 19040)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 22353)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:31:16 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3166)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 884)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 6539)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 0.2ms | Allocations: 8830)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:31:21 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 855)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4078)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 4387)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:31:22 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4062)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.1ms | Allocations: 4349)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:31:24 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4062)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 4349)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 01:31:25 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1628)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4762)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 5052)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:31:26 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4062)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.1ms | Allocations: 4349)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:34:11 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 4062)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 4348)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:34:12 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 4070)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.1ms | Allocations: 4357)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:34:14 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 4074)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.1ms | Allocations: 4362)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:34:14 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 855)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 4064)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 4351)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 01:34:15 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1627)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 855)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4777)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.1ms | Allocations: 5065)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-04-08 01:34:17 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:4
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3460)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 900)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 6889)
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 0.5ms | Allocations: 9525)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-04-08 01:34:18 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:6
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2832)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 884)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 6210)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 7102)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-08 01:34:19 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 161)
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 2.3ms | Allocations: 1711)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 4415)
+Completed 200 OK in 14ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 6755)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:34:20 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 935)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4069)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 4378)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:34:38 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4070)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.1ms | Allocations: 4357)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:34:39 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4074)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.1ms | Allocations: 4362)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:34:43 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 855)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 4064)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.1ms | Allocations: 4351)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 01:34:44 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1628)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 855)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4778)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 5070)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:34:46 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 856)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 4065)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.1ms | Allocations: 4353)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:36:30 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 855)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4075)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.1ms | Allocations: 4363)
+
+
+Started GET "/customers/new" for 127.0.0.1 at 2023-04-08 01:36:35 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/customers/new.html.erb:4
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/customers/new.html.erb:5
+  Rendered customers/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2729)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 5863)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 6224)
+
+
+Started GET "/customers/new" for 127.0.0.1 at 2023-04-08 01:37:14 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/customers/new.html.erb:4
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/customers/new.html.erb:5
+  Rendered customers/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2831)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 1295)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 6897)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.1ms | Allocations: 7779)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 01:37:17 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2030)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 885)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 5413)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.1ms | Allocations: 6114)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-08 01:37:18 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1042)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 905)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 4481)
+Completed 200 OK in 11ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 6553)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2023-04-08 01:37:20 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/products/new.html.erb:3
+  Rendered products/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1718)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 855)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 4868)
+Completed 200 OK in 22ms (Views: 6.5ms | ActiveRecord: 0.9ms | Allocations: 8636)
+
+
+Started POST "/products" for 127.0.0.1 at 2023-04-08 01:39:15 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"restaurant_id"=>"2", "name"=>"Woody", "description"=>"Cowboy Doll", "cost"=>"12"}, "commit"=>"Create Product"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/products_controller.rb:13:in `create'
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `create'
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "cost", "created_at", "updated_at", "restaurant_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Woody"], ["description", "Cowboy Doll"], ["cost", 12], ["created_at", "2023-04-08 05:39:15.032723"], ["updated_at", "2023-04-08 05:39:15.032723"], ["restaurant_id", 2]]
+  ↳ app/controllers/products_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/products_controller.rb:13:in `create'
+Redirected to http://127.0.0.1:3000/products/1
+Completed 302 Found in 11ms (ActiveRecord: 1.5ms | Allocations: 4820)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2023-04-08 01:39:15 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `current_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 170)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 864)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3368)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 4870)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2023-04-08 01:39:33 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/products/new.html.erb:3
+  Rendered products/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1345)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4479)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.1ms | Allocations: 4770)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-08 01:39:38 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 6195)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 6274)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.1ms | Allocations: 6558)
+
+
+  
+ActionView::Template::Error (undefined method `email' for #<Product id: 1, name: "Woody", description: "Cowboy Doll", cost: 12, created_at: "2023-04-08 05:39:15.032723000 +0000", updated_at: "2023-04-08 05:39:15.032723000 +0000", restaurant_id: 2>):
+    3: <table>
+    4:   <% @products.each do |product| %>
+    5:     <tr>
+    6:       <td><%= link_to product.email, product_path(product) %></td>
+    7:       <td><%= button_to 'Edit', edit_product_path(product), method: 'get'%></td>
+    8:       <td><%= button_to 'Remove', product_path(product), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+    9:   <% end %>
+  
+app/views/products/index.html.erb:6
+app/views/products/index.html.erb:4
+Started GET "/products" for 127.0.0.1 at 2023-04-08 01:40:47 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1343)
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 1281)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 5411)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.1ms | Allocations: 6305)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-08 01:41:16 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4062)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.1ms | Allocations: 4370)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 01:41:17 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1335)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 885)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4711)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 5394)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 01:41:19 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2034)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 887)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 5426)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.1ms | Allocations: 6144)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-04-08 01:41:21 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:4
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1182)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 897)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4586)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.1ms | Allocations: 5301)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-04-08 01:41:22 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:6
+  Rendered employees/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2730)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 885)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 6106)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.1ms | Allocations: 6821)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-08 01:41:23 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 161)
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 2.8ms | Allocations: 1704)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4395)
+Completed 200 OK in 18ms (Views: 11.8ms | ActiveRecord: 0.3ms | Allocations: 6529)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-04-08 01:41:25 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:6
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2328)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 5462)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 5772)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-04-08 02:29:05 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:6
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2839)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 1335)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 18454)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 20284)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 02:29:07 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 971)
+
+
+  
+SyntaxError (/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: restaurant
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+    belongs_to: customer
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+    belongs_to: order_status
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+    has_many: product_orders
+            ^
+):
+  
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/controllers/orders_controller.rb:5:in `index'
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 02:31:06 -0400
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1647)
+
+
+  
+SyntaxError (/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: restaurant
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+    belongs_to: customer
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+    belongs_to: order_status
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+    has_many: product_orders
+            ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:8: syntax error, unexpected `end', expecting end-of-input):
+  
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:8: syntax error, unexpected `end', expecting end-of-input
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:8: syntax error, unexpected `end', expecting end-of-input
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:8: syntax error, unexpected `end', expecting end-of-input
+app/controllers/orders_controller.rb:5:in `index'
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 02:32:14 -0400
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1643)
+
+
+  
+SyntaxError (/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: restaurant
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+    belongs_to: customer
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+    belongs_to: order_status
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:6: syntax error, unexpected ':', expecting end-of-input
+    has_many: product_orders
+            ^
+):
+  
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting end-of-input
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting end-of-input
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting end-of-input
+app/controllers/orders_controller.rb:5:in `index'
+Started GET "/" for 127.0.0.1 at 2023-04-08 02:32:55 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 165)
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 4.5ms | Allocations: 6860)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 21076)
+Completed 200 OK in 18ms (Views: 13.7ms | ActiveRecord: 0.7ms | Allocations: 27180)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-08 02:33:00 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 3389)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 917)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 6809)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.3ms | Allocations: 8833)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 12:37:09 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 909)
+
+
+  
+SyntaxError (/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: restaurant
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+    belongs_to: customer
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+    belongs_to: order_status
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+    has_many: product_orders
+            ^
+):
+  
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/controllers/orders_controller.rb:5:in `index'
+Started GET "/products" for 127.0.0.1 at 2023-04-08 12:37:11 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 998)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 885)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 4292)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.1ms | Allocations: 4608)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-08 12:37:15 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 880)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 4089)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.1ms | Allocations: 4376)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 12:37:16 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 3642)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 915)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 7046)
+Completed 200 OK in 9ms (Views: 5.0ms | ActiveRecord: 0.6ms | Allocations: 9345)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 12:37:16 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 3822)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 915)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 7226)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.4ms | Allocations: 9635)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 12:37:30 -0400
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 845)
+
+
+  
+SyntaxError (/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+    belongs_to: restaurant
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+    belongs_to: customer
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+    belongs_to: order_status
+              ^
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+    has_many: product_orders
+            ^
+):
+  
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:2: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:3: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:4: syntax error, unexpected ':', expecting `end'
+app/models/order.rb:6: syntax error, unexpected ':', expecting `end'
+app/controllers/orders_controller.rb:5:in `index'
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 12:46:22 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1038)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 943)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 16006)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.1ms | Allocations: 19350)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 12:46:46 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 573)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 880)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3734)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 4041)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 12:46:49 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 11867)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 11950)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.5ms | Allocations: 15635)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x0000000109e41088>::Order_Status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_Status.all, :id, :name  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_Status.all, :id, :name  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 12:47:54 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 4130)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 4215)
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 0.1ms | Allocations: 5087)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010a8c92a8>::Order_status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_status.all, :id, :name  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_status.all, :id, :name  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 12:47:56 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 3691)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 3770)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 4058)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010a8c92a8>::Order_status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_status.all, :id, :name  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_status.all, :id, :name  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 12:52:44 -0400
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2395)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | Allocations: 1342)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 6522)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.1ms | Allocations: 7398)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 12:52:48 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 777)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 880)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3938)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 4299)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 12:52:49 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 573)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 880)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3734)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 4021)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 12:52:51 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 573)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 882)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3745)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.1ms | Allocations: 4033)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-08 12:52:51 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 3035)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 915)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 6439)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 1.5ms | Allocations: 8460)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 12:52:52 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 574)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 880)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3735)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 4044)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 12:52:56 -0400
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1953)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 880)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 5114)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.1ms | Allocations: 5409)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:16:34 -0400
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 11357)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 11445)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms | Allocations: 16364)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010abcb730>::Order_status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_status.all, :id, :name  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_status.all, :id, :name  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:16:39 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 3718)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 3797)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 4088)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010abcb730>::Order_status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_status.all, :id, :name  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_status.all, :id, :name  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/" for 127.0.0.1 at 2023-04-08 13:16:49 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 168)
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 2.2ms | Allocations: 2206)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 16705)
+Completed 200 OK in 35ms (Views: 20.4ms | ActiveRecord: 0.7ms | Allocations: 19064)
+
+
+Started GET "/order_statuses" for 127.0.0.1 at 2023-04-08 13:16:51 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrderStatusesController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2853)
+
+
+  
+NameError (uninitialized constant OrderStatusesController::Order_status
+
+    @order_statuses = Order_status.all
+                      ^^^^^^^^^^^^):
+  
+app/controllers/order_statuses_controller.rb:4:in `index'
+Started GET "/" for 127.0.0.1 at 2023-04-08 13:23:12 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 20)
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 2.6ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 4064)
+Completed 200 OK in 34ms (Views: 12.7ms | ActiveRecord: 5.2ms | Allocations: 5858)
+
+
+Started GET "/order_statuses" for 127.0.0.1 at 2023-04-08 13:23:19 -0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrderStatusesController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2676)
+
+
+  
+NameError (uninitialized constant OrderStatusesController::Order_status
+
+    @order_statuses = Order_status.all
+                      ^^^^^^^^^^^^):
+  
+app/controllers/order_statuses_controller.rb:4:in `index'
+Started GET "/" for 127.0.0.1 at 2023-04-08 13:23:21 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 20)
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 1567)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3885)
+Completed 200 OK in 14ms (Views: 6.6ms | ActiveRecord: 0.2ms | Allocations: 5455)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 13:23:23 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 867)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 946)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 4193)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 4601)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:23:26 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 3804)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 3883)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.6ms | Allocations: 4151)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010abcb730>::Order_status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_status.all, :id, :name  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_status.all, :id, :name  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:24:55 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 4123)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 4208)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 5057)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010a8b3980>::Order_status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_status.all  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_status.all  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:24:56 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 3687)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 3766)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 4054)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010a8b3980>::Order_status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_status.all  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_status.all  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/" for 127.0.0.1 at 2023-04-08 13:31:57 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 161)
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 4.7ms | Allocations: 2229)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 5218)
+Completed 200 OK in 36ms (Views: 19.6ms | ActiveRecord: 4.7ms | Allocations: 7394)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 13:32:01 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 819)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 4122)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 4483)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:32:04 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3816)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3895)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.9ms | Allocations: 4169)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010a8b3980>::Order_status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_status.all  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_status.all  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:37:43 -0400
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 4123)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4208)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 5057)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010aa11020>::Order_Status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_Status.all  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_Status.all  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:37:45 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 3687)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 3766)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 4054)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x000000010aa11020>::Order_Status
+
+    '.freeze;@output_buffer.append=( form.collection_select :order_status_id, Order_Status.all  );@output_buffer.safe_append='
+                                                                              ^^^^^^^^^^^^):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, Order_Status.all  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/" for 127.0.0.1 at 2023-04-08 13:38:22 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 163)
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 4.9ms | Allocations: 2193)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 5184)
+Completed 200 OK in 18ms (Views: 14.0ms | ActiveRecord: 0.4ms | Allocations: 7361)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-08 13:38:26 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 3032)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 944)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 6465)
+Completed 200 OK in 11ms (Views: 6.4ms | ActiveRecord: 1.8ms | Allocations: 8488)
+
+
+Started GET "/order_statuses" for 127.0.0.1 at 2023-04-08 13:38:30 -0400
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrderStatusesController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2713)
+
+
+  
+NameError (uninitialized constant OrderStatusesController::Order_status
+
+    @order_statuses = Order_status.all
+                      ^^^^^^^^^^^^):
+  
+app/controllers/order_statuses_controller.rb:4:in `index'
+Started GET "/products" for 127.0.0.1 at 2023-04-08 13:38:52 -0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 928)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 909)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4132)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4432)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 13:44:25 -0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:10:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1034)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 1398)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 16740)
+Completed 200 OK in 24ms (Views: 15.3ms | ActiveRecord: 0.1ms | Allocations: 20242)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:44:27 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:10:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 11068)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 11160)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms | Allocations: 13050)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 4..6)):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, OrderStatus.all  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/" for 127.0.0.1 at 2023-04-08 13:48:10 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 161)
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 2.6ms | Allocations: 1775)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4493)
+Completed 200 OK in 21ms (Views: 10.7ms | ActiveRecord: 2.1ms | Allocations: 6834)
+
+
+Started GET "/order_statuses" for 127.0.0.1 at 2023-04-08 13:48:13 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:10:in `block (2 levels) in <main>'
+Processing by OrderStatusesController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2850)
+
+
+  
+NameError (uninitialized constant OrderStatusesController::Order_status
+
+    @order_statuses = Order_status.all
+                      ^^^^^^^^^^^^):
+  
+app/controllers/order_statuses_controller.rb:4:in `index'
+Started GET "/" for 127.0.0.1 at 2023-04-08 13:49:45 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 37)
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 9.6ms | Allocations: 6888)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 20978)
+Completed 200 OK in 44ms (Views: 24.0ms | ActiveRecord: 5.5ms | Allocations: 26923)
+
+
+Started GET "/order_statuses" for 127.0.0.1 at 2023-04-08 13:49:49 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:10:in `block (2 levels) in <main>'
+Processing by OrderStatusesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering order_statuses/index.html.erb within layouts/application
+  [1m[36mOrderStatus Load (0.2ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses"[0m
+  ↳ app/views/order_statuses/index.html.erb:3
+  Rendered order_statuses/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1029)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 965)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 4531)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.2ms | Allocations: 6305)
+
+
+Started GET "/order_statuses" for 127.0.0.1 at 2023-04-08 13:49:50 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:10:in `block (2 levels) in <main>'
+Processing by OrderStatusesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering order_statuses/index.html.erb within layouts/application
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses"[0m
+  ↳ app/views/order_statuses/index.html.erb:3
+  Rendered order_statuses/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 571)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 907)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 3759)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 4067)
+
+
+Started GET "/order_statuses/new" for 127.0.0.1 at 2023-04-08 13:49:51 -0400
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:10:in `block (2 levels) in <main>'
+Processing by OrderStatusesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering order_statuses/new.html.erb within layouts/application
+  Rendered order_statuses/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 745)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 907)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3933)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.3ms | Allocations: 5538)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 13:49:55 -0400
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:10:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 802)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 963)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 4287)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 6712)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 13:49:56 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:10:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 10843)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 10926)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.3ms | Allocations: 13123)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 4..6)):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, OrderStatus.all  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 13:50:19 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:10:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 585)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 921)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3922)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 4240)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 14:09:38 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1034)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 1447)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 16789)
+Completed 200 OK in 26ms (Views: 13.7ms | ActiveRecord: 0.1ms | Allocations: 20290)
+
+
+Started GET "/product_orders" for 127.0.0.1 at 2023-04-08 14:09:40 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/index.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.1ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders"[0m
+  ↳ app/views/product_orders/index.html.erb:5
+  Rendered product_orders/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1034)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 994)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 4564)
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 0.1ms | Allocations: 6597)
+
+
+Started GET "/product_orders" for 127.0.0.1 at 2023-04-08 14:09:41 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/index.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.0ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders"[0m
+  ↳ app/views/product_orders/index.html.erb:5
+  Rendered product_orders/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 571)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 3786)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 4093)
+
+
+Started GET "/product_orders" for 127.0.0.1 at 2023-04-08 14:09:42 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/index.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.1ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders"[0m
+  ↳ app/views/product_orders/index.html.erb:5
+  Rendered product_orders/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 571)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3786)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 4073)
+
+
+Started GET "/product_orders/new" for 127.0.0.1 at 2023-04-08 14:09:43 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/new.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.1ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered product_orders/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 5187)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 5266)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms | Allocations: 5607)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActiveRecord::Relation []>
+Did you mean?  to_xml):
+    1: <h1>Create a Product Order</h1>
+    2: <%= form_with model: @product_order do |form| %>
+    3:   <%= form.collection_select :product_id, Product.all, :id, :name  %>
+    4:    <%= form.collection_select :order_id, Order.all %>
+    5: 
+  
+app/views/product_orders/new.html.erb:2
+Started GET "/product_orders" for 127.0.0.1 at 2023-04-08 14:11:20 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/index.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.0ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders"[0m
+  ↳ app/views/product_orders/index.html.erb:5
+  Rendered product_orders/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 571)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 936)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3802)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4087)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 14:11:20 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 574)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 3789)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 4079)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-08 14:11:22 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 161)
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:14
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 1800)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 4504)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 6875)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-04-08 14:11:23 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:6
+  Rendered employees/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2835)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 975)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 6318)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.2ms | Allocations: 7215)
+
+
+Started GET "/employees/1/edit" for 127.0.0.1 at 2023-04-08 14:11:24 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by EmployeesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:46:in `current_employee'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/edit.html.erb within layouts/application
+  Rendered employees/edit.html.erb within layouts/application (Duration: 3.3ms | Allocations: 901)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 4108)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 5576)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-04-08 14:11:26 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:4
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 3455)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 987)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 6957)
+Completed 200 OK in 16ms (Views: 10.8ms | ActiveRecord: 0.2ms | Allocations: 9595)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-04-08 14:11:27 -0400
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:35:in `current_restaurant'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1251)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4458)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 5959)
+
+
+Started GET "/addresses" for 127.0.0.1 at 2023-04-08 14:11:28 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  ↳ app/views/addresses/index.html.erb:3
+  Rendered addresses/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3824)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 7286)
+Completed 200 OK in 16ms (Views: 10.7ms | ActiveRecord: 0.7ms | Allocations: 9697)
+
+
+Started GET "/addresses/1/edit" for 127.0.0.1 at 2023-04-08 14:11:29 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by AddressesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/addresses_controller.rb:48:in `current_address'
+  Rendering layout layouts/application.html.erb
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1011)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4218)
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 0.2ms | Allocations: 5703)
+
+
+Started GET "/customers" for 127.0.0.1 at 2023-04-08 14:11:32 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:4
+  Rendered customers/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3166)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 6628)
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.2ms | Allocations: 8914)
+
+
+Started GET "/customers/1/edit" for 127.0.0.1 at 2023-04-08 14:11:33 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:42:in `current_customer'
+  Rendering layout layouts/application.html.erb
+  Rendering customers/edit.html.erb within layouts/application
+  Rendered customers/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1002)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4209)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.2ms | Allocations: 5700)
+
+
+Started GET "/products" for 127.0.0.1 at 2023-04-08 14:11:37 -0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3366)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 973)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 6828)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.5ms | Allocations: 8852)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at 2023-04-08 14:11:38 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `current_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1017)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4224)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 5712)
+
+
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 14:11:40 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 574)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3789)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 4079)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 14:11:41 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3660)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3752)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms | Allocations: 5574)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 4..6)):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, OrderStatus.all  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 14:11:43 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 599)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 948)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3967)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 4285)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2023-04-08 14:12:24 -0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/orders/new.html.erb:4
+  Rendered orders/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2551)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2630)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2898)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 4..6)):
+    2: <%= form_with model: @order do |form| %>
+    3:   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
+    4:    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
+    5:     <%= form.collection_select :order_status_id, OrderStatus.all  %>
+    6:   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
+    7:  
+    8: 
+  
+app/views/orders/new.html.erb:5
+app/views/orders/new.html.erb:2
+Started GET "/orders" for 127.0.0.1 at 2023-04-08 14:12:53 -0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:5
+  Rendered orders/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 573)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 936)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3804)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.1ms | Allocations: 4089)
+
+
+Started GET "/product_orders" for 127.0.0.1 at 2023-04-08 14:12:55 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/index.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.1ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders"[0m
+  ↳ app/views/product_orders/index.html.erb:5
+  Rendered product_orders/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 572)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3787)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 4077)
+
+
+Started GET "/product_orders/new" for 127.0.0.1 at 2023-04-08 14:12:56 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/new.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.1ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered product_orders/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 4865)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4944)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms | Allocations: 5205)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActiveRecord::Relation []>
+Did you mean?  to_xml):
+    1: <h1>Create a Product Order</h1>
+    2: <%= form_with model: @product_order do |form| %>
+    3:   <%= form.collection_select :product_id, Product.all, :id, :name  %>
+    4:    <%= form.collection_select :order_id, Order.all %>
+    5: 
+  
+app/views/product_orders/new.html.erb:2
+Started GET "/product_orders" for 127.0.0.1 at 2023-04-08 14:13:10 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/index.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.2ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders"[0m
+  ↳ app/views/product_orders/index.html.erb:5
+  Rendered product_orders/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 571)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 936)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3802)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.2ms | Allocations: 4087)
+
+
+Started GET "/product_orders/new" for 127.0.0.1 at 2023-04-08 14:13:27 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/new.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.1ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered product_orders/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 4842)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 4921)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms | Allocations: 5181)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActiveRecord::Relation []>
+Did you mean?  to_xml):
+    1: <h1>Create a Product Order</h1>
+    2: <%= form_with model: @product_order do |form| %>
+    3:   <%= form.collection_select :product_id, Product.all, :id, :name  %>
+    4:    <%= form.collection_select :order_id, Order.all %>
+    5: 
+  
+app/views/product_orders/new.html.erb:2
+Started GET "/product_orders" for 127.0.0.1 at 2023-04-08 14:14:03 -0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by ProductOrdersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering product_orders/index.html.erb within layouts/application
+  [1m[36mProductOrder Load (0.1ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders"[0m
+  ↳ app/views/product_orders/index.html.erb:5
+  Rendered product_orders/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 571)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 936)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3802)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.1ms | Allocations: 4087)
+
+
+Started GET "/order_statuses" for 127.0.0.1 at 2023-04-08 14:14:05 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrderStatusesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering order_statuses/index.html.erb within layouts/application
+  [1m[36mOrderStatus Load (0.4ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses"[0m
+  ↳ app/views/order_statuses/index.html.erb:3
+  Rendered order_statuses/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1019)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 992)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4532)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.4ms | Allocations: 5426)
+
+
+Started GET "/order_statuses/new" for 127.0.0.1 at 2023-04-08 14:14:06 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by OrderStatusesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering order_statuses/new.html.erb within layouts/application
+  Rendered order_statuses/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 726)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 934)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3941)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 5295)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-04-09 20:11:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  ↳ config/routes.rb:3:in `block (2 levels) in <main>'
+Processing by EmployeesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:6
+  Rendered employees/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 3203)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 1482)
+  Rendered layout layouts/application.html.erb (Duration: 24.4ms | Allocations: 40708)
+Completed 200 OK in 30ms (Views: 25.5ms | ActiveRecord: 0.1ms | Allocations: 45175)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-09 20:11:38 -0400
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 0.1ms | Allocations: 4507)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-09 20:11:38 -0400
+Processing by HomeController#index as TURBO_STREAM
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 595)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-09 20:11:38 -0400
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 725)
+  Rendered /Users/shootermcgabbin/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3649)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 629)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 6759)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 8446)
+
+

@@ -17,6 +17,12 @@ Welcome: Logged in as <strong><%= current_user.email %></strong>.
                 <li><%= link_to "RFD Admin", "/" %></li>
                  <li><%= link_to "Employees", employees_path %></li>
                 <li><%= link_to "Restaurants", restaurants_path %></li>
+                 <li><%= link_to "Addresses", addresses_path %></li>
+                <li><%= link_to "Customers", customers_path %></li>
+                <li><%= link_to "Products", products_path %></li>
+                <li><%= link_to "Orders", orders_path %></li>
+                  <li><%= link_to "ProductOrders", product_orders_path %></li>
+                 <li><%= link_to "OrderStatuses", order_statuses_path %></li>
          </ul>
 <% end %>
 <% else %>

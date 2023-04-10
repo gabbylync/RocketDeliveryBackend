@@ -4,6 +4,11 @@ Rails.application.routes.draw do
      resources :addresses
      resources :employees
      resources :restaurants, only: [:new, :create, :show, :edit, :update, :index]
+     resources :customers
+     resources :products
+     resources :orders
+     resources :product_orders
+     resources :order_statuses
   end
   root to: "home#index"
   get '/(*url)', to: redirect('/')
