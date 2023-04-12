@@ -1,8 +1,7 @@
 <h1>Create a Product Order</h1>
 <%= form_with model: @product_order do |form| %>
   <%= form.collection_select :product_id, Product.all, :id, :name  %>
-   <%= form.collection_select :order_id, Order.all %>
-
+   <%= form.collection_select :order_id, Order.all, :id, :restaurant_rating %>
   <%= form.text_field :product_quantity, placeholder: "Quantity" %>
   <%= form.text_field :product_unit_cost, placeholder: "Unit Cost" %>
 

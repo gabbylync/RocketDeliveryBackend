@@ -1,0 +1,15 @@
+
+<h1>Update courier Details</h1>
+<%= form_with model: @courier do |form| %>
+Phone: <%= form.text_field :phone, placeholder: "Phone" %>
+  <br/>
+  <br/>
+Email:  <%= form.text_field :email, placeholder: "Email" %>
+  <br/>
+  <br/>
+Is the courier active? True/False <%= form.text_field :active, placeholder: "Active" %>
+  <br/>
+  <br/>
+  
+  <%= form.submit %>
+<% end %>

@@ -2,7 +2,8 @@
 <%= form_with model: @order do |form| %>
   <%= form.collection_select :customer_id, Customer.all, :id, :email  %>
    <%= form.collection_select :restaurant_id, Restaurant.all, :id, :name  %>
-    <%= form.collection_select :order_status_id, OrderStatus.all  %>
+    <%= form.collection_select :order_status_id, OrderStatus.all, :id, :name  %>
+     <%= form.collection_select :courier_id, Courier.all, :id, :email  %>
   <%= form.text_field :restaurant_rating, placeholder: "Rating" %>
  
 

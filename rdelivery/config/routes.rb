@@ -9,8 +9,22 @@ Rails.application.routes.draw do
      resources :orders
      resources :product_orders
      resources :order_statuses
+     resources :couriers
+     resources :courier_statuses
   end
+
+
+  namespace :api do
+    get "products", to: "products#index"
+    get "restaurants", to: "restaurants#index"
+    # post "login", to: "auth#index"
+  end
+
+
+
   root to: "home#index"
+
+
   get '/(*url)', to: redirect('/')
 end
 

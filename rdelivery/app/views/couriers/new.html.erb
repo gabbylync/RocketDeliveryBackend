@@ -1,0 +1,23 @@
+
+<h1>Create a courier</h1>
+<%= form_with model: @courier do |form| %>
+  <%= form.collection_select :user_id, User.all, :id, :name  %>
+   <br/>
+  <br/>
+  <%= form.collection_select :address_id, Address.all, :id, :street_address  %>
+   <br/>
+  <br/>
+<%= form.collection_select :courier_status_id, CourierStatus.all, :id, :name  %>
+ <br/>
+  <br/>
+  <%= form.text_field :phone, placeholder: "Phone" %>
+   <br/>
+  <br/>
+  <%= form.text_field :email, placeholder: "Email" %>
+   <br/>
+  <br/>
+  Is the courier active? True/False <%= form.text_field :active, placeholder: "Active" %>
+   <br/>
+  <br/>
+  <%= form.submit %>
+<% end %>

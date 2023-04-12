@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:restaurant_rating, :customer_id, :restaurant_id, :order_status_id)
+    params.require(:order).permit(:restaurant_rating, :customer_id, :restaurant_id, :order_status_id, :courier_id)
   end
 
   def current_order

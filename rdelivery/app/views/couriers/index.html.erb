@@ -1,0 +1,12 @@
+<h1> List of All Couriers </h1> 
+
+<table>
+  <% @couriers.each do |courier| %>
+    <tr>
+      <td><%= link_to courier.email, courier_path(courier) %></td>
+      <td><%= button_to 'Edit', edit_courier_path(courier), method: 'get'%></td>
+      <td><%= button_to 'Remove', courier_path(courier), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<br/> 
+<%= link_to "Add a New courier", new_courier_path %>

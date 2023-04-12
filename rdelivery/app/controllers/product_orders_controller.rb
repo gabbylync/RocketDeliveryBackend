@@ -5,7 +5,7 @@ class ProductOrdersController < ApplicationController
   end
 
   def new
-    @product_order = ProductOrder.all
+    @product_order = ProductOrder.new
   end
 
   def create

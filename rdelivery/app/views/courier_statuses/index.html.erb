@@ -1,0 +1,12 @@
+<h1> List of All courier_statuses </h1> 
+
+<table>
+  <% @courier_statuses.each do |courier_status| %>
+    <tr>
+      <td><%= link_to courier_status.name, courier_status_path(courier_status) %></td>
+      <td><%= button_to 'Edit', edit_courier_status_path(courier_status), method: 'get'%></td>
+      <td><%= button_to 'Remove', courier_status_path(courier_status), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<br/> 
+<%= link_to "Add a New courier_status", new_courier_status_path %>

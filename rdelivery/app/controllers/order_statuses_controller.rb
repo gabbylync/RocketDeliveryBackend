@@ -33,7 +33,7 @@ class OrderStatusesController < ApplicationController
   end
   private
 
-  def product_params
+  def order_status_params
     params.require(:order_status).permit(:name)
   end
 end

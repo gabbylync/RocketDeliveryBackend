@@ -21,8 +21,11 @@ Welcome: Logged in as <strong><%= current_user.email %></strong>.
                 <li><%= link_to "Customers", customers_path %></li>
                 <li><%= link_to "Products", products_path %></li>
                 <li><%= link_to "Orders", orders_path %></li>
-                  <li><%= link_to "ProductOrders", product_orders_path %></li>
-                 <li><%= link_to "OrderStatuses", order_statuses_path %></li>
+                <li><%= link_to "Product Orders", product_orders_path%></li>
+                <li><%= link_to "Order Statuses", order_statuses_path %></li>
+                 <li><%= link_to "Couriers", couriers_path %></li>
+                 <li><%= link_to "Courier Statuses", courier_statuses_path %></li>
+                 
          </ul>
 <% end %>
 <% else %>
