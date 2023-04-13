@@ -1,27 +1,31 @@
 module Api 
     class RestaurantsController < ActionController::Base
-        def index 
-    #set rating and price_range from params 
-        # Rating is found in the order model and price_range in the restaurant model
-                rating = params[:order]
-                price_range = params[:restaurant]
+        def index
+            #set rating and price_range from params 
 
-    #if price_range and rating is given
-                if price_range.present? && rating.present?
-    #find a restaurant using price_range and rating 
-                    restaurant = Restaurant.find_by(:rating, :price_range )
-     #if certain parameters 
-                    if rating == 4 && price_range == 4 || rating == 6 && price_range == 2 
-                        return render json: {error: "Invalid rating or price range" }, status: :unprocessable_entity
-                    end
-    #otherwise find all restaurants with given rating and price_range and only
-    #return specified fields (select_short)
-                    @products = restaurant.products.select_short
-                else 
-    #if no parameters given                  
-                     @restaurants = Restaurant.all
+            rating = params[:rating]
+            price_range = params[:price_range]
+
+            # we set @restaurants to be all restaurants at first
+            # if no further parameters are give we will just return them all
+            @restaurants = Restaurant.all
+
+            #if price_range and rating is given
+            if price_range.present? && rating.present?
+
+                 #check if rating and price are in correct range
+                if (1..5).include?(rating.to_i) && (1..3).include?(price_range.to_i)
+                    # if rating and price are included, we use our method from the model
+                    # to select only restaurants where rating and price match
+                    # and we set that equal to @restaurants
+                    @restaurants = Restaurant.rating_and_price(rating, price_range)
+                else
+                    #if rating and price are out of range we send 422 error
+                    return render json: {error: "Invalid rating or price range" }, status: :unprocessable_entity
                 end
-                render json: @restaurants, status: :ok
+            end
+
+            render json: @restaurants, status: :ok
 
         end   
     end

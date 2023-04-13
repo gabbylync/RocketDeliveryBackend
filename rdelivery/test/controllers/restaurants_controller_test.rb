@@ -13,6 +13,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     order_status = OrderStatus.create!(name: "Order Status 1")
     order = Order.create!(restaurant: restaurant, customer: customer, order_status: order_status, restaurant_rating: 4)
     product_order = ProductOrder.create!(product: product, order: order, product_quantity: 2, product_unit_cost: 300)
+    
 
     get "/api/restaurants", params: { rating: 4, price_range: 2 }
     assert_response :success
