@@ -23,6 +23,17 @@ module Api
         
          end   
 
+         def create
+            json = JSON.parse(request.body.read)
+
+            restaurant = json[ "restaurant" ]
+            customer = json['customer']
+            order_status = json['order_status']
+
+            order = Order.create!(restaurant_id: restaurant, customer_id: customer, order_status_id: order_status)
+            return render json: {success: true }, status: :ok
+        end
+
         def index #this is for getting all of the orders
              type = params[:type]
              id = params[:id]
@@ -70,6 +81,8 @@ module Api
                 total_cost: order.total_cost
             }
         end
+
+
     end
         
 
