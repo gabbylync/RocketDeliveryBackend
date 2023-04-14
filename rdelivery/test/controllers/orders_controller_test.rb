@@ -48,30 +48,72 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "get orders with valid parameters" do
+    Product.delete_all
+    Order.delete_all
+    OrderStatus.delete_all
+    Customer.delete_all
+    Restaurant.delete_all
+    Address.delete_all
+    User.delete_all
+
     user = User.create!(name: "User 1", email: "test2@test.com", password: "password")
     address = Address.create!(street_address: "Street 1", city: "City 1", postal_code: "11111")
     restaurant = Restaurant.create!(user: user, address: address, name: "Restaurant 1", phone: "123456", price_range: 2)
     customer = Customer.create!(user: user, address: address, phone: "123456")
     product = Product.create!(name: "Product 1", cost: 10, restaurant: restaurant)
-    order_status = OrderStatus.create!(name: "Order Status 1")
+    product2 = Product.create!(name: "Product 2", cost: 15, restaurant: restaurant)
+    order_status = OrderStatus.create!(name: "pending")
     order = Order.create!(restaurant: restaurant, customer: customer, order_status: order_status, restaurant_rating: 4)
     product_order = ProductOrder.create!(product: product, order: order, product_quantity: 2, product_unit_cost: 300)
-    courier_status = CourierStatus.create!(name: "Courier Status 1")
+    product_order2 = ProductOrder.create!(product: product2, order: order, product_quantity: 1, product_unit_cost: 150)
+    courier_status = CourierStatus.create!(name: "busy")
     courier = Courier.create!(phone: "123456", email: "test@test.com", active: 1, user: user, address: address, courier_status: courier_status)
     
 
-    get "/api/orders", params: { type: "customer", id: customer.id }
+    get "/api/orders", params: { type: "customer", id: 1 }
     assert_response :success
-    assert_not_nil @controller.instance_variable_get(:@orders)
-    assert_equal [{restaurant_id: restaurant_id, restaurant_name: restaurant.name, address: restaurant.address, 
-      courier_id: courier_id, courier_name: courier.name, courier_status: courier_status, product_id: product.id, 
-      product_name: product.name, product_quantity: product.quantity  }].to_json, response.body
+    assert_equal [{ id: order.id, customer_id: customer.id, customer_name: customer.user.name, customer_address: customer.address.street_address, 
+      restaurant_id: restaurant.id, restaurant_name: restaurant.name, restaurant_address: restaurant.address.street_address, 
+      courier_id: order.courier&.id, courier_name: order.courier&.user&.name,
+       status: order_status.name, 
+      products: [
+      {product_id: product.id, product_name: product.name, product_quantity: product_order.product_quantity,
+      unit_cost: product_order.product_unit_cost, total_cost: product_order.product_quantity * product_order.product_unit_cost},
+      {product_id: product2.id, product_name: product2.name, product_quantity: product_order2.product_quantity,
+      unit_cost: product_order2.product_unit_cost, total_cost: product_order2.product_quantity * product_order2.product_unit_cost}
+       ], total_cost: order.total_cost }].to_json, response.body
+
   end
 
 
-  test "return 422 error for invalid user type" do
-    post "/api/order", params: { type: "Invalid User type" }
+  test "return 422 if user type is invalid" do
+    get "/api/orders", params: { type: "employee", id: 1 }
     assert_response 422
+    assert_equal({ error: "Invalid user type" }.to_json, response.body)
+  end
+  
+  test "return 200 and empty array if no id found" do
+    get "/api/orders", params: { type: "customer", id: 999 }
+    assert_response 200
+    assert_equal([].to_json, response.body)
+  end
+
+  test "return 400 if error user type or id parameters are missing" do
+    get "/api/orders", params: { type: "customer" }
+    assert_response 400
+    assert_equal({ error: "Both 'user type' and 'id' parameters are required" }.to_json, response.body)
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
