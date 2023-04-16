@@ -30,6 +30,16 @@ module Api
             customer = json['customer']
             order_status = json['order_status']
 
+            #400 error: parameters not present 
+             unless restaurant.present? && customer.present? 
+                return render json: {error: "Restaurant ID, customer ID, and products are required" }, status: :bad_request
+             end   
+             
+            #422 error: if restaurant / customer ID is invalid
+            # if customer == nil 
+            #     return render json: {error: "Invalid restaurant or customer ID" }, status: :unprocessable_entity
+            # end
+
             order = Order.create!(restaurant_id: restaurant, customer_id: customer, order_status_id: order_status)
             return render json: {success: true }, status: :ok
         end
@@ -38,7 +48,7 @@ module Api
              type = params[:type]
              id = params[:id]
 
-            #if type present 
+            #if type not present 
              unless type.present? && id.present? 
                 return render json: {error: "Both 'user type' and 'id' parameters are required" }, status: :bad_request
              end   
@@ -46,7 +56,27 @@ module Api
             unless type.in?(["customer", "restaurant", "courier"])
                 return render json: {error: "Invalid user type" }, status: :unprocessable_entity
             end
-            #200 error: send back empty array if no id found (calling orders model here)
+            #200 : send back empty array if no id found (calling orders model here)
+            orders = Order.user_orders(type, id)
+            render json: orders.map(&method(:format)), status: :ok
+           
+        end 
+
+
+
+        def index #this is for getting all of the orders
+             type = params[:type]
+             id = params[:id]
+
+            #if type not present 
+             unless type.present? && id.present? 
+                return render json: {error: "Both 'user type' and 'id' parameters are required" }, status: :bad_request
+             end   
+            #422 error: if user type is invalid
+            unless type.in?(["customer", "restaurant", "courier"])
+                return render json: {error: "Invalid user type" }, status: :unprocessable_entity
+            end
+            #200 : send back empty array if no id found (calling orders model here)
             orders = Order.user_orders(type, id)
             render json: orders.map(&method(:format)), status: :ok
            

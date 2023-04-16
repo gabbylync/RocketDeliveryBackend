@@ -191,6 +191,7 @@ test "create order " do
   assert_routing({ path: '/api/order', method: :post }, { controller: 'api/orders', action: 'create' })
 end
 
+
 test "post with valid credentials" do
   user = User.create!(name: "User 3", email: "test3@test.com", password: "password")
   address = Address.create!(street_address: "Street 10", city: "City 1", postal_code: "11111")
@@ -202,15 +203,18 @@ test "post with valid credentials" do
 
   post "/api/order", headers: { "Content-Type": "application/json" }, params: { 
   restaurant: restaurant.id, 
-  customer: restaurant.id,
+  customer: customer.id,
   order_status: order_status.id}.to_json
   assert_response 200
   # assert_equal({ success: true }.to_json, response.body)
 end
 
 
-
-
+test "post auth " do
+  post "/api/login", headers: { "Content-Type": "application/json" }, params: { email: 'test@test.com', password: 'bad_password' }.to_json
+  assert_response :unauthorized
+  assert_equal({ success: false }.to_json, response.body)
+end
 
 end
 
