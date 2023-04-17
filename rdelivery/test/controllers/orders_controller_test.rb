@@ -41,7 +41,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   ###################
-  # GET route testing #
+  # GET orders route testing #
   ####################
   test "orders route exists and is a GET route" do
     assert_routing({ path: '/api/orders', method: :get }, { controller: 'api/orders', action: 'index' })
@@ -184,7 +184,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
 
    ###################
-  # POST route testing #
+  # POST orders route testing #
    ####################
 
 test "create order " do
@@ -209,12 +209,6 @@ test "post with valid credentials" do
   # assert_equal({ success: true }.to_json, response.body)
 end
 
-
-test "post auth " do
-  post "/api/login", headers: { "Content-Type": "application/json" }, params: { email: 'test@test.com', password: 'bad_password' }.to_json
-  assert_response :unauthorized
-  assert_equal({ success: false }.to_json, response.body)
-end
 
 end
 

@@ -32,13 +32,8 @@ module Api
 
             #400 error: parameters not present 
              unless restaurant.present? && customer.present? 
-                return render json: {error: "Restaurant ID, customer ID, and products are required" }, status: :bad_request
+                return render json: {error: "Restaurant ID & customer ID are required" }, status: :bad_request
              end   
-             
-            #422 error: if restaurant / customer ID is invalid
-            # if customer == nil 
-            #     return render json: {error: "Invalid restaurant or customer ID" }, status: :unprocessable_entity
-            # end
 
             order = Order.create!(restaurant_id: restaurant, customer_id: customer, order_status_id: order_status)
             return render json: {success: true }, status: :ok
