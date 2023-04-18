@@ -1,6 +1,8 @@
 module Api 
     class OrdersController < ActionController::Base
+
         skip_before_action :verify_authenticity_token
+        
         def status #this is for updating order by id 
 
             #set status and id from params

@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View, StyleSheet, SafeAreaView, Image, Button } from "react-native";
+import Login from "./src/components/login";
+import styles from "../../../../shootermcgabbin/Codeboxx/RocketDeliveryBackend/client/styles";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Restaurants from "./src/restaurants";
 
-export default function App() {
+const App = () => {
+  const Stack = createNativeStackNavigator();
+
+  function LogoTitle() {
+    return (
+      <Image
+        style={{ width: 110, height: 30 }}
+        source={require('./assets/AppLogoV1.png')}
+      />
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app yooooo!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Restaurant"
+          component={Restaurants}
+      
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> ,
+            headerRight: () => (
+              <Button
+                onPress={() => alert('This is a button!')}
+                title="Info"
+                color="#DA583B" 
+                />
+            )
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
