@@ -15,6 +15,12 @@ const styles = StyleSheet.create({
     borderColor: "black",
     marginBottom: 10,
   },
+  nearby: {
+  fontFamily: 'Oswald',
+  fontSize: 22,
+  fontWeight: 'bold',
+  marginLeft: 20
+  },
   // this is the logo on the header and login page //
   logo: {
     width: 100,
@@ -24,14 +30,44 @@ const styles = StyleSheet.create({
       height: 100,
       resizeMode: "stretch",
     },
-    // this is the header formatt ///
-    header: {
-      width: 100,
-      height: 55,
-      justifyContent: "center",
-      backgroundColor: "red",
-    },
   },
+
+dropdown1BtnStyle: {
+    backgroundColor: '#DA583B',
+    borderRadius: 15,
+    borderWidth: .51, 
+    width: 150,
+    height: 40,
+    marginLeft: 45,
+},
+logout: {
+    width: 30,
+
+},
+dropdown2BtnStyle: {
+    backgroundColor: '#DA583B',
+    borderRadius: 15,
+    borderWidth: .51, 
+    width: 150,
+    height: 40,
+    marginLeft: 73,
+},
+dropdown1BtnTxtStyle: {
+    color: "#FFFFFF",
+    fontFamily: 'Oswald',
+},
+dropdownsRow: {
+    flexDirection: 'row',
+},
+footer: {
+    backgroundColor: "white",
+    padding: 40,
+    height: 5,
+    borderWidth: .51,
+    borderColor: `#dcdcdc`,
+}
+
+
 });
 
 export default styles;
