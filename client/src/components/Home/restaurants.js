@@ -15,7 +15,7 @@ import MenuImage from "../MenuImage/MenuImage";
 import { getCategoryName } from "../../data/MockDataAPI";
 import styles from "../../../styles";
 import SelectDropdown from "react-native-select-dropdown";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import FontAwesome, { SolidIcons, RegularIcons, BrandIcons } from 'react-native-fontawesome';
 
 export default function Restaurants(props) {
   const { navigation } = props;
@@ -38,19 +38,6 @@ export default function Restaurants(props) {
     }, 1000);
   }, []);
   ////// dropdown sectiopn ends /////////
-
-  //   useLayoutEffect(() => {
-  //     navigation.setOptions({
-  //       headerLeft: () => (
-  //         <MenuImage
-  //           onPress={() => {
-  //             navigation.openDrawer();
-  //           }}
-  //         />
-  //       ),
-  //       headerRight: () => <View />,
-  //     });
-  //   }, []);
 
   const onPressRecipe = (item) => {
     navigation.navigate("Recipe", { item });
