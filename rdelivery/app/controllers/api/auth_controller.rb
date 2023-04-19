@@ -14,12 +14,24 @@ module Api
            #email: = column name you are searchig by 
            #email = the email the user signed up with 
            user = User.find_by(email: email)
-           customer = Customer.find_by(user: user.id)
-           courier = Courier.find_by(user: user.id)
+        #    customer = Customer.find_by(user: user.id)
+        #    courier = Courier.find_by(user: user)
 
            if  user.present? && user.valid_password?(password)
-                return render json: {success: true, user_id: user.id, customer_id: customer, courier_id: courier}, status: :ok
+                # return render json: {success: true, user_id: user.id, customer_id: customer, courier_id: courier }, status: :ok
 
+                customer = Customer.find_by(user_id: user.id)
+                courier = Courier.find_by(user_id: user.id)
+
+                if customer.present? && courier.present?
+                    return render json: {success: true, customer_id: customer.id, user_id: user.id, courier_id: courier.id}, status: :ok
+                elsif customer.present?
+                    return render json: {success: true, customer_id: customer.id, user_id: user.id}, status: :ok
+                elsif courier.present?
+                    return render json: {success: true, user_id: user.id, courier_id: courier.id}, status: :ok
+                else    
+                    return render json: {success: true, user_id: user.id}, status: :ok
+                end
 
            else
                 return render json: {success: false }, status: :unauthorized  

@@ -27637,3 +27637,226 @@ Processing by Api::AuthController#index as */*
 Completed 200 OK in 408ms (Views: 0.3ms | ActiveRecord: 2.9ms | Allocations: 11033)
 
 
+Started POST "/api/login" for ::1 at 2023-04-19 14:05:54 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::AuthController#index as */*
+  Parameters: {"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erica.ger@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (1.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:17:in `index'
+  [1m[36mCourier Load (1.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:18:in `index'
+Completed 200 OK in 452ms (Views: 0.4ms | ActiveRecord: 4.0ms | Allocations: 17902)
+
+
+Started POST "/api/login" for ::1 at 2023-04-19 14:07:56 -0400
+Processing by Api::AuthController#index as */*
+  Parameters: {"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erica.ger@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:17:in `index'
+  [1m[36mCourier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:18:in `index'
+Completed 200 OK in 401ms (Views: 0.6ms | ActiveRecord: 2.2ms | Allocations: 1703)
+
+
+Started POST "/api/login" for ::1 at 2023-04-19 15:08:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::AuthController#index as */*
+  Parameters: {"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erica.ger@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (1.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:17:in `index'
+  [1m[36mCourier Load (1.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:18:in `index'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:21:in `index'
+  [1m[36mCACHE Courier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:22:in `index'
+Completed 500 Internal Server Error in 422ms (ActiveRecord: 4.0ms | Allocations: 20025)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass
+
+                    return render json: {success: true, user_id: user.id, courier_id: courier.id}, status: :ok
+                                                                                             ^^^):
+  
+app/controllers/api/auth_controller.rb:31:in `index'
+Started POST "/api/login" for ::1 at 2023-04-19 15:08:34 -0400
+  
+SyntaxError (/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/controllers/api/auth_controller.rb:34: else without rescue is useless
+                else    
+                ^~~~
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/controllers/api/auth_controller.rb:41: syntax error, unexpected `end', expecting end-of-input
+end    
+^~~
+):
+  
+app/controllers/api/auth_controller.rb:34: else without rescue is useless
+app/controllers/api/auth_controller.rb:41: syntax error, unexpected `end', expecting end-of-input
+app/controllers/api/auth_controller.rb:34: else without rescue is useless
+app/controllers/api/auth_controller.rb:41: syntax error, unexpected `end', expecting end-of-input
+app/controllers/api/auth_controller.rb:34: else without rescue is useless
+app/controllers/api/auth_controller.rb:41: syntax error, unexpected `end', expecting end-of-input
+Started POST "/api/login" for ::1 at 2023-04-19 15:20:00 -0400
+  
+SyntaxError (/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/controllers/api/auth_controller.rb:40: else without rescue is useless
+           else
+           ^~~~
+/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/controllers/api/auth_controller.rb:47: syntax error, unexpected `end', expecting end-of-input
+end    
+^~~
+):
+  
+app/controllers/api/auth_controller.rb:40: else without rescue is useless
+app/controllers/api/auth_controller.rb:47: syntax error, unexpected `end', expecting end-of-input
+app/controllers/api/auth_controller.rb:40: else without rescue is useless
+app/controllers/api/auth_controller.rb:47: syntax error, unexpected `end', expecting end-of-input
+app/controllers/api/auth_controller.rb:40: else without rescue is useless
+app/controllers/api/auth_controller.rb:47: syntax error, unexpected `end', expecting end-of-input
+Started POST "/api/login" for ::1 at 2023-04-19 15:20:27 -0400
+Processing by Api::AuthController#index as */*
+  Parameters: {"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erica.ger@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+Completed 500 Internal Server Error in 414ms (ActiveRecord: 5.1ms | Allocations: 7894)
+
+
+  
+NameError (undefined local variable or method `customer' for #<Api::AuthController:0x0000000002c7b8>
+
+                return render json: {success: true, user_id: user.id, customer_id: customer, courier_id: courier }, status: :ok
+                                                                                   ^^^^^^^^
+Did you mean?  customer_url):
+  
+app/controllers/api/auth_controller.rb:21:in `index'
+Started POST "/api/login" for ::1 at 2023-04-19 15:20:57 -0400
+Processing by Api::AuthController#index as */*
+  Parameters: {"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erica.ger@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (1.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (1.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 500 Internal Server Error in 414ms (ActiveRecord: 6.3ms | Allocations: 11573)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass
+
+                    return render json: {success: true, customer_id: -1, user_id: user.id, courier_id: courier.id}, status: :ok
+                                                                                                              ^^^):
+  
+app/controllers/api/auth_controller.rb:30:in `index'
+Started POST "/api/login" for ::1 at 2023-04-19 15:22:43 -0400
+Processing by Api::AuthController#index as */*
+  Parameters: {"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erica.ger@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (1.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (1.4ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 500 Internal Server Error in 414ms (ActiveRecord: 6.4ms | Allocations: 11565)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass
+
+                    return render json: {success: true, customer_id: -1, user_id: user.id, courier_id: courier.id}, status: :ok
+                                                                                                              ^^^):
+  
+app/controllers/api/auth_controller.rb:30:in `index'
+Started POST "/api/login" for ::1 at 2023-04-19 15:26:45 -0400
+  
+SyntaxError (/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/controllers/api/auth_controller.rb:33: void value expression
+...d, courier_id: -1}, status: :ok
+...^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+):
+  
+app/controllers/api/auth_controller.rb:33: void value expression
+app/controllers/api/auth_controller.rb:33: void value expression
+app/controllers/api/auth_controller.rb:33: void value expression
+Started POST "/api/login" for ::1 at 2023-04-19 15:29:21 -0400
+  
+SyntaxError (/Users/shootermcgabbin/Codeboxx/RocketDeliveryBackend/rdelivery/app/controllers/api/auth_controller.rb:33: void value expression
+...d, courier_id: -1}, status: :ok
+...^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+):
+  
+app/controllers/api/auth_controller.rb:33: void value expression
+app/controllers/api/auth_controller.rb:33: void value expression
+app/controllers/api/auth_controller.rb:33: void value expression
+Started POST "/api/login" for ::1 at 2023-04-19 15:29:51 -0400
+Processing by Api::AuthController#index as */*
+  Parameters: {"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erica.ger@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (1.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (1.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 200 OK in 414ms (Views: 1.0ms | ActiveRecord: 6.0ms | Allocations: 10443)
+
+
+Started POST "/api/login" for ::1 at 2023-04-19 15:30:08 -0400
+Processing by Api::AuthController#index as */*
+  Parameters: {"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erica.ger@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (1.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (1.3ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 200 OK in 476ms (Views: 0.2ms | ActiveRecord: 6.0ms | Allocations: 10322)
+
+
+Started POST "/api/login" for ::1 at 2023-04-19 15:30:29 -0400
+Processing by Api::AuthController#index as */*
+  Parameters: {"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"erica.ger@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "erica.ger@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (1.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (1.4ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 200 OK in 412ms (Views: 0.3ms | ActiveRecord: 6.2ms | Allocations: 10235)
+
+
+Started GET "/api/restaurants?rating=2&price_range=5" for ::1 at 2023-04-19 16:59:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::RestaurantsController#index as */*
+  Parameters: {"rating"=>"2", "price_range"=>"5"}
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3955)
+
+
+Started GET "/api/restaurants?rating=4&price_range=3" for ::1 at 2023-04-19 16:59:39 -0400
+Processing by Api::RestaurantsController#index as */*
+  Parameters: {"rating"=>"4", "price_range"=>"3"}
+  [1m[36mRestaurant Load (2.9ms)[0m  [1m[34mSELECT "restaurants"."id", "restaurants"."name", "restaurants"."price_range", CAST(AVG(orders.restaurant_rating) + 0.5 AS INTEGER) as rating FROM "restaurants" INNER JOIN "orders" ON "orders"."restaurant_id" = "restaurants"."id" WHERE "restaurants"."price_range" = ? GROUP BY "restaurants"."id" HAVING (rating = '4')[0m  [["price_range", 3]]
+  ↳ app/controllers/api/restaurants_controller.rb:28:in `index'
+Completed 200 OK in 24ms (Views: 18.6ms | ActiveRecord: 3.4ms | Allocations: 12856)
+
+
+Started GET "/api/restaurants" for ::1 at 2023-04-19 17:00:02 -0400
+Processing by Api::RestaurantsController#index as */*
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/controllers/api/restaurants_controller.rb:28:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2161)
+
+
+Started GET "/api/products?restaurant=1" for ::1 at 2023-04-19 17:00:16 -0400
+Processing by Api::ProductsController#index as */*
+  Parameters: {"restaurant"=>"1"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:11:in `index'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products"."id", "products"."name", "products"."cost" FROM "products" WHERE "products"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  ↳ app/controllers/api/products_controller.rb:24:in `index'
+Completed 200 OK in 13ms (Views: 3.6ms | ActiveRecord: 0.7ms | Allocations: 9192)
+
+

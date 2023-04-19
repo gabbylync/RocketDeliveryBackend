@@ -123,22 +123,28 @@ const styles = StyleSheet.create({
     bottom: 36,
     width: 150,
     height: 40,
+    backgroundColor: '#DA583B',
     
   },
-  buttonOpen: {
-    backgroundColor: '#DA583B',
-  },
+
   buttonClose: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#DA583B',
+    width: 150,
+    height: 20,
   },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
-    
+  },
+
+  textStyle2: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalText: {
-    marginBottom: 15,
+    marginBottom: 0,
     textAlign: 'center',
   },
   ////// END OF ORDER MODAL //////////

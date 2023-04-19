@@ -5,7 +5,7 @@ import styles from "../../../../shootermcgabbin/Codeboxx/RocketDeliveryBackend/c
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Restaurants from "./src/components/Home/restaurants";
-import Order from "./src/components/OrdersPage/order"
+import Order from "./src/components/OrdersPage/order";
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -22,7 +22,12 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+      {/* <Stack.Screen
+          name="Login"
+          component={Login}
+        
+        /> */}
+        <Stack.Screen
           name="Restaurant"
           component={Restaurants}
           options={{
@@ -35,7 +40,7 @@ const App = () => {
               />
             ),
           }}
-        /> */}
+        />
          <Stack.Screen
           name="Order"
           component={Order}
@@ -50,6 +55,7 @@ const App = () => {
             ),
           }}
         />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

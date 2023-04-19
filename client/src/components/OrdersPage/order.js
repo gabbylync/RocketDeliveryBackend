@@ -18,11 +18,15 @@ import { categories } from "../../data/dataArrays";
 import { getNumberOfRecipes } from "../../data/MockDataAPI";
 import MenuImage from "../../components/MenuImage/MenuImage";
 import Footer from "../footer";
+import BackButton from "../BackButton/BackButton";
 
 export default function Order(props) {
+
   const [modalVisible, setModalVisible] = useState(false);
   const { navigation } = props;
   const [count, setCount] = useState(0);
+
+ 
 
   const onPressCategory = (item) => {
     const title = item.name;
@@ -50,6 +54,11 @@ export default function Order(props) {
 
   return (
     <>
+    <BackButton
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
       <br />
       <Text style={styles.nearby}> RESTAURANT MENU</Text>
       <br />
@@ -57,6 +66,8 @@ export default function Order(props) {
       <Text style={orderstyles.menuitemz}>Price: </Text>
       <Text style={orderstyles.menuitemz}>Rating: </Text>
       <View>
+
+    {/*///// start of create order MODAL HERE ////////*/}
       <View style={styles.centeredView}>
       <Modal
         animationType="slide"
@@ -68,22 +79,24 @@ export default function Order(props) {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+            <Text style={styles.modalText}>Order Confirmation</Text>
+            <Text style={styles.modalText2}>Order Summary</Text>
+            <Text style={styles.modalText3}> TOTAL: </Text>
             <Pressable
-              style={[styles.button, styles.buttonClose]}
+              style={styles.buttonClose}
               onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle2}>CONFIRM ORDER</Text>
             </Pressable>
           </View>
         </View>
       </Modal>
       <Pressable
-        style={[styles.button, styles.buttonOpen]}
+        style={styles.button}
         onPress={() => setModalVisible(true)}>
         <Text style={styles.textStyle}>Create Order</Text>
       </Pressable>
     </View>
-
+{/*  //// END OF MODAL ////////// */}
         <View>
           <FlatList
             data={categories}

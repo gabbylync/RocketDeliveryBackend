@@ -37,7 +37,7 @@ export default function Restaurants(props) {
       ]);
     }, 1000);
   }, []);
-  ////// dropdown sectiopn ends /////////
+  ////// dropdown section ends /////////
 
   const onPressRecipe = (item) => {
     navigation.navigate("Recipe", { item });
