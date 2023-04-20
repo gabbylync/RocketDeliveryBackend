@@ -15,11 +15,6 @@ import MenuImage from "../MenuImage/MenuImage";
 import { getCategoryName } from "../../data/MockDataAPI";
 import styles from "../../../styles";
 import SelectDropdown from "react-native-select-dropdown";
-// import FontAwesome, {
-//   SolidIcons,
-//   RegularIcons,
-//   BrandIcons,
-// } from "react-native-fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons/faSortDown";
 import ForwardButton from "../ForwardButton/Forwardbutton";
@@ -30,7 +25,6 @@ export default function Restaurants(props) {
   //// this section for the the dropdown //////
   const [countries, setCountries] = useState([]);
   const [cities, setCities] = useState([]);
-
   const citiesDropdownRef = useRef();
 
   useEffect(() => {
@@ -44,10 +38,9 @@ export default function Restaurants(props) {
       ]);
     }, 1000);
   }, []);
-  ////// dropdown section ends /////////
 
   const onPressRecipe = (item) => {
-    navigation.navigate("Recipe", { item });
+    navigation.navigate("Order", { item });
   };
 
   const renderRecipes = ({ item }) => (
@@ -57,13 +50,13 @@ export default function Restaurants(props) {
     >
       <View style={styles.container}>
         <Image style={homestyles.photo} source={{ uri: item.photo_url }} />
-        <br/>
+        <br />
         <Text style={homestyles.title}>{item.title}</Text>
-      
+
         <Text style={homestyles.category}>
           {getCategoryName(item.categoryId)}
         </Text>
-        <br/>
+        <br />
       </View>
     </TouchableHighlight>
   );
@@ -97,12 +90,7 @@ export default function Restaurants(props) {
           buttonStyle={styles.dropdown1BtnStyle}
           buttonTextStyle={styles.dropdown1BtnTxtStyle}
           renderDropdownIcon={(isOpened) => {
-            return (
-              <FontAwesomeIcon 
-              icon={faSortDown} 
-              color= {'#FFFFFF'}/>
-              
-            );
+            return <FontAwesomeIcon icon={faSortDown} color={"#FFFFFF"} />;
           }}
           dropdownIconPosition={"right"}
           dropdownStyle={styles.dropdown1DropdownStyle}
@@ -126,13 +114,7 @@ export default function Restaurants(props) {
           buttonStyle={styles.dropdown2BtnStyle}
           buttonTextStyle={styles.dropdown1BtnTxtStyle}
           renderDropdownIcon={(isOpened) => {
-            return (
-              <FontAwesomeIcon 
-              icon={faSortDown}
-              color= {'#FFFFFF'} />
-             
-              
-            );
+            return <FontAwesomeIcon icon={faSortDown} color={"#FFFFFF"} />;
           }}
           dropdownIconPosition={"right"}
           dropdownStyle={styles.dropdown2DropdownStyle}

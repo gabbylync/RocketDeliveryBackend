@@ -8,7 +8,7 @@ import Restaurants from "./src/components/Home/restaurants";
 import Order from "./src/components/OrdersPage/order";
 import OrderHistory from "./src/components/OrderHistory/orderHistory";
 
-const App = () => {
+export default function App() {
   const Stack = createNativeStackNavigator();
 
   function LogoTitle() {
@@ -75,4 +75,4 @@ const App = () => {
   );
 };
 
-export default App;
+

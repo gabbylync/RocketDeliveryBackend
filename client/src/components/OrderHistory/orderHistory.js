@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faMagnifyingGlassPlus } from "@fortawesome/free-solid-svg-icons/faMagnifyingGlassPlus";
 import styles from "../../../styles";
 import Footer from "../footer";
+import BackButton from "../BackButton/BackButton";
 
 const tableData = {
   tableHead: ["ORDER", "STATUS", "VIEW"],
@@ -46,17 +47,18 @@ const OrderHistory = () => {
                 setModalVisible(!modalVisible);
               }}
             >
-              <View style={styles.centeredView}>
+              <View style={styles.centered}>
                 <View style={styles.modalView}>
-                  <Text style={styles.modalText}>Order Confirmation</Text>
-                  <Text style={styles.modalText2}>Order Summary</Text>
-                  <Text style={styles.modalText3}> TOTAL: </Text>
                   <Pressable
-                    style={styles.buttonClose}
+                    style={historystyles.buttonClosed}
                     onPress={() => setModalVisible(!modalVisible)}
                   >
-                    <Text style={styles.textStyle2}>CONFIRM ORDER</Text>
+                    <Text style={historystyles.xButton}>x</Text>
                   </Pressable>
+                  <Text style={historystyles.modalText}> Restaurant Name </Text>
+                  <Text style={historystyles.modalText2}>Order Date</Text>
+                  <Text style={historystyles.modalText2}> Status: </Text>
+                  <Text style={historystyles.modalText2}> Courier ID: </Text>
                 </View>
               </View>
             </Modal>
@@ -69,6 +71,8 @@ const OrderHistory = () => {
           </View>
         </Table>
       </View>
+ 
+      
       <Footer />
     </>
   );

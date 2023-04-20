@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     backgroundColor: "white",
+    flex: 1,
     padding: 40,
     height: 5,
     borderWidth: 0.51,
@@ -111,19 +112,29 @@ const styles = StyleSheet.create({
     fontFamily: "Oswald",
     fontSize: 15,
   },
+  containerFooter:{
+    // flex: 1
+  
+  },
   ////// MODAL FOR ORDER PAGE /////
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    
+    // height: 5300,
+    width: 400,
+  },
+  centered:{
+    flex: 1,
+  justifyContent: 'center',
+
   },
   modalView: {
     margin: 20,
+    justifyContent: 'center',
     backgroundColor: 'white',
     borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
+    padding: 5,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

@@ -7,6 +7,7 @@ import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons/faClockRota
 
 export default function Footer() {
   return (
+    <View style={styles.containerFooter}>
     <View style={styles.footer}>
       <View style={styles.iconContent}>
         <FontAwesomeIcon icon={faBurger} />
@@ -17,5 +18,6 @@ export default function Footer() {
         <Text style={styles.footerText2}> Order History</Text>
       </View>
     </View>
+    </ View>
   );
 }

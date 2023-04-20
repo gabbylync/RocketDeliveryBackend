@@ -11,10 +11,11 @@ module Rdelivery
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  #  config.middleware.insert_before 0, Rack::Cors do
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://example.com:80'
-        resource '*', headers: :any, methods: [:get, :post]
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
     end
    
@@ -27,3 +28,8 @@ module Rdelivery
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+# Rails.application.config.middleware.insert_before 0, Rack::Cors do
+#   allow do
+#     origins '*'
+#     resource '*', headers: :any, methods: [:get, :post]

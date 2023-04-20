@@ -10,7 +10,6 @@ import {
   Modal,
   Alert,
   Pressable,
-
 } from "react-native";
 import styles from "../../../styles";
 import orderstyles from "./orderstyles";
@@ -20,14 +19,13 @@ import MenuImage from "../../components/MenuImage/MenuImage";
 import Footer from "../footer";
 import BackButton from "../BackButton/BackButton";
 import ForwardButton from "../ForwardButton/Forwardbutton";
+import historystyles from "../OrderHistory/historyStyles";
 
 export default function Order(props) {
-
   const [modalVisible, setModalVisible] = useState(false);
   const { navigation } = props;
   const [count, setCount] = useState(0);
-
- 
+  const htmlContent = "TOTAL: <b>TOTAL:</b> gi";
 
   const onPressCategory = (item) => {
     const title = item.name;
@@ -55,12 +53,12 @@ export default function Order(props) {
 
   return (
     <>
-    {/* <BackButton
+      {/* <BackButton
           onPress={() => {
             navigation.navigate('Restaurant');
           }}
         /> */}
-         <ForwardButton
+      <ForwardButton
         onPress={() => {
           navigation.navigate("History");
         }}
@@ -72,37 +70,64 @@ export default function Order(props) {
       <Text style={orderstyles.menuitemz}>Price: </Text>
       <Text style={orderstyles.menuitemz}>Rating: </Text>
       <View>
-
-    {/*///// start of create order MODAL HERE ////////*/}
-      <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
+        {/*///// start of create order MODAL HERE ////////*/}
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Order Confirmation</Text>
-            <Text style={styles.modalText2}>Order Summary</Text>
-            <Text style={styles.modalText3}> TOTAL: </Text>
-            <Pressable
-              style={styles.buttonClose}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle2}>CONFIRM ORDER</Text>
-            </Pressable>
-          </View>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View style={styles.centered}>
+              <View style={styles.modalView}>
+                <Pressable
+                  style={orderstyles.buttonClosed}
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text style={orderstyles.xButton}>x</Text>
+                </Pressable>
+                <Text style={orderstyles.modalText}> </Text>
+                <Text style={orderstyles.modalText}> Order Confirmation</Text>
+                <Text style={orderstyles.modalText}> </Text>
+                <br />
+                <Text style={orderstyles.modalText2}> Order Summary </Text>
+                <br />
+                <Text style={orderstyles.modalText3}>
+                  {" "}
+                  Text with order items here{" "}
+                </Text>
+                <Text style={orderstyles.quantityText}> x1 </Text>
+                <Text style={orderstyles.priceText}> $ price </Text>
+                <br />
+                <View style={orderstyles.line} />
+                <br />
+                <Text style={orderstyles.totalText}>TOTAL: $ Total </Text>
+                <br />
+                <View style={orderstyles.line2} />
+                <br />
+
+                <Button
+                  title="CONFIRM ORDER"
+                  color="#DA583B"
+                  onPress={() => {
+                    navigation.navigate("");
+                  }}
+                />
+                <br />
+              </View>
+            </View>
+          </Modal>
+          <Pressable
+            style={styles.button}
+            onPress={() => setModalVisible(true)}
+          >
+            <Text style={styles.textStyle}>Create Order</Text>
+          </Pressable>
         </View>
-      </Modal>
-      <Pressable
-        style={styles.button}
-        onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Create Order</Text>
-      </Pressable>
-    </View>
-{/*  //// END OF MODAL ////////// */}
+        {/*  //// END OF MODAL ////////// */}
         <View>
           <FlatList
             data={categories}
