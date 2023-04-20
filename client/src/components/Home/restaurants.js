@@ -15,7 +15,14 @@ import MenuImage from "../MenuImage/MenuImage";
 import { getCategoryName } from "../../data/MockDataAPI";
 import styles from "../../../styles";
 import SelectDropdown from "react-native-select-dropdown";
-import FontAwesome, { SolidIcons, RegularIcons, BrandIcons } from 'react-native-fontawesome';
+// import FontAwesome, {
+//   SolidIcons,
+//   RegularIcons,
+//   BrandIcons,
+// } from "react-native-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faSortDown } from "@fortawesome/free-solid-svg-icons/faSortDown";
+import ForwardButton from "../ForwardButton/Forwardbutton";
 
 export default function Restaurants(props) {
   const { navigation } = props;
@@ -50,16 +57,24 @@ export default function Restaurants(props) {
     >
       <View style={styles.container}>
         <Image style={homestyles.photo} source={{ uri: item.photo_url }} />
+        <br/>
         <Text style={homestyles.title}>{item.title}</Text>
+      
         <Text style={homestyles.category}>
           {getCategoryName(item.categoryId)}
         </Text>
+        <br/>
       </View>
     </TouchableHighlight>
   );
 
   return (
     <>
+      <ForwardButton
+        onPress={() => {
+          navigation.navigate("Order");
+        }}
+      />
       <br />
       <Text style={styles.nearby}> NEARBY RESTAURANTS</Text>
       <br />
@@ -83,11 +98,10 @@ export default function Restaurants(props) {
           buttonTextStyle={styles.dropdown1BtnTxtStyle}
           renderDropdownIcon={(isOpened) => {
             return (
-              <FontAwesome
-                name={isOpened ? "chevron-up" : "chevron-down"}
-                color={"#FFFFFF"}
-                size={15}
-              />
+              <FontAwesomeIcon 
+              icon={faSortDown} 
+              color= {'#FFFFFF'}/>
+              
             );
           }}
           dropdownIconPosition={"right"}
@@ -113,11 +127,11 @@ export default function Restaurants(props) {
           buttonTextStyle={styles.dropdown1BtnTxtStyle}
           renderDropdownIcon={(isOpened) => {
             return (
-              <FontAwesome
-                name={isOpened ? "chevron-up" : "chevron-down"}
-                color={"#FFFFFF"}
-                size={15}
-              />
+              <FontAwesomeIcon 
+              icon={faSortDown}
+              color= {'#FFFFFF'} />
+             
+              
             );
           }}
           dropdownIconPosition={"right"}

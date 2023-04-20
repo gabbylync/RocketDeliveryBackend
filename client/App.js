@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Restaurants from "./src/components/Home/restaurants";
 import Order from "./src/components/OrdersPage/order";
+import OrderHistory from "./src/components/OrderHistory/orderHistory";
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -22,7 +23,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      {/* <Stack.Screen
+        {/* <Stack.Screen
           name="Login"
           component={Login}
         
@@ -41,7 +42,7 @@ const App = () => {
             ),
           }}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="Order"
           component={Order}
           options={{
@@ -55,7 +56,20 @@ const App = () => {
             ),
           }}
         />
-        
+          <Stack.Screen
+          name="History"
+          component={OrderHistory}
+          options={{
+            headerTitle: (props) => <LogoTitle {...props} />,
+            headerRight: () => (
+              <Button
+                onPress={() => alert("This is a button!")}
+                title="LOGOUT"
+                color="#DA583B"
+              />
+            ),
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

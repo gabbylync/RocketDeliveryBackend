@@ -7,8 +7,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#ecf0f1",
   },
+  emailText: {
+    marginRight: 213,
+  },
+  passText: {
+    marginRight: 189,
+  },
+  welcomeText:{
+   fontFamily: 'Oswald',
+   fontWeight: 'bold',
+   fontSize: 25,
+   marginRight: 100,
+  },
+  welcomeText2:{
+    fontFamily: 'Oswald',
+    fontSize: 20,
+    marginRight: 130,
+   },
   input: {
-    width: 200,
+    width: 250,
     height: 44,
     padding: 10,
     borderWidth: 1,
@@ -23,8 +40,9 @@ const styles = StyleSheet.create({
   },
   // this is the logo on the header and login page //
   logo: {
-    width: 100,
-    height: 45,
+    width: 350,
+    height: 155,
+    marginTop: -250,
     stretch: {
       width: 100,
       height: 100,
@@ -35,7 +53,7 @@ const styles = StyleSheet.create({
   dropdown1BtnStyle: {
     backgroundColor: "#DA583B",
     borderRadius: 15,
-    borderWidth: 0.51,
+    // borderWidth: 0.51,
     width: 150,
     height: 40,
     marginLeft: 45,
@@ -46,7 +64,7 @@ const styles = StyleSheet.create({
   dropdown2BtnStyle: {
     backgroundColor: "#DA583B",
     borderRadius: 15,
-    borderWidth: 0.51,
+    // borderWidth: 0.51,
     width: 150,
     height: 40,
     marginLeft: 73,

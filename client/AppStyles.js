@@ -7,7 +7,7 @@ const SCREEN_WIDTH = width < height ? width : height;
 
 const recipeNumColums = 2;
 // item size
-const RECIPE_ITEM_HEIGHT = 150;
+const RECIPE_ITEM_HEIGHT = 120;
 const RECIPE_ITEM_MARGIN = 20;
 
 // 2 photos per width
@@ -21,13 +21,13 @@ export const RecipeCard = StyleSheet.create({
     width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
     height: RECIPE_ITEM_HEIGHT + 75,
     borderColor: '#cccccc',
-    borderWidth: 0.5,
+    borderWidth: .5,
     borderRadius: 15
   },
   photo: {
-    width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
+    width: (SCREEN_WIDTH - (recipeNumColums + 1 ) * RECIPE_ITEM_MARGIN) / recipeNumColums,
     height: RECIPE_ITEM_HEIGHT,
-    borderRadius: 15,
+    borderWidth: .5,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0
   },
@@ -37,12 +37,17 @@ export const RecipeCard = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#444444',
+    fontFamily: "Oswald",
     marginTop: 3,
     marginRight: 5,
     marginLeft: 5,
+    borderColor: 'black',
+    // borderWidth: .5,
+   
   },
   category: {
     marginTop: 5,
-    marginBottom: 5
+    marginBottom: 5,
+    fontFamily: "Oswald",
   }
 });

@@ -19,6 +19,7 @@ import { getNumberOfRecipes } from "../../data/MockDataAPI";
 import MenuImage from "../../components/MenuImage/MenuImage";
 import Footer from "../footer";
 import BackButton from "../BackButton/BackButton";
+import ForwardButton from "../ForwardButton/Forwardbutton";
 
 export default function Order(props) {
 
@@ -54,11 +55,16 @@ export default function Order(props) {
 
   return (
     <>
-    <BackButton
+    {/* <BackButton
           onPress={() => {
-            navigation.goBack();
+            navigation.navigate('Restaurant');
           }}
-        />
+        /> */}
+         <ForwardButton
+        onPress={() => {
+          navigation.navigate("History");
+        }}
+      />
       <br />
       <Text style={styles.nearby}> RESTAURANT MENU</Text>
       <br />
