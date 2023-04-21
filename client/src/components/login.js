@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import styles from "../../styles"
 import React, { useState } from 'react'
 import {
@@ -31,6 +32,7 @@ export default function Login({ navigation }) {
                     setEmail('')
                     setPassword('')
                     setFail(false)
+                    await AsyncStorage.setItem('@userid', json.customer_id)
                     console.log("login: ", json)
                     navigation.navigate('Restaurant')
                 } else {
@@ -82,7 +84,7 @@ export default function Login({ navigation }) {
                 {fail ? (
                     <div>
                         <br />
-                        <Text>Failed to login. Please try again.</Text>
+                        <Text style={styles.failedLogin}>Failed to login. Please try again.</Text>
                         <br />
                         <br />
                         <br />

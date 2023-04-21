@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, SafeAreaView, Image, Button } from "react-native";
 import Login from "./src/components/login";
 import styles from "../../../../shootermcgabbin/Codeboxx/RocketDeliveryBackend/client/styles";
@@ -7,10 +7,37 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Restaurants from "./src/components/Home/restaurants";
 import Order from "./src/components/OrdersPage/order";
 import OrderHistory from "./src/components/OrderHistory/orderHistory";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
 
+
+  ///////////////////////////////
+  /// ASYNC STORAGE : getItem ////////////////
+  ////////////////////////////////
+
+ // To get the value from the TextInput
+ const [user, setUser] = useState('');
+
+ const saveValueFunction = () => {
+   // Function to save the value in AsyncStorage
+   if (user) {
+     // To check the input not empty
+     AsyncStorage.setItem('@userid', user);
+     // Setting a data to a AsyncStorage with respect to a key
+     setUser('');
+     // Resetting the TextInput
+     alert('Data Saved');
+     // Alert to confirm
+   } else {
+     alert('Please fill data');
+   }
+ };
+
+
+
+/////////////////////////////////////////////////////
   function LogoTitle() {
     return (
       <Image
@@ -23,11 +50,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Login"
           component={Login}
         
-        /> */}
+        />
         <Stack.Screen
           name="Restaurant"
           component={Restaurants}
@@ -56,7 +83,7 @@ export default function App() {
             ),
           }}
         />
-          <Stack.Screen
+        <Stack.Screen
           name="History"
           component={OrderHistory}
           options={{
@@ -73,6 +100,4 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
-
-
+}

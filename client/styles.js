@@ -13,17 +13,22 @@ const styles = StyleSheet.create({
   passText: {
     marginRight: 189,
   },
-  welcomeText:{
-   fontFamily: 'Oswald',
-   fontWeight: 'bold',
-   fontSize: 25,
-   marginRight: 100,
+  failedLogin: {
+    color: "red",
+    fontFamily: "Oswald",
+    fontWeight: 'bold',
   },
-  welcomeText2:{
-    fontFamily: 'Oswald',
+  welcomeText: {
+    fontFamily: "Oswald",
+    fontWeight: "bold",
+    fontSize: 25,
+    marginRight: 100,
+  },
+  welcomeText2: {
+    fontFamily: "Oswald",
     fontSize: 20,
     marginRight: 130,
-   },
+  },
   input: {
     width: 250,
     height: 44,
@@ -84,13 +89,12 @@ const styles = StyleSheet.create({
     marginLeft: 290,
     marginTop: -42,
   },
-  order:{
-    padding:10,
-    width:"100%",
-    flex:1,
-    alignSelf:"center",
-    flexDirection:"row",
-    
+  order: {
+    padding: 10,
+    width: "100%",
+    flex: 1,
+    alignSelf: "center",
+    flexDirection: "row",
   },
   footer: {
     backgroundColor: "white",
@@ -100,42 +104,40 @@ const styles = StyleSheet.create({
     borderWidth: 0.51,
     borderColor: `#dcdcdc`,
   },
-  footerText:{
+  footerText: {
     marginLeft: -32,
-    marginTop: 8, 
-    fontFamily: "Oswald", 
-    fontSize: 15,
-  },
-  footerText2:{
-    marginLeft: -40,
-    marginTop: 5, 
+    marginTop: 8,
     fontFamily: "Oswald",
     fontSize: 15,
   },
-  containerFooter:{
+  footerText2: {
+    marginLeft: -40,
+    marginTop: 5,
+    fontFamily: "Oswald",
+    fontSize: 15,
+  },
+  containerFooter: {
     // flex: 1
-  
   },
   ////// MODAL FOR ORDER PAGE /////
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     // height: 5300,
     width: 400,
   },
-  centered:{
+  centered: {
     flex: 1,
-  justifyContent: 'center',
-
+    justifyContent: "center",
   },
   modalView: {
     margin: 20,
-    justifyContent: 'center',
-    backgroundColor: 'white',
+    justifyContent: "center",
+    backgroundColor: "white",
     borderRadius: 20,
     padding: 5,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -145,36 +147,34 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-   
     padding: 10,
     elevation: 2,
     marginLeft: 250,
     bottom: 36,
     width: 150,
     height: 40,
-    backgroundColor: '#DA583B',
-    
+    backgroundColor: "#DA583B",
   },
 
   buttonClose: {
-    backgroundColor: '#DA583B',
+    backgroundColor: "#DA583B",
     width: 150,
     height: 20,
   },
   textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
   },
 
   textStyle2: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
   },
   modalText: {
     marginBottom: 0,
-    textAlign: 'center',
+    textAlign: "center",
   },
   ////// END OF ORDER MODAL //////////
 });

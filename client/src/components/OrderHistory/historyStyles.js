@@ -32,8 +32,8 @@ const historystyles = StyleSheet.create({
   },
 
   iconbutton: {
-    marginLeft: 351,
-    marginTop: -310,
+    // marginLeft: 351,
+    // marginTop: -310,
   },
 
   modalText:{
@@ -41,7 +41,7 @@ const historystyles = StyleSheet.create({
     fontFamily: "Oswald",
     fontWeight: 'bold',
     textAlign: 'left',
-    fontSize: 19, 
+    fontSize: 22, 
     backgroundColor: '#222126',
   }, 
 
@@ -50,6 +50,23 @@ const historystyles = StyleSheet.create({
     color: 'white',
     backgroundColor: '#222126',
 
+  },
+  quantityText:{
+    marginLeft: 250,
+    marginTop: -15,
+  },
+  priceText:{
+    marginLeft: 320,
+    marginTop: -18,
+  },
+  totalText:{
+    fontWeight: "bold",
+    marginLeft: 290,
+    fontSize: 15,
+  },
+  line:{
+    borderBottomColor: 'black',
+    borderBottomWidth: 1
   },
   xButton: {
     color: 'gray', 
