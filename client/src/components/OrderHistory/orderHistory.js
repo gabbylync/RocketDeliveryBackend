@@ -26,9 +26,12 @@ const OrderHistory = () => {
   const [data, setData] = useState(tableData);
   const [modalVisible, setModalVisible] = useState(false);
   const [orders, setOrders] = useState([]);
-  // selectedItem = ID
-  const [selectedItem, setSelectedItem] = useState(null);
 
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedStatus, setSelectedStatus] = useState(null);
+  const [selectedCourierID, setSelectedCourierID] = useState(null);
+  const [selectedproduct, setSelectedproduct] = useState(null);
+  console.log(selectedproduct)
   // 3 more states, one for status, etc
 
    // To set the value on Text
@@ -95,7 +98,7 @@ const renderItem = ({ item }) => (
   <>
     <View>
       <Text>
-        Name: {item.customer_name} {item.restaurant_name}{" "}
+        Restaurant: {item.restaurant_name}{" "}
       </Text>
     </View>
     <View>
@@ -103,7 +106,10 @@ const renderItem = ({ item }) => (
       <Pressable
         style={historystyles.iconbutton}
         onPress={() => { setModalVisible(true) 
-          setSelectedItem(item.id);
+          setSelectedItem(item.restaurant_name);
+          setSelectedStatus(item.status);
+          setSelectedCourierID(item.courier_id);
+          setSelectedproduct(item.orders.products.product_name)
           // setSelected_ (item.something)
         }}
       >
@@ -154,6 +160,9 @@ const renderItem = ({ item }) => (
                     style={historystyles.buttonClosed}
                     onPress={() => {setModalVisible(!modalVisible)
                       setSelectedItem(null);
+                      setSelectedStatus(null);
+                      setSelectedCourierID(null);
+                      setSelectedproduct(null);
                       // add setSelected_ to null  for when we close out it resets value
                     }}
                   >
@@ -162,13 +171,13 @@ const renderItem = ({ item }) => (
                   <Text style={historystyles.modalText}> </Text>
                   <Text style={historystyles.modalText}> Name: {selectedItem} </Text>
                   <Text style={historystyles.modalText2}>Order Date</Text>
-                  <Text style={historystyles.modalText2}> Status: </Text>
-                  <Text style={historystyles.modalText2}> Courier ID: </Text>
+                  <Text style={historystyles.modalText2}> Status: {selectedStatus}</Text>
+                  <Text style={historystyles.modalText2}> Courier ID: {selectedCourierID}</Text>
                   <Text style={historystyles.modalText}> </Text>
                   <br />
                   <Text style={historystyles.modalText3}>
                     {" "}
-                    Text with order items here{" "}
+                    {selectedproduct}{" "}
                   </Text>
                   <Text style={historystyles.quantityText}> x1 </Text>
                   <Text style={historystyles.priceText}> $ price </Text>

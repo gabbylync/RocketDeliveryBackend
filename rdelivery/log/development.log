@@ -39181,3 +39181,1420 @@ Processing by Api::OrdersController#index as */*
 Completed 200 OK in 69ms (Views: 1.2ms | ActiveRecord: 3.4ms | Allocations: 69566)
 
 
+Started POST "/api/login" for ::1 at 2023-04-21 20:31:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::AuthController#index as JSON
+  Parameters: {"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]", "auth"=>{"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "candida_walker@monahan-conroy.org"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (1.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (0.8ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 200 OK in 422ms (Views: 0.3ms | ActiveRecord: 3.7ms | Allocations: 20570)
+
+
+Started POST "/api/login" for ::1 at 2023-04-21 20:31:27 -0400
+Processing by Api::AuthController#index as JSON
+  Parameters: {"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]", "auth"=>{"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "candida_walker@monahan-conroy.org"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 200 OK in 399ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1711)
+
+
+Started GET "/api/orders?type=customer&id=5" for ::1 at 2023-04-21 20:31:40 -0400
+Processing by Api::OrdersController#index as */*
+  Parameters: {"type"=>"customer", "id"=>"5"}
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."customer_id" = ?[0m  [["customer_id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" IN (?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["id", 6], ["id", 4], ["id", 2], ["id", 1], ["id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCourier Load (0.9ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 7], ["id", 4], ["id", 1], ["id", 8], ["id", 2]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mProductOrder Load (0.8ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders" WHERE "product_orders"."order_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["order_id", 20], ["order_id", 22], ["order_id", 35], ["order_id", 36], ["order_id", 48], ["order_id", 51], ["order_id", 56], ["order_id", 73], ["order_id", 77], ["order_id", 81], ["order_id", 96], ["order_id", 98]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.3ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 20]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 22]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.1ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 35]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 36]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 48]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 51]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 56]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 73]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 77]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 81]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 96]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 98]]
+  ↳ app/models/order.rb:27:in `total_cost'
+Completed 200 OK in 145ms (Views: 1.0ms | ActiveRecord: 9.2ms | Allocations: 117113)
+
+
+Started GET "/api/orders?type=customer&id=5" for ::1 at 2023-04-21 20:40:57 -0400
+Processing by Api::OrdersController#index as */*
+  Parameters: {"type"=>"customer", "id"=>"5"}
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."customer_id" = ?[0m  [["customer_id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" IN (?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["id", 6], ["id", 4], ["id", 2], ["id", 1], ["id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCourier Load (0.9ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 7], ["id", 4], ["id", 1], ["id", 8], ["id", 2]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mProductOrder Load (0.4ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders" WHERE "product_orders"."order_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["order_id", 20], ["order_id", 22], ["order_id", 35], ["order_id", 36], ["order_id", 48], ["order_id", 51], ["order_id", 56], ["order_id", 73], ["order_id", 77], ["order_id", 81], ["order_id", 96], ["order_id", 98]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.1ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 20]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 22]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 35]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 36]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 48]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 51]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 56]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 73]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 77]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 81]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 96]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 98]]
+  ↳ app/models/order.rb:27:in `total_cost'
+Completed 200 OK in 62ms (Views: 1.0ms | ActiveRecord: 6.4ms | Allocations: 69991)
+
+
+Started POST "/api/login" for ::1 at 2023-04-21 21:20:45 -0400
+Processing by Api::AuthController#index as JSON
+  Parameters: {"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]", "auth"=>{"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "candida_walker@monahan-conroy.org"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (1.7ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 200 OK in 402ms (Views: 0.5ms | ActiveRecord: 3.8ms | Allocations: 1827)
+
+
+Started GET "/api/orders?type=customer&id=5" for ::1 at 2023-04-21 21:21:10 -0400
+Processing by Api::OrdersController#index as */*
+  Parameters: {"type"=>"customer", "id"=>"5"}
+  [1m[36mOrder Load (1.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."customer_id" = ?[0m  [["customer_id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" IN (?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["id", 6], ["id", 4], ["id", 2], ["id", 1], ["id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCourier Load (0.9ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 7], ["id", 4], ["id", 1], ["id", 8], ["id", 2]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mProductOrder Load (0.4ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders" WHERE "product_orders"."order_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["order_id", 20], ["order_id", 22], ["order_id", 35], ["order_id", 36], ["order_id", 48], ["order_id", 51], ["order_id", 56], ["order_id", 73], ["order_id", 77], ["order_id", 81], ["order_id", 96], ["order_id", 98]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.1ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 20]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 22]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 35]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 36]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 48]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 51]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 56]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 73]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 77]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 81]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 96]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 98]]
+  ↳ app/models/order.rb:27:in `total_cost'
+Completed 200 OK in 61ms (Views: 1.1ms | ActiveRecord: 6.0ms | Allocations: 69767)
+
+
+Started POST "/api/login" for ::1 at 2023-04-21 21:59:55 -0400
+Processing by Api::AuthController#index as JSON
+  Parameters: {"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]", "auth"=>{"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "candida_walker@monahan-conroy.org"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (2.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (0.9ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 200 OK in 410ms (Views: 0.8ms | ActiveRecord: 7.7ms | Allocations: 1783)
+
+
+Started GET "/api/orders?type=customer&id=5" for ::1 at 2023-04-21 21:59:58 -0400
+Processing by Api::OrdersController#index as */*
+  Parameters: {"type"=>"customer", "id"=>"5"}
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."customer_id" = ?[0m  [["customer_id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" IN (?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["id", 6], ["id", 4], ["id", 2], ["id", 1], ["id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCourier Load (0.1ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 7], ["id", 4], ["id", 1], ["id", 8], ["id", 2]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mProductOrder Load (0.4ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders" WHERE "product_orders"."order_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["order_id", 20], ["order_id", 22], ["order_id", 35], ["order_id", 36], ["order_id", 48], ["order_id", 51], ["order_id", 56], ["order_id", 73], ["order_id", 77], ["order_id", 81], ["order_id", 96], ["order_id", 98]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.1ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.5ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 20]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 22]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 35]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 36]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 48]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 51]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 56]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 73]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 77]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 81]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 96]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 98]]
+  ↳ app/models/order.rb:27:in `total_cost'
+Completed 200 OK in 73ms (Views: 1.1ms | ActiveRecord: 5.3ms | Allocations: 69764)
+
+
+Started POST "/api/login" for ::1 at 2023-04-21 22:19:29 -0400
+Processing by Api::AuthController#index as JSON
+  Parameters: {"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]", "auth"=>{"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "candida_walker@monahan-conroy.org"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (0.3ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (0.5ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 200 OK in 400ms (Views: 0.5ms | ActiveRecord: 2.4ms | Allocations: 1783)
+
+
+Started GET "/api/orders?type=customer&id=5" for ::1 at 2023-04-21 22:19:32 -0400
+Processing by Api::OrdersController#index as */*
+  Parameters: {"type"=>"customer", "id"=>"5"}
+  [1m[36mOrder Load (1.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."customer_id" = ?[0m  [["customer_id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" IN (?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["id", 6], ["id", 4], ["id", 2], ["id", 1], ["id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 7], ["id", 4], ["id", 1], ["id", 8], ["id", 2]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mProductOrder Load (0.4ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders" WHERE "product_orders"."order_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["order_id", 20], ["order_id", 22], ["order_id", 35], ["order_id", 36], ["order_id", 48], ["order_id", 51], ["order_id", 56], ["order_id", 73], ["order_id", 77], ["order_id", 81], ["order_id", 96], ["order_id", 98]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.1ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 20]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 22]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 35]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 36]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 48]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 51]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 56]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 73]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 77]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 81]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 96]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 98]]
+  ↳ app/models/order.rb:27:in `total_cost'
+Completed 200 OK in 70ms (Views: 1.1ms | ActiveRecord: 5.3ms | Allocations: 69767)
+
+
+Started POST "/api/login" for ::1 at 2023-04-21 22:20:42 -0400
+Processing by Api::AuthController#index as JSON
+  Parameters: {"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]", "auth"=>{"email"=>"candida_walker@monahan-conroy.org", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "candida_walker@monahan-conroy.org"], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:16:in `index'
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:23:in `index'
+  [1m[36mCourier Load (0.0ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."user_id" = ? LIMIT ?[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/auth_controller.rb:24:in `index'
+Completed 200 OK in 399ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 1549)
+
+
+Started GET "/api/orders?type=customer&id=5" for ::1 at 2023-04-21 22:20:44 -0400
+Processing by Api::OrdersController#index as */*
+  Parameters: {"type"=>"customer", "id"=>"5"}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."customer_id" = ?[0m  [["customer_id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" IN (?, ?, ?, ?, ?, ?)[0m  [["id", 8], ["id", 6], ["id", 4], ["id", 2], ["id", 1], ["id", 5]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCourier Load (0.2ms)[0m  [1m[34mSELECT "couriers".* FROM "couriers" WHERE "couriers"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 7], ["id", 4], ["id", 1], ["id", 8], ["id", 2]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mProductOrder Load (0.2ms)[0m  [1m[34mSELECT "product_orders".* FROM "product_orders" WHERE "product_orders"."order_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["order_id", 20], ["order_id", 22], ["order_id", 35], ["order_id", 36], ["order_id", 48], ["order_id", 51], ["order_id", 56], ["order_id", 73], ["order_id", 77], ["order_id", 81], ["order_id", 96], ["order_id", 98]]
+  ↳ app/controllers/api/orders_controller.rb:78:in `map'
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 20]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 22]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 35]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 36]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 48]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:94:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 51]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 56]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mOrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 73]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 77]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.1ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 81]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mAddress Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:92:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 96]]
+  ↳ app/models/order.rb:27:in `total_cost'
+  [1m[36mCACHE Customer Load (0.0ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:87:in `format'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:88:in `format'
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:89:in `format'
+  [1m[36mCACHE OrderStatus Load (0.0ms)[0m  [1m[34mSELECT "order_statuses".* FROM "order_statuses" WHERE "order_statuses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:95:in `format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:99:in `block in format'
+  [1m[36mProductOrder Sum (0.0ms)[0m  [1m[34mSELECT SUM(product_quantity * product_unit_cost) FROM "product_orders" WHERE "product_orders"."order_id" = ?[0m  [["order_id", 98]]
+  ↳ app/models/order.rb:27:in `total_cost'
+Completed 200 OK in 68ms (Views: 1.2ms | ActiveRecord: 3.3ms | Allocations: 69570)
+
+
