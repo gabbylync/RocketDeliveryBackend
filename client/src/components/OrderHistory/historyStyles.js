@@ -25,53 +25,59 @@ const historystyles = StyleSheet.create({
   },
   text: {
     margin: 6,
-    marginLeft: 30, 
+    marginLeft: 30,
     fontSize: 20,
     //  fontWeight: "bold",
     //   textAlign: "center"
   },
 
   iconbutton: {
-    // marginLeft: 351,
-    // marginTop: -310,
+    marginLeft: 375,
+    marginTop: -14,
   },
 
-  modalText:{
+  modalText: {
     color: "#DA583B",
     fontFamily: "Oswald",
-    fontWeight: 'bold',
-    textAlign: 'left',
-    fontSize: 22, 
-    backgroundColor: '#222126',
-  }, 
+    fontWeight: "bold",
+    textAlign: "left",
+    fontSize: 22,
+    backgroundColor: "#222126",
+  },
 
   modalText2: {
-    textAlign: 'left',
-    color: 'white',
-    backgroundColor: '#222126',
-
+    textAlign: "left",
+    color: "white",
+    backgroundColor: "#222126",
   },
-  quantityText:{
+  quantityText: {
     marginLeft: 250,
     marginTop: -15,
   },
-  priceText:{
+  priceText: {
     marginLeft: 320,
     marginTop: -18,
   },
-  totalText:{
+  totalText: {
     fontWeight: "bold",
     marginLeft: 290,
     fontSize: 15,
   },
-  line:{
-    borderBottomColor: 'black',
-    borderBottomWidth: 1
+  line: {
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
   },
   xButton: {
-    color: 'gray', 
+    color: "gray",
     fontSize: 25,
-  }
+  },
+  nameText: {
+    marginTop: 20,
+  },
+  statusText: {
+    marginLeft: 200,
+    marginTop: -51,
+  },
 });
 
 export default historystyles;
