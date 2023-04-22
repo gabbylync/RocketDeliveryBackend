@@ -30,8 +30,7 @@ const OrderHistory = () => {
   const [selectedStatus, setSelectedStatus] = useState(null);
   const [selectedCourierID, setSelectedCourierID] = useState(null);
   const [selectedproduct, setSelectedproduct] = useState(null);
-  console.log(selectedproduct);
-  // 3 more states, one for status, etc
+  // console.log(selectedproduct);
 
   // To set the value on Text
   const [getUserID, setGetuserID] = useState("");
@@ -66,6 +65,8 @@ const OrderHistory = () => {
       }
       console.log(data);
       console.log("orders.restaurant_name", data[0].restaurant_name);
+      console.log("total cost:", data[0].total_cost);
+      console.log("products:", data[0].products[0].product_name);
 
       setOrders(data);
       // console.log(orders);
@@ -75,10 +76,24 @@ const OrderHistory = () => {
   }, []);
   // console.log("orders:" , orders)
 
+  const productItem = ({ item }) => (
+    <>
+      <Text style={historystyles.modalText3}>
+                  {" "} 
+                  {item.product_name}{" "}
+                </Text>
+    <Text style={historystyles.quantityText}> x1 </Text>
+    <Text style={historystyles.priceText}> $ price </Text>
+    </>
+  );
+
   const renderItem = ({ item }) => (
     <>
       <View>
-        <Text style={historystyles.nameText}>  {"   "}   {item.restaurant_name} </Text>
+        <Text style={historystyles.nameText}>
+          {" "}
+          {"   "} {item.restaurant_name}{" "}
+        </Text>
         <br />
         <br />
         <Text style={historystyles.statusText}> {item.status} </Text>
@@ -91,7 +106,7 @@ const OrderHistory = () => {
             setSelectedItem(item.restaurant_name);
             setSelectedStatus(item.status);
             setSelectedCourierID(item.courier_id);
-            setSelectedproduct(item.orders.products.product_name);
+            setSelectedproduct(item.products.product_name);
             // setSelected_ (item.something)
           }}
         >
@@ -150,7 +165,9 @@ const OrderHistory = () => {
                   {" "}
                   Name: {selectedItem}{" "}
                 </Text>
-                <Text style={historystyles.modalText2}>Order Date</Text>
+                <Text style={historystyles.modalText2}>
+                  Order Date: 2/14/2023
+                </Text>
                 <Text style={historystyles.modalText2}>
                   {" "}
                   Status: {selectedStatus}
@@ -161,12 +178,20 @@ const OrderHistory = () => {
                 </Text>
                 <Text style={historystyles.modalText}> </Text>
                 <br />
-                <Text style={historystyles.modalText3}>
+                {/* <Text style={historystyles.modalText3}>
                   {" "}
                   {selectedproduct}{" "}
-                </Text>
-                <Text style={historystyles.quantityText}> x1 </Text>
-                <Text style={historystyles.priceText}> $ price </Text>
+                </Text> */}
+
+                <FlatList
+                  style={historystyles.orderhistroyList}
+                  data={orders.products}
+                  renderItem={productItem}
+                  keyExtractor={(item) => item.products.product_id}
+                />
+
+                {/* <Text style={historystyles.quantityText}> x1 </Text>
+                <Text style={historystyles.priceText}> $ price </Text> */}
                 <br />
                 <View style={historystyles.line} />
                 <br />
