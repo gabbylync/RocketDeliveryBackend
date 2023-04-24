@@ -1,3 +1,28 @@
+## WEEK 13 
+
+## The difference between Native and Cross-Platform mobile application
+
+  Native mobile applications are built for a specific mobile operating system such as iOS or Android using the tools and programming languages provided by the operating system's software development kit (SDK). This means that the code is written specifically for that platform and can take full advantage of the platform's capabilities. One way you could look at Native mobile apps is comparing them to toys in a toy box. Imagine a family has a new puppy and a one year old baby. The child has toys along wit the dog. The child's toys are made just for the child’s toy box, while dog’s toys are made just for the dogs toy box. You wouldn’t want to mix these toys up in different toy boxes because it wouldn’t be good for either the dog or the baby. Similarly, native apps are made specifically for a certain kind of phone. Some apps are made just for iPhones, while others are made just for Android phones. These apps work really well on their specific phones and take full advantage of all the cool features of that phone.
+  Cross-platform mobile apps, on the other hand, are like toys that can work in many different toy boxes. They are like Lego blocks that can be used to build different things. They are built to run on multiple mobile platforms using a single codebase. Cross-platform frameworks such as React Native, Xamarin, and Flutter allow developers to write code once and deploy it on multiple platforms. 
+  These applications can save development time and cost by eliminating the need for separate development teams for each platform. However, they may not provide the same level of performance or user experience as native applications. The choice between native and cross-platform development depends on several factors such as the project's scope, budget, and target audience. If the application requires high performance or requires access to platform-specific features, then native development may be a better option. If the application needs to be deployed quickly and across multiple platforms, then cross-platform development may be a better choice.
+
+
+## The difference between React Native and React.
+
+  React is a JavaScript library that allows developers to build user interfaces for web applications. It is mainly used for building web applications that run in a browser.
+  React Native is a framework for building mobile applications for iOS and Android using JavaScript and React. It is designed to make it easier for developers to build mobile apps while leveraging their existing knowledge of JavaScript and React.
+  Overall, React is a library for building web applications, while React Native is a framework for building native mobile applications for iOS and Android. React is used mainly for building web applications that run in a browser, while React Native is used for building mobile apps that run natively on a mobile device.
+
+## Download the wireframe template and briefly go over the functionalities of the mobile app. Roughly plan for which APIs should be utilized for the required app functionalities.
+
+We will start with the authentication page as our login page. Once you login with the correct email and password, you will be taken to the restaurants page which will show a list of all of the restaurants available to choose from. Once you choose a restaurant you want to order from, you will be taken to the restaurants menu/order page. Here, you will have the ability to choose the quantity of products you want from that specific restaurant. When, you click confirm order, the pop up modal will show you what you chose from the menu and will create that order for you. Finally, by clicking the footer button that says "order history”, you will be taken to a page that will show you all of your past and current orders in the app. Below are the API’s I’m going to utilize for each page. 
+
+	Authentication Page:  POST "login"
+	Restaurants Page:  GET “restaurants"
+	Restaurant Menu / Order Page:   GET “products”, POST "order"
+	Order History Page :  GET "orders"
+
+
 # RocketDeliveryBackend
 Week 11 Project 
 
