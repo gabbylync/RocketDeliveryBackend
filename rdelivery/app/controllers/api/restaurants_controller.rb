@@ -1,32 +1,30 @@
-module Api 
+module Api
     class RestaurantsController < ActionController::Base
         def index
-            #set rating and price_range from params 
-
             rating = params[:rating]
             price_range = params[:price_range]
-
-            # we set @restaurants to be all restaurants at first
-            # if no further parameters are give we will just return them all
-            @restaurants = Restaurant.all
-
-            #if price_range and rating is given
-            if price_range.present? && rating.present?
-
-                 #check if rating and price are in correct range
-                if (1..5).include?(rating.to_i) && (1..3).include?(price_range.to_i)
-                    # if rating and price are included, we use our method from the model
-                    # to select only restaurants where rating and price match
-                    # and we set that equal to @restaurants
-                    @restaurants = Restaurant.rating_and_price(rating, price_range)
-                else
-                    #if rating and price are out of range we send 422 error
+            if rating != nil && price_range != nil
+                r_int = rating.to_i
+                if r_int > 5 || r_int < 1
                     return render json: {error: "Invalid rating or price range" }, status: :unprocessable_entity
                 end
+                pr_int = price_range.to_i
+                if pr_int > 3 || pr_int < 1
+                    return render json: {error: "Invalid rating or price range" }, status: :unprocessable_entity
+                end
+                @restaurants  = Restaurant.rating_and_price(rating, price_range)
+            else
+                @restaurants  = Restaurant.all
+                grouped = []
+                @restaurants.each do |r|
+                    ave_rating = Order.where(restaurant_id: r.id).average(:restaurant_rating)
+                    # puts ave_rating
+                    ave_rating = ave_rating.round(0)
+                    grouped.push({restaurant: r, ave_rating: ave_rating})
+                end
+                return render json: grouped, status: :ok
             end
-
-            render json: @restaurants, status: :ok
-
-        end   
+            render json: @restaurants , status: :ok
+        end
     end
-end    
+end

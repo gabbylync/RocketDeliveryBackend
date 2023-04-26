@@ -34,7 +34,11 @@ export default function Login({ navigation }) {
                     setFail(false)
                     await AsyncStorage.setItem('@userid', json.customer_id)
                     console.log("login: ", json)
-                    navigation.navigate('Restaurant')
+                    navigation.navigate('Restaurant', {
+                        customer_id: json.customer_id,
+                        user_id: json.user_id,
+                        courier_id: json.courier_id,
+                    })
                 } else {
                     setEmail('')
                     setPassword('')
@@ -53,8 +57,7 @@ export default function Login({ navigation }) {
                     style={styles.logo}
                     source={require("../../assets/AppLogoV2.png")}
                 />
-                <br />
-                <br />
+               
                 <br />
                 <br />
                 <br />

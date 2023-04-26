@@ -19,47 +19,135 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons/faSortDown";
 import ForwardButton from "../ForwardButton/Forwardbutton";
 
-export default function Restaurants(props) {
-  const { navigation } = props;
-
-  //// this section for the the dropdown //////
-  const [countries, setCountries] = useState([]);
-  const [cities, setCities] = useState([]);
-  const citiesDropdownRef = useRef();
+export default function Restaurants({ route, navigation }) {
+  const { customer_id, user_id, courier_id } = route.params;
+  const [restaurants, setRestaurants] = useState([]);
+  const [ratings, setRatings] = useState([]);
+  const [prices, setPrices] = useState([]);
+  const [selectedRating, setSelectedRating] = useState(-1);
+  const [selectedPrice, setSelectedPrice] = useState(-1);
 
   useEffect(() => {
-    setTimeout(() => {
-      setCountries([
-        { title: "Egypt", cities: [{ title: "Cairo" }, { title: "Alex" }] },
-        {
-          title: "Canada",
-          cities: [{ title: "Toronto" }, { title: "Quebec City" }],
-        },
-      ]);
-    }, 1000);
+    const fetchRestaurants = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/restaurants");
+        const json = await response.json();
+        if (response && response.status === 200) {
+          setRestaurants(json);
+          console.log("fetchRestaurants: ", json);
+          const ratingsArr = json.map((item) => {
+            return { rating: item.ave_rating };
+          });
+          setRatings(flterDuplicateRatings(ratingsArr));
+          const pricesArr = json.map((item) => {
+            return { price: item.restaurant.price_range };
+          });
+          setPrices(flterDuplicatePrices(pricesArr));
+        } else {
+          console.error(response.status);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchRestaurants();
   }, []);
 
-  const onPressRecipe = (item) => {
-    navigation.navigate("Order", { item });
+  const flterDuplicateRatings = (arr) => {
+    return arr.filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.rating === value.rating)
+    );
   };
 
-  const renderRecipes = ({ item }) => (
-    <TouchableHighlight
-      underlayColor="rgba(73,182,77,0.9)"
-      onPress={() => onPressRecipe(item)}
-    >
-      <View style={styles.container}>
-        <Image style={homestyles.photo} source={{ uri: item.photo_url }} />
-        <br />
-        <Text style={homestyles.title}>{item.title}</Text>
+  const flterDuplicatePrices = (arr) => {
+    return arr.filter(
+      (value, index, self) =>
+        index === self.findIndex((t) => t.price === value.price)
+    );
+  };
 
-        <Text style={homestyles.category}>
-          {getCategoryName(item.categoryId)}
-        </Text>
-        <br />
-      </View>
-    </TouchableHighlight>
-  );
+  const getDisplayRestaurants = () => {
+    let display = filterRestaurantsByRating(restaurants);
+    console.log("filter: ", display);
+    display = filterRestaurantsByPrice(display);
+    console.log("display: ", display);
+    return display;
+  };
+
+  const filterRestaurantsByRating = (arr) => {
+    console.log("rating: ", selectedRating);
+    if (selectedRating < 0) {
+      return arr;
+    } else {
+      return arr.filter((item) => {
+        if (item.ave_rating === selectedRating.rating) {
+          return item;
+        }
+      });
+    }
+  };
+
+  const filterRestaurantsByPrice = (arr) => {
+    console.log("price: ", selectedPrice);
+    if (selectedPrice < 0) {
+      return arr;
+    } else {
+      return arr.filter((item) => {
+        if (item.restaurant.price_range === selectedPrice.price) {
+          return item;
+        }
+      });
+    }
+  };
+
+  let myphotos = [
+    "/cuisine_1.jpg",
+    "/cuisine_2.jpg",
+    "/cuisine_3.jpg",
+    "/cuisine_4.jpg",
+    "/cuisine_5.jpg",
+    "/cuisine_6.jpg",
+  ];
+  function photos(arr) {
+    const randomPhoto = Math.floor(Math.random() * arr.length);
+    const photo = arr[randomPhoto];
+
+    return photo;
+  }
+
+  //   const random = () => {
+  //     const i = Math.floor(Math.random() * 6) + 1
+  //     console.log('HOWDY', `../../../assets/cuisine_${random()}.jpg`)
+  //     return i
+  // }
+
+  const renderRestaurants = ({ item }) => {
+    return (
+      <TouchableHighlight
+        underlayColor="rgba(73,182,77,0.9)"
+        // onPress={() => navigation.navigate("Order")}
+        onPress={() =>
+          navigation.navigate("Order", {
+            item,
+            customer_id,
+            user_id,
+            courier_id,
+          })
+        }
+      >
+        <View style={styles.container}>
+          {/* <Image source={require(`../../../assets/cuisine_${random()}.jpg`)}  /> */}
+
+          <Image style={homestyles.photo} src={photos(myphotos)} />
+          <br />
+          <Text style={homestyles.title}>{item.restaurant.name}</Text>
+          <Text style={homestyles.category}>{item.ave_rating} stars</Text>
+          <br />
+        </View>
+      </TouchableHighlight>
+    );
+  };
 
   return (
     <>
@@ -73,19 +161,20 @@ export default function Restaurants(props) {
       <br />
       <View style={styles.dropdownsRow}>
         <SelectDropdown
-          data={countries}
+          data={ratings}
           onSelect={(selectedItem, index) => {
             console.log(selectedItem, index);
-            citiesDropdownRef.current.reset();
-            setCities([]);
-            setCities(selectedItem.cities);
+            // citiesDropdownRef.current.reset();
+            // setCities([]);
+            // setCities(selectedItem.cities);
+            setSelectedRating(selectedItem);
           }}
           defaultButtonText={"Rating"}
           buttonTextAfterSelection={(selectedItem, index) => {
-            return selectedItem.title;
+            return selectedItem.rating;
           }}
           rowTextForSelection={(item, index) => {
-            return item.title;
+            return item.rating;
           }}
           buttonStyle={styles.dropdown1BtnStyle}
           buttonTextStyle={styles.dropdown1BtnTxtStyle}
@@ -99,17 +188,17 @@ export default function Restaurants(props) {
         />
         <View style={styles.divider} />
         <SelectDropdown
-          ref={citiesDropdownRef}
-          data={cities}
+          data={prices}
           onSelect={(selectedItem, index) => {
             console.log(selectedItem, index);
+            setSelectedPrice(selectedItem);
           }}
           defaultButtonText={"Price"}
           buttonTextAfterSelection={(selectedItem, index) => {
-            return selectedItem.title;
+            return selectedItem.price;
           }}
           rowTextForSelection={(item, index) => {
-            return item.title;
+            return item.price;
           }}
           buttonStyle={styles.dropdown2BtnStyle}
           buttonTextStyle={styles.dropdown1BtnTxtStyle}
@@ -126,9 +215,9 @@ export default function Restaurants(props) {
           vertical
           showsVerticalScrollIndicator={false}
           numColumns={2}
-          data={recipes}
-          renderItem={renderRecipes}
-          keyExtractor={(item) => `${item.recipeId}`}
+          data={getDisplayRestaurants()}
+          renderItem={renderRestaurants}
+          keyExtractor={(item) => `${item.restaurant.id}`}
         />
       </View>
       <Footer />

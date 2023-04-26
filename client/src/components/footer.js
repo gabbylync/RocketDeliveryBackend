@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, View, StyleSheet, Image, Button } from "react-native";
+import { Text, View, StyleSheet, Image, Button, Pressable } from "react-native";
 import styles from "../../styles";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBurger } from "@fortawesome/free-solid-svg-icons/faBurger";
@@ -9,14 +9,22 @@ export default function Footer() {
   return (
     <View style={styles.containerFooter}>
     <View style={styles.footer}>
-      <View style={styles.iconContent}>
-        <FontAwesomeIcon icon={faBurger} />
+      {/* <View style={styles.iconContent}> */}
+        <Pressable
+          onPress={() => { navigation.navigate("Restaurant")  }}>
+        <FontAwesomeIcon style={styles.burgerIcon} icon={faBurger} />
+        <br/>
+        <br/>
         <Text style={styles.footerText}> Restaurants </Text>
-      </View>
-      <View style={styles.iconContent2}>
-        <FontAwesomeIcon icon={faClockRotateLeft} />
+        </Pressable>
+      {/* </View> */}
+      {/* <View style={styles.iconContent2}> */}
+        <Pressable 
+        onPress={() => { navigation.navigate("History")  }}>
+        <FontAwesomeIcon  style={styles.clockIcon} icon={faClockRotateLeft} />
         <Text style={styles.footerText2}> Order History</Text>
-      </View>
+        </Pressable>
+      {/* </View> */}
     </View>
     </ View>
   );

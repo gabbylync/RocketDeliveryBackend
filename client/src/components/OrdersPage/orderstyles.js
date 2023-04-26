@@ -4,12 +4,24 @@ const orderstyles = StyleSheet.create({
   categoriesItemContainer: {
     // flex: 1,
     margin: 10,
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
     height: 115,
     borderColor: "#cccccc",
     borderWidth: 0.5,
     borderRadius: 20,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+    // position: "absolute",
+    width: 20,
+    height: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 410,
+    marginTop: -90,
+    borderRadius: 80,
+    elevation: 8,
   },
   categoriesPhoto: {
     width: 130,
@@ -17,8 +29,10 @@ const orderstyles = StyleSheet.create({
     borderRadius: 5,
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
-    marginLeft: -280,
-    marginTop: 1,
+    // alignContent: 'left',
+    // justifyContent: 'left',
+    marginLeft: 30,
+    marginTop: 5,
     shadowColor: "blue",
     shadowOffset: {
       width: 0,
@@ -27,6 +41,26 @@ const orderstyles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 1.0,
     elevation: 3,
+  },
+  productText: {
+    marginLeft: 180,
+    marginTop: -80,
+    textAlign: "left",
+    fontFamily: "Oswald",
+    fontSize: 16,
+    
+  },
+  costText: {
+    marginLeft: 180,
+    marginTop: 5,
+    textAlign: "left",
+    fontFamily: "Oswald",
+    fontWeight: "bold",
+  },
+  quantity: {
+    flexDirection: "row",
+    marginLeft: 340,
+    marginTop: -150,
   },
   categoriesName: {
     // flex: 1,
@@ -43,7 +77,7 @@ const orderstyles = StyleSheet.create({
   },
   restaurantName: {
     fontFamily: "Oswald",
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
     marginLeft: 22,
   },
@@ -120,8 +154,7 @@ const orderstyles = StyleSheet.create({
   },
   modalText2: {
     fontWeight: "bold",
-    fontSize: 16, 
-
+    fontSize: 16,
   },
   quantityText: {
     marginLeft: 250,
@@ -135,20 +168,19 @@ const orderstyles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 290,
     fontSize: 15,
-   
   },
   moneyText: {
     fontFamily: "Oswald",
     marginLeft: 350,
   },
-  line:{
-    borderBottomColor: 'black',
-    borderBottomWidth: 1
+  line: {
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
   },
-  line2:{
-    borderBottomColor:`#dcdcdc`,
-    borderBottomWidth: 1
-  }
+  line2: {
+    borderBottomColor: `#dcdcdc`,
+    borderBottomWidth: 1,
+  },
 });
 
 export default orderstyles;

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   failedLogin: {
     color: "red",
     fontFamily: "Oswald",
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   welcomeText: {
     fontFamily: "Oswald",
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 350,
     height: 155,
-    marginTop: -250,
+    marginTop: -180,
     stretch: {
       width: 100,
       height: 100,
@@ -81,14 +81,14 @@ const styles = StyleSheet.create({
   dropdownsRow: {
     flexDirection: "row",
   },
-  iconContent: {
-    marginLeft: 70,
-    marginTop: -20,
-  },
-  iconContent2: {
-    marginLeft: 290,
-    marginTop: -42,
-  },
+  // iconContent: {
+  //   marginLeft: 70,
+  //   marginTop: -20,
+  // },
+  // iconContent2: {
+  //   marginLeft: 390,
+  //   marginTop: -22,
+  // },
   order: {
     padding: 10,
     width: "100%",
@@ -100,19 +100,27 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 1,
     padding: 40,
-    height: 5,
+    height: 2,
     borderWidth: 0.51,
     borderColor: `#dcdcdc`,
   },
+  burgerIcon: {
+    marginBottom: -70,
+    marginLeft: 61,
+  },
+  clockIcon: {
+    marginTop: -28,
+    marginLeft: 382,
+  },
   footerText: {
-    marginLeft: -32,
-    marginTop: 8,
+    marginLeft: 32,
+    marginTop: 33,
     fontFamily: "Oswald",
     fontSize: 15,
   },
   footerText2: {
-    marginLeft: -40,
-    marginTop: 5,
+    marginLeft: 345,
+    // marginTop: 35,
     fontFamily: "Oswald",
     fontSize: 15,
   },
