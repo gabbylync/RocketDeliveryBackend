@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBurger } from "@fortawesome/free-solid-svg-icons/faBurger";
 import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons/faClockRotateLeft";
 
-export default function Footer() {
+export default function Footer({navigation}) {
   return (
     <View style={styles.containerFooter}>
     <View style={styles.footer}>

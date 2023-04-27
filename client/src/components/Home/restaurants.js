@@ -101,26 +101,26 @@ export default function Restaurants({ route, navigation }) {
     }
   };
 
-  let myphotos = [
-    "/cuisine_1.jpg",
-    "/cuisine_2.jpg",
-    "/cuisine_3.jpg",
-    "/cuisine_4.jpg",
-    "/cuisine_5.jpg",
-    "/cuisine_6.jpg",
-  ];
-  function photos(arr) {
-    const randomPhoto = Math.floor(Math.random() * arr.length);
-    const photo = arr[randomPhoto];
+  // let myphotos = [
+  //   "/cuisine_1.jpg",
+  //   "/cuisine_2.jpg",
+  //   "/cuisine_3.jpg",
+  //   "/cuisine_4.jpg",
+  //   "/cuisine_5.jpg",
+  //   "/cuisine_6.jpg",
+  // ];
+  // function photos(arr) {
+  //   const randomPhoto = Math.floor(Math.random() * arr.length);
+  //   const photo = arr[randomPhoto];
 
-    return photo;
-  }
-
-  //   const random = () => {
-  //     const i = Math.floor(Math.random() * 6) + 1
-  //     console.log('HOWDY', `../../../assets/cuisine_${random()}.jpg`)
-  //     return i
+  //   return photo;
   // }
+
+    const random = () => {
+      const i = Math.floor(Math.random() * 6) + 1
+      console.log('HOWDY', `../../../assets/cuisine_${random()}.jpg`)
+      return i
+  }
 
   const renderRestaurants = ({ item }) => {
     return (
@@ -137,9 +137,10 @@ export default function Restaurants({ route, navigation }) {
         }
       >
         <View style={styles.container}>
-          {/* <Image source={require(`../../../assets/cuisine_${random()}.jpg`)}  /> */}
+          {/* <Image source={require(`../../assets/cuisine_${random()}.jpg`)}  /> */}
+          <Image  style={homestyles.photo} source={require(`../../../assets/cuisine_1.jpg`)}  />
 
-          <Image style={homestyles.photo} src={photos(myphotos)} />
+          {/* <Image style={homestyles.photo} src={photos(myphotos)} /> */}
           <br />
           <Text style={homestyles.title}>{item.restaurant.name}</Text>
           <Text style={homestyles.category}>{item.ave_rating} stars</Text>
@@ -220,7 +221,7 @@ export default function Restaurants({ route, navigation }) {
           keyExtractor={(item) => `${item.restaurant.id}`}
         />
       </View>
-      <Footer />
+      <Footer navigation={navigation}/>
     </>
   );
 }

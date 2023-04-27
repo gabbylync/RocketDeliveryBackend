@@ -18,8 +18,8 @@ const orderstyles = StyleSheet.create({
     height: 20,
     alignItems: "center",
     justifyContent: "center",
-    marginLeft: 410,
-    marginTop: -90,
+    marginLeft: 510,
+    marginTop: -60,
     borderRadius: 80,
     elevation: 8,
   },
@@ -45,15 +45,12 @@ const orderstyles = StyleSheet.create({
   productText: {
     marginLeft: 180,
     marginTop: -80,
-    textAlign: "left",
     fontFamily: "Oswald",
     fontSize: 16,
-    
   },
   costText: {
     marginLeft: 180,
     marginTop: 5,
-    textAlign: "left",
     fontFamily: "Oswald",
     fontWeight: "bold",
   },
@@ -79,12 +76,12 @@ const orderstyles = StyleSheet.create({
     fontFamily: "Oswald",
     fontSize: 20,
     fontWeight: "bold",
-    marginLeft: 22,
+    marginLeft: 42,
   },
   menuitemz: {
     fontFamily: "Oswald",
     fontSize: 16,
-    marginLeft: 25,
+    marginLeft: 45,
   },
   createOrder: {
     flexDirection: "row",
@@ -180,6 +177,21 @@ const orderstyles = StyleSheet.create({
   line2: {
     borderBottomColor: `#dcdcdc`,
     borderBottomWidth: 1,
+  },
+  modalText3: {
+    textAlign: "right",
+    fontWeight: "bold",
+  },
+
+  modalProducts: {
+    fontSize: 15,
+    fontFamily: "Oswald",
+  },
+  confirmText: {
+    textAlign: "center",
+  },
+  radiobuttons: {
+    marginLeft: 200,
   },
 });
 

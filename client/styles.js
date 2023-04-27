@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#ecf0f1",
+    // backgroundColor: "#ecf0f1",
   },
   emailText: {
     marginRight: 213,
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   button: {
     padding: 10,
     elevation: 2,
-    marginLeft: 250,
+    marginLeft: 590,
     bottom: 36,
     width: 150,
     height: 40,
@@ -167,18 +167,21 @@ const styles = StyleSheet.create({
   buttonClose: {
     backgroundColor: "#DA583B",
     width: 150,
-    height: 20,
+    height: 40,
+    marginLeft: 200
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
+  
   },
 
   textStyle2: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center",
+    marginTop: 10,
+    marginLeft: 50,
   },
   modalText: {
     marginBottom: 0,

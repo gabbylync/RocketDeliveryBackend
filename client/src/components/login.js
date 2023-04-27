@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import styles from "../../styles"
 import React, { useState } from 'react'
+import ForwardButton from "./ForwardButton/Forwardbutton"
 import {
     Button,
     TextInput,
@@ -52,6 +53,11 @@ export default function Login({ navigation }) {
     }
     return (
         <>
+          <ForwardButton
+        onPress={() => {
+          navigation.navigate("Courier");
+        }}
+      />
             <View style={styles.container}>
                 <Image
                     style={styles.logo}

@@ -20,6 +20,12 @@ import Footer from "../footer";
 import BackButton from "../BackButton/BackButton";
 import ForwardButton from "../ForwardButton/Forwardbutton";
 import historystyles from "../OrderHistory/historyStyles";
+import Toast from "react-native-toast-message";
+import RadioForm, {
+  RadioButton,
+  RadioButtonInput,
+  RadioButtonLabel,
+} from "react-native-simple-radio-button";
 
 export default function Order({ route, navigation }) {
   const { item, customer_id, user_id, courier_id } = route.params;
@@ -114,6 +120,7 @@ export default function Order({ route, navigation }) {
           });
         }
       });
+
       console.log("productsOrder: ", productsOrder);
       const response = await fetch("http://localhost:3000/api/order", {
         method: "POST",
@@ -130,7 +137,7 @@ export default function Order({ route, navigation }) {
       if (response && response.status === 201) {
         const json = await response.json();
         console.log("postOrder: ", json);
-        // reset()
+        // showToast()
       } else {
         console.log("response: ", response.status);
       }
@@ -150,8 +157,8 @@ export default function Order({ route, navigation }) {
   const renderOrderSummary = ({ item }) => {
     if (item.count > 0) {
       return (
-        <Text>
-          {item.name} {item.cost} X {item.count}
+        <Text styles={orderstyles.modalProducts}>
+          {item.name} X                                                       {item.count}                                                  ${item.cost}
         </Text>
       );
     }
@@ -171,44 +178,64 @@ export default function Order({ route, navigation }) {
 
   const renderCategory = ({ item }) => (
     <TouchableHighlight
-        underlayColor="rgba(73,182,77,0.9)"
-        onPress={() => onPressCategory(item)}
+      underlayColor="rgba(73,182,77,0.9)"
+      onPress={() => onPressCategory(item)}
     >
-        <View style={orderstyles.categoriesItemContainer}>
-            <Image
-                style={orderstyles.categoriesPhoto}
-                source={{ uri: getSource(item) }}
-            />
-            <View style={{ flex: 0.5 }}>
-                <Text style={orderstyles.productText}>{item.name}</Text>
-                <Text style={orderstyles.costText}>
-                     ${item.cost}
-                </Text>
-            </View>
-            <View style={orderstyles.buttonsContainer} >
-                <Button
-                    title="-"
-                    color="#222126"
-                    onPress={() => { handleDecrement(item.id) }}
-                />
-                
-                <Text>        {getCount(item.id)}        </Text>
-               
-                <Button
-                    title="+"
-                    color="#222126"
-                    onPress={() => { handleIncrement(item.id) }}
-                />
-            </View>
+      <View style={orderstyles.categoriesItemContainer}>
+        <Image
+          style={orderstyles.categoriesPhoto}
+          source={{ uri: getSource(item) }}
+        />
+        {/* <View style={{ flex: 0.5 }}> */}
+        <View>
+          <Text style={orderstyles.productText}>{item.name}</Text>
+          <Text style={orderstyles.costText}> $ {item.cost}</Text>
         </View>
+        <View style={orderstyles.buttonsContainer}>
+          <Button
+            title="-"
+            color="#222126"
+            onPress={() => {
+              handleDecrement(item.id);
+            }}
+          />
+
+          <Text> {getCount(item.id)} </Text>
+
+          <Button
+            title="+"
+            color="#222126"
+            onPress={() => {
+              handleIncrement(item.id);
+            }}
+          />
+        </View>
+      </View>
     </TouchableHighlight>
-)
+  );
   const getSource = (item) => {
     if (item.description == null) {
       return "https://i.ibb.co/YDXzP4r/Restaurant-Menu-1.png";
     }
     return item.description;
   };
+  var radio_props = [
+    { label: "param1", value: 0 },
+    { label: "param2", value: 1 },
+  ];
+
+  const [chosenOption, setChosenOption] = useState("apple"); //will store our current user options
+  const options = [
+    { label: "By Email   ", value: "apple" },
+  
+    { label: "By Phone", value: "samsung" },
+  ]; //create our options for radio group
+
+  Toast.show({
+    type: "info",
+    text1: "This is an info message",
+  });
+
   return (
     <>
       <ForwardButton
@@ -216,9 +243,10 @@ export default function Order({ route, navigation }) {
           navigation.navigate("History");
         }}
       />
-      <br />
+
       <Text style={styles.nearby}> RESTAURANT MENU</Text>
       <br />
+
       <Text style={orderstyles.restaurantName}> {item.restaurant.name}</Text>
       <Text style={orderstyles.menuitemz}>
         {" "}
@@ -242,28 +270,69 @@ export default function Order({ route, navigation }) {
           >
             <View style={styles.centered}>
               <View style={styles.modalView}>
-                <Text style={styles.modalText}>Order Confirmation</Text>
-                <Text style={styles.modalText2}>Order Summary</Text>
+                <Pressable
+                  style={orderstyles.buttonClosed}
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text style={orderstyles.xButton}>x</Text>
+                </Pressable>
+                <Text style={orderstyles.modalText}>{""} </Text>
+                <Text style={orderstyles.modalText}>Order Confirmation</Text>
+                <Text style={orderstyles.modalText}> {""} </Text>
+                <br />
+                <Text style={orderstyles.modalText2}>Order Summary</Text>
+                <br />
                 <FlatList
                   data={products}
                   renderItem={renderOrderSummary}
                   keyExtractor={(item) => `${item.id}`}
                 />
-                <Text style={styles.modalText3}> TOTAL: {orderTotal}</Text>
+                <br />
+                <View style={orderstyles.line} />
+                <br />
+                <Text style={orderstyles.modalText3}>
+                  {" "}
+                  TOTAL: ${orderTotal}
+                </Text>
+                <br />
+                <View style={orderstyles.line2} />
+                <br />
+                <Text style={orderstyles.confirmText}>
+                  {" "}
+                  Would you like to receive your order confirmation by email
+                  and/ or text?
+                </Text>
+                <br />
+                <View>
+                  {/* <Text> {chosenOption}</Text> */}
+                  <RadioForm
+                    style={orderstyles.radiobuttons}
+                    radio_props={options}
+                    formHorizontal={true}
+                    labelHorizontal={true}
+                    buttonColor={'#DA583B'}
+                    buttonInnerColor={'#DA583B'}
+                    buttonSize={20}
+                    initial={0} //initial value of this group
+                    onPress={(value) => {
+                      setChosenOption(value);
+                    }} //if the user changes options, set the new value
+                  />
+                </View>
                 <View style={{ flexDirection: "row" }}>
-                  <Pressable
-                    style={orderstyles.buttonClosed}
-                    onPress={() => setModalVisible(!modalVisible)}
-                  >
-                    <Text style={orderstyles.xButton}>x</Text>
-                  </Pressable>
                   <Text> </Text>
+
                   <Pressable
                     style={styles.buttonClose}
-                    onPress={() => postOrder()}
+                    onPressIn={() => postOrder()}
                   >
                     <Text style={styles.textStyle2}>Confirm</Text>
+
+                    <Toast position="bottom" bottomOffset={20} />
                   </Pressable>
+                  <br />
+                  <br />
+                  <br />
                 </View>
               </View>
             </View>
@@ -282,22 +351,9 @@ export default function Order({ route, navigation }) {
             renderItem={renderCategory}
             keyExtractor={(item) => `${item.id}`}
           />
-          {/* <TouchableOpacity
-            onPress={() => setCount((prevCount) => prevCount - 1)}
-            style={orderstyles.fab1}
-          >
-            <Text style={orderstyles.fabIcon1}> - </Text>
-          </TouchableOpacity>
-          <p style={orderstyles.count}> {count}</p>
-          <TouchableOpacity
-            onPress={() => setCount((prevCount) => prevCount + 1)}
-            style={orderstyles.fab2}
-          >
-            <Text style={orderstyles.fabIcon2}>+</Text>
-          </TouchableOpacity> */}
         </View>
       </View>
-      <Footer />
+      <Footer navigation={navigation} />
     </>
   );
 }

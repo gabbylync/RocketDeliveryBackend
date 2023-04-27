@@ -202,7 +202,7 @@ const OrderHistory = () => {
         </View>
       </View>
 
-      <Footer />
+      <Footer navigation={navigation} />
     </>
   );
 };
