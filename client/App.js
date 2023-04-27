@@ -9,6 +9,7 @@ import Order from "./src/components/OrdersPage/order";
 import OrderHistory from "./src/components/OrderHistory/orderHistory";
 import Account from "./src/components/AccountPage/accountPage";
 import Courier from "./src/components/CourierHome/courierHome";
+import CustomerAccount from "./src/components/CustomerAccountPage/customerAccount";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
@@ -50,7 +51,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
 
-      <Stack.Screen name="Login" component={Login} />
+      {/* <Stack.Screen name="Login" component={Login} /> */}
 
         {/* <Stack.Screen name="Account" component={Account} /> */}
        
@@ -68,6 +69,20 @@ export default function App() {
             ),
           }}
         /> */}
+         <Stack.Screen
+          name="CustomerAccount"
+          component={CustomerAccount}
+          options={{
+            headerTitle: (props) => <LogoTitle {...props} />,
+            headerRight: () => (
+              <Button
+                onPress={() => alert("This is a button!")}
+                title="LOGOUT"
+                color="#DA583B"
+              />
+            ),
+          }}
+        />
         <Stack.Screen
           name="Restaurant"
           component={Restaurants}
