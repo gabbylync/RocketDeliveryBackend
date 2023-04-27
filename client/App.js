@@ -10,6 +10,7 @@ import OrderHistory from "./src/components/OrderHistory/orderHistory";
 import Account from "./src/components/AccountPage/accountPage";
 import Courier from "./src/components/CourierHome/courierHome";
 import CustomerAccount from "./src/components/CustomerAccountPage/customerAccount";
+import CourierAccount from "./src/components/CourierAccountPage/courierAccount";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
@@ -69,6 +70,20 @@ export default function App() {
             ),
           }}
         /> */}
+          <Stack.Screen
+          name="CourierAccount"
+          component={CourierAccount}
+          options={{
+            headerTitle: (props) => <LogoTitle {...props} />,
+            headerRight: () => (
+              <Button
+                onPress={() => alert("This is a button!")}
+                title="LOGOUT"
+                color="#DA583B"
+              />
+            ),
+          }}
+        />
          <Stack.Screen
           name="CustomerAccount"
           component={CustomerAccount}
