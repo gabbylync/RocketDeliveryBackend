@@ -101,43 +101,33 @@ export default function Restaurants({ route, navigation }) {
     }
   };
 
-  // let myphotos = [
-  //   "/cuisine_1.jpg",
-  //   "/cuisine_2.jpg",
-  //   "/cuisine_3.jpg",
-  //   "/cuisine_4.jpg",
-  //   "/cuisine_5.jpg",
-  //   "/cuisine_6.jpg",
-  // ];
-  // function photos(arr) {
-  //   const randomPhoto = Math.floor(Math.random() * arr.length);
-  //   const photo = arr[randomPhoto];
+  let myphotos = [
+    "/cuisine_1.jpg",
+    "/cuisine_2.jpg",
+    "/cuisine_3.jpg",
+    "/cuisine_4.jpg",
+    "/cuisine_5.jpg",
+    "/cuisine_6.jpg",
+  ];
+  function photos(arr) {
+    const randomPhoto = Math.floor(Math.random() * arr.length);
+    const photo = arr[randomPhoto];
 
-  //   return photo;
-  // }
-
-    const random = () => {
-      const i = Math.floor(Math.random() * 6) + 1
-      return i
+    return photo;
   }
+
+console.log(photos(myphotos))
 
   const renderRestaurants = ({ item }) => {
     return (
       <TouchableHighlight
         underlayColor="rgba(73,182,77,0.9)"
         onPress={() => navigation.navigate("Order", { item })}
-        // onPress={() =>
-        //   navigation.navigate("Order", {
-        //     item,
-        //     customer_id,
-        //     user_id,
-        //     courier_id,
-        //   })
-        // }
+     
       >
         <View style={styles.container}>
-          {/* <Image source={require(`../../assets/cuisine_${random()}.jpg`)}  /> */}
-          <Image  style={homestyles.photo} source={require(`../../../assets/cuisine_1.jpg`)}  />
+        
+          <Image  style={homestyles.photo} source={require(`../../../assets${photos(myphotos)}`)}  />
 
           {/* <Image style={homestyles.photo} src={photos(myphotos)} /> */}
           <br />

@@ -39,11 +39,7 @@ export default function Login({ navigation }) {
                     await AsyncStorage.setItem('@customer', json.customer_id)
                     await AsyncStorage.setItem('@courier', json.courier_id)
                     console.log("login: ", json)
-                    navigation.navigate('Restaurant', {
-                        customer_id: json.customer_id,
-                        user_id: json.user_id,
-                        courier_id: json.courier_id,
-                    })
+                    navigation.navigate('Restaurant')
                 } else {
                     setEmail('')
                     setPassword('')

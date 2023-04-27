@@ -51,16 +51,16 @@ const historystyles = StyleSheet.create({
     backgroundColor: "#222126",
   },
   quantityText: {
-    marginLeft: 250,
+    marginLeft: 350,
     marginTop: -15,
   },
   priceText: {
-    marginLeft: 320,
+    marginLeft: 500,
     marginTop: -18,
   },
   totalText: {
     fontWeight: "bold",
-    marginLeft: 290,
+    marginLeft: 450,
     fontSize: 15,
   },
   line: {

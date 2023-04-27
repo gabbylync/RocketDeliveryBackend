@@ -192,6 +192,7 @@ const OrderHistory = ({ navigation }) => {
                 <View style={historystyles.line} />
                 <br />
                 <Text style={historystyles.totalText}>TOTAL: $ {selectedOrder && selectedOrder.total_cost} </Text>
+              <br/>
               </View>
             </View>
           </Modal>
