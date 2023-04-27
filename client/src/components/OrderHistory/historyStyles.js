@@ -32,7 +32,7 @@ const historystyles = StyleSheet.create({
   },
 
   iconbutton: {
-    marginLeft: 375,
+    marginLeft: 510,
     marginTop: -14,
   },
 
@@ -75,7 +75,7 @@ const historystyles = StyleSheet.create({
     marginTop: 20,
   },
   statusText: {
-    marginLeft: 200,
+    marginLeft: 268,
     marginTop: -51,
   },
 });

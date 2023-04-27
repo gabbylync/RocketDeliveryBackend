@@ -157,9 +157,12 @@ export default function Order({ route, navigation }) {
   const renderOrderSummary = ({ item }) => {
     if (item.count > 0) {
       return (
+        <>
         <Text styles={orderstyles.modalProducts}>
-          {item.name} X                                                       {item.count}                                                  ${item.cost}
-        </Text>
+          {item.name} </Text>
+         <Text style={orderstyles.quantityText}>  X   {item.count}</Text>     
+         <Text style={orderstyles.priceText}> ${item.cost}</Text>
+     </>
       );
     }
   };

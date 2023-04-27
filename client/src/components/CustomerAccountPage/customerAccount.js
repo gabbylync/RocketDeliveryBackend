@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, Button, TextInput, Pressable } from "react-native";
+import { Text, View, StyleSheet, Image, Button, TextInput, Pressable, ScrollView } from "react-native";
 import styles from "../../../styles";
 import customerstyles from "./customerStyles";
 import Footer from "../footer";
@@ -9,6 +9,7 @@ export default function CustomerAccount({ navigation }) {
   const [email, setEmail] = useState("");
   return (
     <>
+    <ScrollView>
     <View style={customerstyles.container}>
       <br />
       <br />
@@ -69,6 +70,7 @@ export default function CustomerAccount({ navigation }) {
           </Pressable>
 
     </View>
+    </ScrollView>
     <Footer navigation={navigation}/>
     </>
   );

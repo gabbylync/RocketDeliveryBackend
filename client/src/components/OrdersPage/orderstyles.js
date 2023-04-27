@@ -158,7 +158,7 @@ const orderstyles = StyleSheet.create({
     marginTop: -15,
   },
   priceText: {
-    marginLeft: 320,
+    marginLeft: 420,
     marginTop: -18,
   },
   totalText: {

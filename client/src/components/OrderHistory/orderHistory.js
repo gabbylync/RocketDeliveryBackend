@@ -21,19 +21,18 @@ const tableData = {
   tableHead: ["ORDER", "STATUS", "VIEW"],
 };
 
-const OrderHistory = () => {
+const OrderHistory = ({ navigation }) => {
   const [data, setData] = useState(tableData);
   const [modalVisible, setModalVisible] = useState(false);
   const [orders, setOrders] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState(null)
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState(null);
   const [selectedCourierID, setSelectedCourierID] = useState(null);
-  const [selectedproduct, setSelectedproduct] = useState(null);
+
   // console.log(selectedproduct);
 
-  // To set the value on Text
-  const [getUserID, setGetuserID] = useState("");
 
   const getcurrentCustomerId = async () => {
     try {
@@ -64,9 +63,7 @@ const OrderHistory = () => {
         window.alert(`Order with id ${id} and type ${type} not found`);
       }
       console.log(data);
-      console.log("orders.restaurant_name", data[0].restaurant_name);
-      console.log("total cost:", data[0].total_cost);
-      console.log("products:", data[0].products[0].product_name);
+    
 
       setOrders(data);
       // console.log(orders);
@@ -82,8 +79,8 @@ const OrderHistory = () => {
                   {" "} 
                   {item.product_name}{" "}
                 </Text>
-    <Text style={historystyles.quantityText}> x1 </Text>
-    <Text style={historystyles.priceText}> $ price </Text>
+    <Text style={historystyles.quantityText}> x {item.product_quantity} </Text>
+    <Text style={historystyles.priceText}> $ {item.unit_cost} </Text>
     </>
   );
 
@@ -103,11 +100,12 @@ const OrderHistory = () => {
           style={historystyles.iconbutton}
           onPress={() => {
             setModalVisible(true);
-            setSelectedItem(item.restaurant_name);
-            setSelectedStatus(item.status);
-            setSelectedCourierID(item.courier_id);
-            setSelectedproduct(item.products.product_name);
-            // setSelected_ (item.something)
+            setSelectedOrder(item)
+            // setSelectedItem(item.restaurant_name);
+            // setSelectedStatus(item.status);
+            // setSelectedCourierID(item.courier_id);
+            // setSelectedproduct(item.products.product_name);
+           
           }}
         >
           <FontAwesomeIcon icon={faMagnifyingGlassPlus} />
@@ -137,12 +135,12 @@ const OrderHistory = () => {
 
         <View style={styles.centeredView}>
           <Modal
-            // animationType="slide"
+            animationType="slide"
             transparent={true}
             visible={modalVisible}
             onRequestClose={() => {
-              Alert.alert("Modal has been closed.");
               setModalVisible(!modalVisible);
+              setSelectedOrder(null)
             }}
           >
             <View style={styles.centered}>
@@ -151,10 +149,8 @@ const OrderHistory = () => {
                   style={historystyles.buttonClosed}
                   onPress={() => {
                     setModalVisible(!modalVisible);
-                    setSelectedItem(null);
-                    setSelectedStatus(null);
-                    setSelectedCourierID(null);
-                    setSelectedproduct(null);
+                   
+                    setSelectedOrder(null)
                     // add setSelected_ to null  for when we close out it resets value
                   }}
                 >
@@ -163,18 +159,18 @@ const OrderHistory = () => {
                 <Text style={historystyles.modalText}> </Text>
                 <Text style={historystyles.modalText}>
                   {" "}
-                  Name: {selectedItem}{" "}
+                  Name:  {selectedOrder && selectedOrder.customer_name}{" "}
                 </Text>
                 <Text style={historystyles.modalText2}>
                   Order Date: 2/14/2023
                 </Text>
                 <Text style={historystyles.modalText2}>
                   {" "}
-                  Status: {selectedStatus}
+                  Status: {selectedOrder && selectedOrder.status}
                 </Text>
                 <Text style={historystyles.modalText2}>
                   {" "}
-                  Courier ID: {selectedCourierID}
+                  {selectedOrder && selectedOrder.courier_id && 'Courier ID:'} {selectedOrder && selectedOrder.courier_id}
                 </Text>
                 <Text style={historystyles.modalText}> </Text>
                 <br />
@@ -185,9 +181,9 @@ const OrderHistory = () => {
 
                 <FlatList
                   style={historystyles.orderhistroyList}
-                  data={orders.products}
+                  data={selectedOrder && selectedOrder.products}
                   renderItem={productItem}
-                  keyExtractor={(item) => item.products.product_id}
+                  keyExtractor={(item) => item.product_id}
                 />
 
                 {/* <Text style={historystyles.quantityText}> x1 </Text>
@@ -195,7 +191,7 @@ const OrderHistory = () => {
                 <br />
                 <View style={historystyles.line} />
                 <br />
-                <Text style={historystyles.totalText}>TOTAL: $ Total </Text>
+                <Text style={historystyles.totalText}>TOTAL: $ {selectedOrder && selectedOrder.total_cost} </Text>
               </View>
             </View>
           </Modal>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, Button, TextInput, Pressable } from "react-native";
+import { Text, View, StyleSheet, Image, Button, TextInput, Pressable, ScrollView } from "react-native";
 import styles from "../../../styles";
 import courierstyles from "./courierStyles";
 import Footer from "../footer";
@@ -9,6 +9,7 @@ export default function CourierAccount({ navigation }) {
   const [email, setEmail] = useState("");
   return (
     <>
+    <ScrollView>
     <View style={courierstyles.container}>
       <br />
       <br />
@@ -69,6 +70,7 @@ export default function CourierAccount({ navigation }) {
           </Pressable>
 
     </View>
+    </ScrollView>
     <Footer navigation={navigation}/>
     </>
   );

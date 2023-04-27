@@ -70,7 +70,7 @@ export default function App() {
             ),
           }}
         /> */}
-          <Stack.Screen
+           <Stack.Screen
           name="CourierAccount"
           component={CourierAccount}
           options={{
@@ -83,7 +83,7 @@ export default function App() {
               />
             ),
           }}
-        />
+        /> 
          <Stack.Screen
           name="CustomerAccount"
           component={CustomerAccount}
@@ -97,7 +97,7 @@ export default function App() {
               />
             ),
           }}
-        />
+        /> 
         <Stack.Screen
           name="Restaurant"
           component={Restaurants}
