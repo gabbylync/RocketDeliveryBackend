@@ -20,7 +20,7 @@ import { faSortDown } from "@fortawesome/free-solid-svg-icons/faSortDown";
 import ForwardButton from "../ForwardButton/Forwardbutton";
 
 export default function Restaurants({ route, navigation }) {
-  const { customer_id, user_id, courier_id } = route.params;
+  // const { customer_id, user_id, courier_id } = route.params;
   const [restaurants, setRestaurants] = useState([]);
   const [ratings, setRatings] = useState([]);
   const [prices, setPrices] = useState([]);
@@ -118,7 +118,6 @@ export default function Restaurants({ route, navigation }) {
 
     const random = () => {
       const i = Math.floor(Math.random() * 6) + 1
-      console.log('HOWDY', `../../../assets/cuisine_${random()}.jpg`)
       return i
   }
 
@@ -126,15 +125,15 @@ export default function Restaurants({ route, navigation }) {
     return (
       <TouchableHighlight
         underlayColor="rgba(73,182,77,0.9)"
-        // onPress={() => navigation.navigate("Order")}
-        onPress={() =>
-          navigation.navigate("Order", {
-            item,
-            customer_id,
-            user_id,
-            courier_id,
-          })
-        }
+        onPress={() => navigation.navigate("Order", { item })}
+        // onPress={() =>
+        //   navigation.navigate("Order", {
+        //     item,
+        //     customer_id,
+        //     user_id,
+        //     courier_id,
+        //   })
+        // }
       >
         <View style={styles.container}>
           {/* <Image source={require(`../../assets/cuisine_${random()}.jpg`)}  /> */}

@@ -10,9 +10,11 @@ import {
     Image,
 } from "react-native"
 export default function Login({ navigation }) {
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [fail, setFail] = useState(false)
+
     const loginPost = async () => {
         try {
             if (email !== '' || password !== '') {
@@ -34,6 +36,8 @@ export default function Login({ navigation }) {
                     setPassword('')
                     setFail(false)
                     await AsyncStorage.setItem('@userid', json.customer_id)
+                    await AsyncStorage.setItem('@customer', json.customer_id)
+                    await AsyncStorage.setItem('@courier', json.courier_id)
                     console.log("login: ", json)
                     navigation.navigate('Restaurant', {
                         customer_id: json.customer_id,

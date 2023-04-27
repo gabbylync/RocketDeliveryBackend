@@ -52,7 +52,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
 
-      {/* <Stack.Screen name="Login" component={Login} /> */}
+      <Stack.Screen name="Login" component={Login} />
 
         {/* <Stack.Screen name="Account" component={Account} /> */}
        
@@ -70,7 +70,7 @@ export default function App() {
             ),
           }}
         /> */}
-           <Stack.Screen
+           {/* <Stack.Screen
           name="CourierAccount"
           component={CourierAccount}
           options={{
@@ -97,7 +97,7 @@ export default function App() {
               />
             ),
           }}
-        /> 
+        />  */}
         <Stack.Screen
           name="Restaurant"
           component={Restaurants}

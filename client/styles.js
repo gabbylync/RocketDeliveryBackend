@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     // borderWidth: 0.51,
     width: 150,
     height: 40,
-    marginLeft: 45,
+    marginLeft: 75,
   },
   logout: {
     width: 30,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     // borderWidth: 0.51,
     width: 150,
     height: 40,
-    marginLeft: 73,
+    marginLeft: 213,
   },
   dropdown1BtnTxtStyle: {
     color: "#FFFFFF",

@@ -21,6 +21,7 @@ import BackButton from "../BackButton/BackButton";
 import ForwardButton from "../ForwardButton/Forwardbutton";
 import historystyles from "../OrderHistory/historyStyles";
 import Toast from "react-native-toast-message";
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import RadioForm, {
   RadioButton,
   RadioButtonInput,
@@ -28,8 +29,8 @@ import RadioForm, {
 } from "react-native-simple-radio-button";
 
 export default function Order({ route, navigation }) {
-  const { item, customer_id, user_id, courier_id } = route.params;
-  console.log(item, customer_id, user_id, courier_id);
+  const { item } = route.params;
+
   const [modalVisible, setModalVisible] = useState(false);
   const [products, setProducts] = useState([]);
   const [orderTotal, setOrderTotal] = useState(0);
@@ -122,6 +123,7 @@ export default function Order({ route, navigation }) {
       });
 
       console.log("productsOrder: ", productsOrder);
+      const customer_id = await AsyncStorage.getItem("@customer")
       const response = await fetch("http://localhost:3000/api/order", {
         method: "POST",
         headers: {
@@ -137,22 +139,31 @@ export default function Order({ route, navigation }) {
       if (response && response.status === 201) {
         const json = await response.json();
         console.log("postOrder: ", json);
-        // showToast()
+        reset()
       } else {
+        // showErrorToast()
         console.log("response: ", response.status);
       }
     } catch (error) {
+     
+      // setInterval(() => {
+      //   setModalVisible(!modalVisible)
+      // }, 5000);
       console.error(error);
     }
-    // setModalVisible(!modalVisible)
+    showToast()
+    setInterval(() => {
+      setModalVisible(!modalVisible)
+    }, 5000);
+   
   };
 
-  // const reset = () => {
-  //   setOrderTotal(0);
-  //   products.forEach((product) => {
-  //     product.count = 0;
-  //   });
-  // };
+  const reset = () => {
+    setOrderTotal(0);
+    products.forEach((product) => {
+      product.count = 0;
+    });
+  };
 
   const renderOrderSummary = ({ item }) => {
     if (item.count > 0) {
@@ -234,10 +245,45 @@ export default function Order({ route, navigation }) {
     { label: "By Phone", value: "samsung" },
   ]; //create our options for radio group
 
-  Toast.show({
-    type: "info",
-    text1: "This is an info message",
-  });
+  const showToast = () => {
+    Toast.show({
+      type: 'success',
+      text1: 'Thank You!',
+      text2: 'Your order has been received.✅ ',
+      text1Style: {
+        fontSize: 55,
+        fontWeight: '400'
+      } ,
+      text2Style: {
+        fontSize: 35,
+        fontWeight: '400'
+      } ,
+      position: 'top',
+      // bottomOffset: 20,
+      visibilityTime: 6000,
+      autoHide: true
+    });
+  };
+
+  const showErrorToast = () => {
+    Toast.show({
+      type: 'error',
+      text1: 'Your order was not processed successfully.',
+      text2: 'Please Try Again.❌ ',
+      text1Style: {
+        fontSize: 55,
+        fontWeight: '400'
+      } ,
+      text2Style: {
+        fontSize: 35,
+        fontWeight: '400'
+      } ,
+      position: 'top',
+      // bottomOffset: 20,
+      visibilityTime: 6000,
+      autoHide: true
+    });
+  }
 
   return (
     <>
@@ -267,7 +313,8 @@ export default function Order({ route, navigation }) {
             transparent={true}
             visible={modalVisible}
             onRequestClose={() => {
-              Alert.alert("Modal has been closed.");
+              showErrorToast()
+              // Alert.alert("Modal has been closed.");
               setModalVisible(!modalVisible);
             }}
           >
@@ -275,8 +322,11 @@ export default function Order({ route, navigation }) {
               <View style={styles.modalView}>
                 <Pressable
                   style={orderstyles.buttonClosed}
-                  onPress={() => setModalVisible(!modalVisible)}
+                  onPressIn={() => showErrorToast()}
+                
+                  onPress={() => setInterval(() => {setModalVisible(!modalVisible)}, 5000)}
                 >
+     
                   <Text style={orderstyles.xButton}>x</Text>
                 </Pressable>
                 <Text style={orderstyles.modalText}>{""} </Text>
@@ -327,18 +377,21 @@ export default function Order({ route, navigation }) {
 
                   <Pressable
                     style={styles.buttonClose}
-                    onPressIn={() => postOrder()}
+                    onPress={() => postOrder()}
+            
                   >
                     <Text style={styles.textStyle2}>Confirm</Text>
 
-                    <Toast position="bottom" bottomOffset={20} />
+                    {/* <Toast position="bottom" bottomOffset={20} /> */}
                   </Pressable>
+                  {/* <Toast position="bottom" bottomOffset={20} /> */}
                   <br />
                   <br />
                   <br />
                 </View>
               </View>
             </View>
+             <Toast position="bottom" bottomOffset={20} />
           </Modal>
           <Pressable
             style={styles.button}
