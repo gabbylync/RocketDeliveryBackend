@@ -1,7 +1,10 @@
 module Api 
     class OrdersController < ActionController::Base
 
+
         skip_before_action :verify_authenticity_token
+    
+        include ApiHelper
         
         def status #this is for updating order by id 
 
@@ -49,6 +52,7 @@ module Api
             end
             restaurant = Restaurant.find_by(id: restaurant_id)
             customer = Customer.find_by(id: customer_id)
+
             # Validate foreign keys exists
             unless restaurant && customer
                 return render_422_error("Invalid restaurant or customer ID")
@@ -67,7 +71,10 @@ module Api
                 end
                 order.product_orders.create!(product_id: product.id, product_quantity: product_params[:quantity].to_i, product_unit_cost: product.cost)
             end
+            send_sms(order.customer.user.name, order.)
+        
             render json: format(order), status: :created
+              
         end
 
 
@@ -90,25 +97,6 @@ module Api
            
         end 
 
-
-
-        def index #this is for getting all of the orders
-             type = params[:type]
-             id = params[:id]
-
-            #if type not present 
-             unless type.present? && id.present? 
-                return render json: {error: "Both 'user type' and 'id' parameters are required" }, status: :bad_request
-             end   
-            #422 error: if user type is invalid
-            unless type.in?(["customer", "restaurant", "courier"])
-                return render json: {error: "Invalid user type" }, status: :unprocessable_entity
-            end
-            #200 : send back empty array if no id found (calling orders model here)
-            orders = Order.user_orders(type, id)
-            render json: orders.map(&method(:format)), status: :ok
-           
-        end 
 
         private 
 

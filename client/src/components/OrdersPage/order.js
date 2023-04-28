@@ -233,7 +233,7 @@ export default function Order({ route, navigation }) {
     }
     return item.description;
   };
-  var radio_props = [
+  const radio_props = [
     { label: "param1", value: 0 },
     { label: "param2", value: 1 },
   ];

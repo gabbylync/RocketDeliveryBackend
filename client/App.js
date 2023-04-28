@@ -62,7 +62,7 @@ export default function App() {
             headerTitle: (props) => <LogoTitle {...props} />,
             headerRight: () => (
               <Button
-                onPress={() => alert("This is a button!")}
+                onPress={() =>navigation.navigate('Login')}
                 title="LOGOUT"
                 color="#DA583B"
               />
@@ -76,7 +76,7 @@ export default function App() {
             headerTitle: (props) => <LogoTitle {...props} />,
             headerRight: () => (
               <Button
-                onPress={() => alert("This is a button!")}
+                onPress={() => navigation.navigate('Login')}
                 title="LOGOUT"
                 color="#DA583B"
               />
@@ -91,7 +91,7 @@ export default function App() {
             headerTitle: (props) => <LogoTitle {...props} />,
             headerRight: () => (
               <Button
-                onPress={() => alert("This is a button!")}
+                onPress={() => navigation.navigate('Login')}
                 title="LOGOUT"
                 color="#DA583B"
               />
@@ -105,7 +105,7 @@ export default function App() {
             headerTitle: (props) => <LogoTitle {...props} />,
             headerRight: () => (
               <Button
-                onPress={() => alert("This is a button!")}
+                onPress={() => navigation.navigate('Login')}
                 title="LOGOUT"
                 color="#DA583B"
               />
@@ -120,7 +120,7 @@ export default function App() {
             headerTitle: (props) => <LogoTitle {...props} />,
             headerRight: () => (
               <Button
-                onPress={() => alert("This is a button!")}
+                onPress={() => navigation.navigate('Login')}
                 title="LOGOUT"
                 color="#DA583B"
               />
@@ -134,7 +134,7 @@ export default function App() {
             headerTitle: (props) => <LogoTitle {...props} />,
             headerRight: () => (
               <Button
-                onPress={() => alert("This is a button!")}
+                onPress={() => navigation.navigate('Login')}
                 title="LOGOUT"
                 color="#DA583B"
               />
