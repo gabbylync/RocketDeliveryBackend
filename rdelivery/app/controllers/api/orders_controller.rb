@@ -124,6 +124,7 @@ module Api
                 courier_id: order.courier&.id,
                 courier_name: order.courier&.user&.name,
                 status: order.order_status.name,
+                created_at: order.created_at,
             
                 products: order.product_orders.map do |po| 
                 { 

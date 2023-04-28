@@ -109,8 +109,12 @@ const styles = StyleSheet.create({
     marginLeft: 61,
   },
   clockIcon: {
-    marginTop: -28,
-    marginLeft: 382,
+    marginTop: -32,
+    marginLeft: 282,
+  },
+  iconContent3: {
+    marginLeft: 490,
+    marginTop: -29,
   },
   footerText: {
     marginLeft: 32,
@@ -119,8 +123,14 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   footerText2: {
-    marginLeft: 345,
-    // marginTop: 35,
+    marginLeft: 470,
+    // marginTop: -15,
+    fontFamily: "Oswald",
+    fontSize: 15,
+  },
+  footerText3: {
+    marginLeft: 241,
+    marginTop: -15,
     fontFamily: "Oswald",
     fontSize: 15,
   },
@@ -168,13 +178,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#DA583B",
     width: 150,
     height: 40,
-    marginLeft: 200
+    marginLeft: 200,
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
-  
   },
 
   textStyle2: {

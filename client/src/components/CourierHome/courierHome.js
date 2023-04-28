@@ -24,15 +24,9 @@ const tableData = {
 };
 export default function Courier({ route, navigation }) {
   const [data, setData] = useState(tableData);
-
   const [modalVisible, setModalVisible] = useState(false);
   const [orders, setOrders] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [selectedStatus, setSelectedStatus] = useState(null);
-  const [selectedCourierID, setSelectedCourierID] = useState(null);
-  const [selectedproduct, setSelectedproduct] = useState(null);
-
-  const [getUserID, setGetuserID] = useState("");
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
   const getcurrentCustomerId = async () => {
     try {
@@ -43,43 +37,36 @@ export default function Courier({ route, navigation }) {
     }
   };
 
-  ////////// GET orders //////////////////////////////////
-
   useEffect(() => {
     async function fetchOrders() {
-      const customerId = await getcurrentCustomerId();
-
-      const response = await fetch(
-        `http://localhost:3000/api/orders?type=customer&id=${customerId}`
-      );
-
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
+      try {
+        const courier_id = await AsyncStorage.getItem("@courier");
+        console.log("courier_id: ", courier_id);
+        const response = await fetch(
+          `http://localhost:3000/api/orders?type=courier&user_id=${courier_id}`
+        );
+        if (response.ok) {
+          const json = await response.json();
+          if (json) {
+            console.log(json);
+            setOrders(json);
+          }
+        }
+      } catch (error) {
+        console.error(error);
       }
-      const data = await response.json();
-      if (!data) {
-        window.alert(`Order with id ${id} and type ${type} not found`);
-      }
-      console.log(data);
-      console.log("orders.restaurant_name", data[0].restaurant_name);
-      console.log("total cost:", data[0].total_cost);
-      console.log("products:", data[0].products[0].product_name);
-
-      setOrders(data);
-      // console.log(orders);
     }
-
     fetchOrders();
   }, []);
-  // console.log("orders:" , orders)
 
   const productItem = ({ item }) => (
     <>
-      <Text style={courierstyles.modalText3}> {item.product_name} </Text>
-      <Text style={courierstyles.quantityText}> x1 </Text>
-      <Text style={courierstyles.priceText}> $ price </Text>
+      <Text style={historystyles.modalText3}> {item.product_name} </Text>
+      <Text style={historystyles.quantityText}>
+        {" "}
+        x {item.product_quantity}{" "}
+      </Text>
+      <Text style={historystyles.priceText}> $ {item.unit_cost} </Text>
     </>
   );
 
@@ -88,8 +75,11 @@ export default function Courier({ route, navigation }) {
       <View>
         <Text style={courierstyles.nameText}>
           {" "}
-          {"   "} {item.restaurant_name}{" "}
+          {"   "} {item.id}{" "}
         </Text>
+        <br />
+        <br />
+        <Text style={courierstyles.statusText}> {item.customer_address} </Text>
         <br />
         <br />
         <Text style={courierstyles.statusText}> {item.status} </Text>
@@ -99,11 +89,8 @@ export default function Courier({ route, navigation }) {
           style={courierstyles.iconbutton}
           onPress={() => {
             setModalVisible(true);
-            setSelectedItem(item.restaurant_name);
-            setSelectedStatus(item.status);
-            setSelectedCourierID(item.courier_id);
-            setSelectedproduct(item.products.product_name);
-            // setSelected_ (item.something)
+            setSelectedOrder(item);
+            
           }}
         >
           <FontAwesomeIcon icon={faMagnifyingGlassPlus} />
@@ -113,91 +100,84 @@ export default function Courier({ route, navigation }) {
   );
   return (
     <>
-    <View style={courierstyles.container}>
-      <br />
-      <br />
-      <Text style={courierstyles.headertext}> MY DELIVERIES </Text>
-      <br />
-      <Row
-        data={data.tableHead}
-        style={courierstyles.head}
-        textStyle={courierstyles.headText}
-      />
+      <View style={courierstyles.container}>
+        <Text style={courierstyles.myOrders}> MY DELIVERIES </Text>
+        <br />
+        <Row
+          data={data.tableHead}
+          style={courierstyles.head}
+          textStyle={courierstyles.headText}
+        />
+        <br />
 
-      <FlatList
-        style={courierstyles.orderhistroyList}
-        data={orders}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-      />
+        <FlatList
+          style={historystyles.orderhistroyList}
+          data={orders}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+        />
 
-      <View style={styles.centeredView}>
-        <Modal
-          // animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            setModalVisible(!modalVisible);
-          }}
-        >
-          <View style={styles.centered}>
-            <View style={styles.modalView}>
-              <Pressable
-                style={courierstyles.buttonClosed}
-                onPress={() => {
-                  setModalVisible(!modalVisible);
-                  setSelectedItem(null);
-                  setSelectedStatus(null);
-                  setSelectedCourierID(null);
-                  setSelectedproduct(null);
-                  // add setSelected_ to null  for when we close out it resets value
-                }}
-              >
-                <Text style={courierstyles.xButton}>x</Text>
-              </Pressable>
-              <Text style={courierstyles.modalText}> </Text>
-              <Text style={courierstyles.modalText}>
-                {" "}
-                Name: {selectedItem}{" "}
-              </Text>
-              <Text style={courierstyles.modalText2}>
-                Order Date: 2/14/2023
-              </Text>
-              <Text style={courierstyles.modalText2}>
-                {" "}
-                Status: {selectedStatus}
-              </Text>
-              <Text style={courierstyles.modalText2}>
-                {" "}
-                Courier ID: {selectedCourierID}
-              </Text>
-              <Text style={courierstyles.modalText}> </Text>
-              <br />
-              {/* <Text style={historystyles.modalText3}>
-          {" "}
-          {selectedproduct}{" "}
-        </Text> */}
+        <View style={styles.centeredView}>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              setModalVisible(!modalVisible);
+              // setSelectedOrder(null);
+            }}
+          >
+            <View style={styles.centered}>
+              <View style={styles.modalView}>
+                <Pressable
+                  style={historystyles.buttonClosed}
+                  onPress={() => {
+                    setModalVisible(!modalVisible);
 
-              <FlatList
-                style={courierstyles.orderhistroyList}
-                data={orders.products}
-                renderItem={productItem}
-                keyExtractor={(item) => item.products.product_id}
-              />
+                    setSelectedOrder(null);
+                
+                  }}
+                >
+                  <Text style={courierstyles.xButton}>x</Text>
+                </Pressable>
+                <Text style={courierstyles.modalText}> </Text>
+                <Text style={courierstyles.modalText}> DELIVERY DETAILS </Text>
 
-              {/* <Text style={historystyles.quantityText}> x1 </Text>
-        <Text style={historystyles.priceText}> $ price </Text> */}
-              <br />
-              <View style={courierstyles.line} />
-              <br />
-              <Text style={courierstyles.totalText}>TOTAL: $ Total </Text>
+                <Text style={courierstyles.modalText2}> Status:</Text>
+
+                <Text style={courierstyles.modalText}> </Text>
+                <br />
+                <Text style={courierstyles.modalText4}>
+                  {" "}
+                  Delivery Address:{" "}
+                </Text>
+                <Text style={courierstyles.modalText4}> Restaurant: </Text>
+                <Text style={courierstyles.modalText4}> Order Date: </Text>
+                <br />
+                <Text style={courierstyles.modalText5}> Order Details: </Text>
+                <FlatList
+                  style={historystyles.orderhistroyList}
+                  data={selectedOrder && selectedOrder.products}
+                  renderItem={productItem}
+                  keyExtractor={(item) => item.product_id}
+                />
+
+                {/* <Text style={historystyles.quantityText}> x1 </Text>
+                <Text style={historystyles.priceText}> $ price </Text> */}
+                <br />
+                <View style={historystyles.line} />
+                <br />
+                <Text style={historystyles.totalText}>
+                  TOTAL: $ {selectedOrder && selectedOrder.total_cost}{" "}
+                </Text>
+                <br />
+              </View>
             </View>
-          </View>
-        </Modal>
+          </Modal>
+        </View>
       </View>
-    </View>
-    <Footer navigation={navigation} />
+
+      <Footer navigation={navigation} />
     </>
   );
 }

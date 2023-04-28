@@ -3,15 +3,16 @@ import { Text, View, StyleSheet, Image, Button, TouchableOpacity } from "react-n
 import accountstyles from "./accountStyles";
 import styles from "../../../styles";
 import ForwardButton from "../ForwardButton/Forwardbutton";
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 export default function Account({ route, navigation }) {
   return (
     <>
-    <ForwardButton
+    {/* <ForwardButton
     onPress={() => {
       navigation.navigate("Courier");
     }}
-  />
+  /> */}
     <View style={accountstyles.container}>
          
       <Image
@@ -24,7 +25,10 @@ export default function Account({ route, navigation }) {
       <Text style={accountstyles.accountText}> Select Account Type</Text>
       <TouchableOpacity 
       style={accountstyles.customerPhoto} 
-      onPress={() => { navigation.navigate("Restaurant")  }}>
+      onPress={async () => {
+        await AsyncStorage.setItem('@account', 'customer')
+        navigation.navigate("Restaurant")
+    }}>
       <Image
         style={accountstyles.customer}
         source={require("../../../assets/customer.jpg")}
@@ -33,7 +37,10 @@ export default function Account({ route, navigation }) {
       <br/>
       <TouchableOpacity 
       style={accountstyles.courierPhoto}
-      onPress={() => { navigation.navigate("Courier")  }} >
+      onPress={async () => {
+        await AsyncStorage.setItem('@account', 'courier')
+        navigation.navigate("Courier")
+    }} >
        <Image
         style={accountstyles.customer}
         source={require("../../../assets/courier.jpg")}

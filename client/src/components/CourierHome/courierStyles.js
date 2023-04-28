@@ -25,7 +25,7 @@ head: {
     color: "white",
   },
   iconbutton: {
-    marginLeft: 515,
+    marginLeft: 625,
     marginTop: -14,
   },
   xButton: {
@@ -36,14 +36,28 @@ head: {
     color: "#DA583B",
     fontFamily: "Oswald",
     fontWeight: "bold",
-    textAlign: "left",
-    fontSize: 22,
+    textAlign: "center",
+    fontSize: 25,
     backgroundColor: "#222126",
   },
   modalText2: {
-    textAlign: "left",
+    textAlign: "center",
+    fontSize: 16,
     color: "white",
     backgroundColor: "#222126",
+  },
+  modalText4:{
+    fontSize: 16,
+  },
+  myOrders: {
+    fontSize: 30,
+    fontWeight: "bold",
+    fontFamily: "Oswald",
+  },
+  modalText5:{
+    fontSize: 18,
+    fontFamily: "Oswald",
+    fontWeight: "bold",
   },
   line: {
     borderBottomColor: "black",
@@ -51,7 +65,7 @@ head: {
   },
   totalText: {
     fontWeight: "bold",
-    marginLeft: 290,
+    marginLeft: 450,
     fontSize: 15,
   },
   quantityText: {

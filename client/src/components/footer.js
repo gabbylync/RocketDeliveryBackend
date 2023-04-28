@@ -1,9 +1,11 @@
 import * as React from "react";
-import { Text, View, StyleSheet, Image, Button, Pressable } from "react-native";
+import { Text, View, StyleSheet, Image, Button, Pressable, TouchableOpacity } from "react-native";
 import styles from "../../styles";
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBurger } from "@fortawesome/free-solid-svg-icons/faBurger";
 import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons/faClockRotateLeft";
+import { faUser } from "@fortawesome/free-solid-svg-icons/faUser"
 
 export default function Footer({ navigation }) {
   return (
@@ -21,16 +23,31 @@ export default function Footer({ navigation }) {
           <Text style={styles.footerText}> Restaurants </Text>
         </Pressable>
         {/* </View> */}
-        {/* <View style={styles.iconContent2}> */}
+        
         <Pressable
           onPress={() => {
             navigation.navigate("History");
           }}
         >
           <FontAwesomeIcon style={styles.clockIcon} icon={faClockRotateLeft} />
-          <Text style={styles.footerText2}> Order History</Text>
+          {/* <Text style={styles.footerText2}> Order History</Text> */}
         </Pressable>
-        {/* </View> */}
+        <Text style={styles.footerText3}> Order History</Text>
+        <TouchableOpacity onPress={async () => {
+                const accountType = await AsyncStorage.getItem("@account")
+                if (accountType === 'courier') {
+                    navigation.navigate('CourierAccount')
+                } else {
+                    navigation.navigate('CustomerAccount')
+                }
+            }}>
+                <View style={styles.iconContent3}>
+                    <FontAwesomeIcon icon={faUser} />
+                    {/* <Text style={styles.footerText2}>Account</Text> */}
+                </View>
+                <Text style={styles.footerText2}>Account</Text>
+            </TouchableOpacity>
+       
       </View>
     </View>
   );

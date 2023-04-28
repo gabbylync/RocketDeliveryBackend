@@ -54,9 +54,8 @@ export default function App() {
 
       <Stack.Screen name="Login" component={Login} />
 
-        {/* <Stack.Screen name="Account" component={Account} /> */}
-       
-        {/* <Stack.Screen
+        <Stack.Screen name="Account" component={Account} />
+        <Stack.Screen
           name="Courier"
           component={Courier}
           options={{
@@ -69,8 +68,23 @@ export default function App() {
               />
             ),
           }}
-        /> */}
-           {/* <Stack.Screen
+        /> 
+        <Stack.Screen
+          name="Restaurant"
+          component={Restaurants}
+          options={{
+            headerTitle: (props) => <LogoTitle {...props} />,
+            headerRight: () => (
+              <Button
+                onPress={() => alert("This is a button!")}
+                title="LOGOUT"
+                color="#DA583B"
+              />
+            ),
+          }}
+        />
+        
+           <Stack.Screen
           name="CourierAccount"
           component={CourierAccount}
           options={{
@@ -97,21 +111,8 @@ export default function App() {
               />
             ),
           }}
-        />  */}
-        <Stack.Screen
-          name="Restaurant"
-          component={Restaurants}
-          options={{
-            headerTitle: (props) => <LogoTitle {...props} />,
-            headerRight: () => (
-              <Button
-                onPress={() => alert("This is a button!")}
-                title="LOGOUT"
-                color="#DA583B"
-              />
-            ),
-          }}
-        />
+        /> 
+       
         <Stack.Screen
           name="Order"
           component={Order}

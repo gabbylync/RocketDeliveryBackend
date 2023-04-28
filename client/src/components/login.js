@@ -14,6 +14,7 @@ export default function Login({ navigation }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [fail, setFail] = useState(false)
+    const [noID, setNoID] = useState(false)
 
     const loginPost = async () => {
         try {
@@ -35,11 +36,25 @@ export default function Login({ navigation }) {
                     setEmail('')
                     setPassword('')
                     setFail(false)
+                    setNoID(false)
                     await AsyncStorage.setItem('@userid', json.customer_id)
                     await AsyncStorage.setItem('@customer', json.customer_id)
                     await AsyncStorage.setItem('@courier', json.courier_id)
-                    console.log("login: ", json)
-                    navigation.navigate('Restaurant')
+
+                    console.log("here", json.customer_id, json.courier_id )
+
+                    if (json.customer_id > 0 && json.courier_id > 0) {
+                        navigation.navigate('Account')
+                    } else if (json.customer_id > 0) {
+                        await AsyncStorage.setItem('@account', 'customer')
+                        navigation.navigate('Restaurant')
+                    } else if (json.courier_id > 0) {
+                        await AsyncStorage.setItem('@account', 'courier')
+                        navigation.navigate('Courier')
+                    } else {
+                        // throw new Error(`User must have a courier or customer ID. user_id: ${json.user_id}`)
+                        setNoID(true)
+                    }
                 } else {
                     setEmail('')
                     setPassword('')
@@ -53,11 +68,11 @@ export default function Login({ navigation }) {
     }
     return (
         <>
-          <ForwardButton
+          {/* <ForwardButton
         onPress={() => {
           navigation.navigate("Courier");
         }}
-      />
+      /> */}
             <View style={styles.container}>
                 <Image
                     style={styles.logo}
@@ -90,6 +105,18 @@ export default function Login({ navigation }) {
                     style={styles.input}
                     secureTextEntry
                 />
+                  {noID ? (
+                    <div>
+                        <br />
+                        <Text  style={styles.failedLogin}>User must have a courier or customer ID. Contact Admin to have one assigned.</Text>
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+
+                ) : (
+                    <br />
+                )}
                 {fail ? (
                     <div>
                         <br />
