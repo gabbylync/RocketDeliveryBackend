@@ -73,6 +73,7 @@ const historystyles = StyleSheet.create({
   },
   nameText: {
     marginTop: 20,
+    marginLeft: 30,
   },
   statusText: {
     marginLeft: 268,

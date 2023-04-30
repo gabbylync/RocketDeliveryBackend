@@ -5,7 +5,8 @@ module Api
         skip_before_action :verify_authenticity_token
     
         include ApiHelper
-        
+       
+
         def status #this is for updating order by id 
 
             #set status and id from params
@@ -71,31 +72,48 @@ module Api
                 end
                 order.product_orders.create!(product_id: product.id, product_quantity: product_params[:quantity].to_i, product_unit_cost: product.cost)
             end
-            send_sms(order.customer.user.name, order.)
+            send_sms(order.customer.user.name, order.id)
+
+            # if order.save
+                # Replace with your notify.eu API key
+                api_key = '9IXy67Fhn4NqiN92_S7QX4gDsacjuFl5ikPp_KGvcm-cAk0Vpx'
+                notify_eu_service = NotifyEuService.new(api_key)
+                subject = 'Order Created'
+                body = "An order has been created with the following details"
+                to = 'codeboxx340@outlook.com'
+          
+                # Send the email
+                notify_eu_service.send_email(subject, body, to)
+          
+            #     redirect_to order, notice: 'Order was successfully created.'
+            #   else
+            #     render json: {error: "error" }, status: :unprocessable_entity
+            #   end
+            
         
             render json: format(order), status: :created
               
         end
 
 
-
-        def index #this is for getting all of the orders
-             type = params[:type]
-             id = params[:id]
-
-            #if type not present 
-             unless type.present? && id.present? 
+        def index
+            type = params[:type]
+            id = params[:user_id]
+            if type == nil && id == nil
                 return render json: {error: "Both 'user type' and 'id' parameters are required" }, status: :bad_request
-             end   
-            #422 error: if user type is invalid
-            unless type.in?(["customer", "restaurant", "courier"])
-                return render json: {error: "Invalid user type" }, status: :unprocessable_entity
+            elseif type == nil
+                return render json: {error: "Missing type parameter" }, status: :unprocessable_entity
+            elseif id == nil
+                return render json: {error: "Missing id parameter" }, status: :unprocessable_entity
+            else
+                unless type.in?(["customer", "restaurant", "courier"])
+                    return render json: {error: "Invalid user type" }, status: :unprocessable_entity
+                end
+                orders = Order.user_orders(type, id)
+                # return render json: orders, status: :ok
+                return render json: orders.map(&method(:format)), status: :ok
             end
-            #200 : send back empty array if no id found (calling orders model here)
-            orders = Order.user_orders(type, id)
-            render json: orders.map(&method(:format)), status: :ok
-           
-        end 
+         end
 
 
         private 

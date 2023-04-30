@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     post "login", to: "auth#index"
     post "order/:id/status", to: "orders#status"
     get "orders", to: "orders#index"
+    get "account/:id", to: "auth#getAccount"
+    post "account/:id", to: "auth#updateAccount"
    
   end
 

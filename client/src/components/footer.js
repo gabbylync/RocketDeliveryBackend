@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react"
 import { Text, View, StyleSheet, Image, Button, Pressable, TouchableOpacity } from "react-native";
 import styles from "../../styles";
 import AsyncStorage from "@react-native-async-storage/async-storage"
@@ -8,10 +8,26 @@ import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons/faClockRota
 import { faUser } from "@fortawesome/free-solid-svg-icons/faUser"
 
 export default function Footer({ navigation }) {
+  const [accountType, setAccountType] = useState("")
+
+  useEffect(() => {
+    async function fetchAccountType() {
+        try {
+            const account_type = await AsyncStorage.getItem("@account")
+            setAccountType(account_type)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    fetchAccountType()
+}, [])
+
+
   return (
     <View style={styles.containerFooter}>
       <View style={styles.footer}>
         {/* <View style={styles.iconContent}> */}
+        {accountType === 'customer' && (
         <Pressable
           onPress={() => {
             navigation.navigate("Restaurant");
@@ -22,8 +38,21 @@ export default function Footer({ navigation }) {
           <br />
           <Text style={styles.footerText}> Restaurants </Text>
         </Pressable>
+          )}
         {/* </View> */}
-        
+        {accountType === 'courier' && (
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Courier");
+          }}
+        >
+          <FontAwesomeIcon style={styles.clockIcon} icon={faClockRotateLeft} />
+          {/* <Text style={styles.footerText2}> Order History</Text> */}
+        </Pressable>
+          )}
+        <Text style={styles.footerText3}> Order History</Text>
+
+        {accountType === 'customer' && (
         <Pressable
           onPress={() => {
             navigation.navigate("History");
@@ -32,9 +61,11 @@ export default function Footer({ navigation }) {
           <FontAwesomeIcon style={styles.clockIcon} icon={faClockRotateLeft} />
           {/* <Text style={styles.footerText2}> Order History</Text> */}
         </Pressable>
-        <Text style={styles.footerText3}> Order History</Text>
+          )}
+       
+        
         <TouchableOpacity onPress={async () => {
-                const accountType = await AsyncStorage.getItem("@account")
+                // const accountType = await AsyncStorage.getItem("@account")
                 if (accountType === 'courier') {
                     navigation.navigate('CourierAccount')
                 } else {

@@ -37,7 +37,7 @@ export default function Login({ navigation }) {
                     setPassword('')
                     setFail(false)
                     setNoID(false)
-                    await AsyncStorage.setItem('@userid', json.customer_id)
+                    await AsyncStorage.setItem('@user', json.user_id)
                     await AsyncStorage.setItem('@customer', json.customer_id)
                     await AsyncStorage.setItem('@courier', json.courier_id)
 

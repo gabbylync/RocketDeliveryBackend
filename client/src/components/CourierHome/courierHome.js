@@ -30,7 +30,7 @@ export default function Courier({ route, navigation }) {
 
   const getcurrentCustomerId = async () => {
     try {
-      const custID = await AsyncStorage.getItem("@userid");
+      const custID = await AsyncStorage.getItem("@customer");
       return custID;
     } catch (error) {
       console.log(error);
@@ -57,7 +57,7 @@ export default function Courier({ route, navigation }) {
       }
     }
     fetchOrders();
-  }, []);
+  }, [orders.length]);
 
   const productItem = ({ item }) => (
     <>
@@ -70,6 +70,43 @@ export default function Courier({ route, navigation }) {
     </>
   );
 
+  const updateStatus = (item) => {
+    if (item.status !== "delivered") {
+      if (item.status === "pending") {
+        postStatusUpdate(item.id, "in progress");
+      } else {
+        postStatusUpdate(item.id, "delivered");
+      }
+      setOrders([]);
+    }
+  };
+  const postStatusUpdate = async (id, status) => {
+    try {
+      console.log("id: ", id, " status: ", status);
+      const response = await fetch(
+        `http://localhost:3000/api/order/${id}/status`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            status: status,
+          }),
+        }
+      );
+      if (response && response.status === 200) {
+        const json = await response.json();
+        console.log("postStatusUpdate: ", json);
+      } else {
+        console.log("response: ", response.status);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const renderItem = ({ item }) => (
     <>
       <View>
@@ -77,20 +114,47 @@ export default function Courier({ route, navigation }) {
           {" "}
           {"   "} {item.id}{" "}
         </Text>
-        <br />
-        <br />
-        <Text style={courierstyles.statusText}> {item.customer_address} </Text>
-        <br />
-        <br />
-        <Text style={courierstyles.statusText}> {item.status} </Text>
-      </View>
-      <View>
+
+        <Text style={courierstyles.addressText}> {item.customer_address} </Text>
+<br/>
+        {item.status === "pending" && (
+          <Pressable
+            onPress={() => {
+              updateStatus(item);
+            }}
+          >
+            <Text style={courierstyles.statusPendingText}> {item.status} </Text>
+          </Pressable>
+        )}
+        {item.status === "in progress" && (
+          <Pressable
+            onPress={() => {
+              updateStatus(item);
+            }}
+          >
+            <Text style={courierstyles.statusInProgressText}>
+              {" "}
+              {item.status}{" "}
+            </Text>
+          </Pressable>
+        )}
+        {item.status === "delivered" && (
+          <Pressable
+            onPress={() => {
+              updateStatus(item);
+            }}
+          >
+            <Text style={courierstyles.statusDeliveredText}>
+              {" "}
+              {item.status}{" "}
+            </Text>
+          </Pressable>
+        )}
         <Pressable
           style={courierstyles.iconbutton}
           onPress={() => {
             setModalVisible(true);
             setSelectedOrder(item);
-            
           }}
         >
           <FontAwesomeIcon icon={faMagnifyingGlassPlus} />
@@ -135,7 +199,6 @@ export default function Courier({ route, navigation }) {
                     setModalVisible(!modalVisible);
 
                     setSelectedOrder(null);
-                
                   }}
                 >
                   <Text style={courierstyles.xButton}>x</Text>
@@ -143,7 +206,10 @@ export default function Courier({ route, navigation }) {
                 <Text style={courierstyles.modalText}> </Text>
                 <Text style={courierstyles.modalText}> DELIVERY DETAILS </Text>
 
-                <Text style={courierstyles.modalText2}> Status:</Text>
+                <Text style={courierstyles.modalText2}>
+                  {" "}
+                  Status: {selectedOrder && selectedOrder.status}
+                </Text>
 
                 <Text style={courierstyles.modalText}> </Text>
                 <br />
@@ -151,8 +217,14 @@ export default function Courier({ route, navigation }) {
                   {" "}
                   Delivery Address:{" "}
                 </Text>
-                <Text style={courierstyles.modalText4}> Restaurant: </Text>
-                <Text style={courierstyles.modalText4}> Order Date: </Text>
+                <Text style={courierstyles.modalText4}>
+                  {" "}
+                  Restaurant: {selectedOrder && selectedOrder.restaurant_name}
+                </Text>
+                <Text style={courierstyles.modalText4}>
+                  {" "}
+                  Order Date: {selectedOrder && selectedOrder.created_at}
+                </Text>
                 <br />
                 <Text style={courierstyles.modalText5}> Order Details: </Text>
                 <FlatList

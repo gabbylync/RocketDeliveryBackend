@@ -47,30 +47,25 @@ const OrderHistory = ({ navigation }) => {
 
   useEffect(() => {
     async function fetchOrders() {
-      const customerId = await getcurrentCustomerId();
-
-      const response = await fetch(
-        `http://localhost:3000/api/orders?type=customer&id=${customerId}`
-      );
-
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-      const data = await response.json();
-      if (!data) {
-        window.alert(`Order with id ${id} and type ${type} not found`);
-      }
-      console.log(data);
-    
-
-      setOrders(data);
-      // console.log(orders);
+        try {
+            const customer_id = await AsyncStorage.getItem("@customer")
+            console.log('customer_id: ', customer_id)
+            const response = await fetch(
+                `http://localhost:3000/api/orders?type=customer&user_id=${customer_id}`
+            )
+            if (response.ok) {
+                const json = await response.json()
+                if (json) {
+                    console.log(json)
+                    setOrders(json)
+                }
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
-
-    fetchOrders();
-  }, []);
+    fetchOrders()
+}, [])
   // console.log("orders:" , orders)
 
   const productItem = ({ item }) => (

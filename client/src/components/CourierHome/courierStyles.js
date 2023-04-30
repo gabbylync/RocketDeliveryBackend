@@ -1,20 +1,20 @@
 import { StyleSheet } from "react-native";
 
 const courierstyles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 10,
-        // marginTop: 30,
-        // justifyContent: "center",
-        // backgroundColor: "#fff",
-      },
-headertext: {
+  container: {
+    flex: 1,
+    padding: 10,
+    // marginTop: 30,
+    // justifyContent: "center",
+    // backgroundColor: "#fff",
+  },
+  headertext: {
     fontFamily: "Oswald",
     fontSize: 25,
     fontWeight: "bold",
     marginLeft: 20,
-},
-head: {
+  },
+  head: {
     height: 44,
     backgroundColor: "#222126",
   },
@@ -25,8 +25,8 @@ head: {
     color: "white",
   },
   iconbutton: {
-    marginLeft: 625,
-    marginTop: -14,
+    marginLeft: 535,
+    marginTop: -35,
   },
   xButton: {
     color: "gray",
@@ -46,7 +46,7 @@ head: {
     color: "white",
     backgroundColor: "#222126",
   },
-  modalText4:{
+  modalText4: {
     fontSize: 16,
   },
   myOrders: {
@@ -54,7 +54,7 @@ head: {
     fontWeight: "bold",
     fontFamily: "Oswald",
   },
-  modalText5:{
+  modalText5: {
     fontSize: 18,
     fontFamily: "Oswald",
     fontWeight: "bold",
@@ -77,13 +77,35 @@ head: {
     marginTop: -18,
   },
   nameText: {
-    marginTop: 20,
+    marginTop: 25,
+    marginLeft: 60,
   },
   statusText: {
-    marginLeft: 200,
+    marginLeft: 400,
     marginTop: -51,
   },
-
+  addressText: {
+    marginLeft: 175,
+    marginTop: -15,
+  },
+  statusPendingText: {
+    backgroundColor: "red",
+    width: 60,
+    marginLeft: 370,
+    marginTop: -35,
+  },
+  statusInProgressText: {
+    backgroundColor: "orange",
+    width: 80,
+    marginLeft: 370,
+    marginTop: -35,
+  },
+  statusDeliveredText: {
+    backgroundColor: "green",
+    width: 65,
+    marginLeft: 370,
+    marginTop: -35,
+  },
 });
 
 export default courierstyles;
