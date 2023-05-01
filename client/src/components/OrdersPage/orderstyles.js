@@ -193,6 +193,10 @@ const orderstyles = StyleSheet.create({
   radiobuttons: {
     marginLeft: 200,
   },
+  countnumber: {
+    fontSize: 20, 
+    
+  }
 });
 
 export default orderstyles;

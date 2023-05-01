@@ -141,12 +141,7 @@ console.log(photos(myphotos))
 
   return (
     <>
-      <ForwardButton
-        onPress={() => {
-          navigation.navigate("Order");
-        }}
-      />
-      <br />
+     
       <Text style={styles.nearby}> NEARBY RESTAURANTS</Text>
       <br />
       <View style={styles.dropdownsRow}>

@@ -127,7 +127,7 @@ export default function Order({ route, navigation }) {
       const response = await fetch("http://localhost:3000/api/order", {
         method: "POST",
         headers: {
-          Accept: "application/json",
+          Accept: "application/json", 
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -214,7 +214,7 @@ export default function Order({ route, navigation }) {
             }}
           />
 
-          <Text> {getCount(item.id)} </Text>
+          <Text style={orderstyles.countnumber}>{getCount(item.id)}        </Text>
 
           <Button
             title="+"
@@ -287,11 +287,7 @@ export default function Order({ route, navigation }) {
 
   return (
     <>
-      <ForwardButton
-        onPress={() => {
-          navigation.navigate("History");
-        }}
-      />
+     
 
       <Text style={styles.nearby}> RESTAURANT MENU</Text>
       <br />
